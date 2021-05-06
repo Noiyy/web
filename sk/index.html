@@ -1,0 +1,67 @@
+---
+layout: home
+title: Noiy - Domov
+---
+
+    <section id="content-bg"></section>
+
+    <section id="content">
+      <div class="container">
+        <div class="row justify-content-center">
+          
+          <div class="col-md-8 text-center">
+            <h1> Aktualizácie </h1>
+            <!--<div class="separator"></div>-->
+            <!--<p> Bacon ipsum dolor amet hamburger ball tip beef jowl corned beef shank doner meatball pork chop. </p> -->
+          </div>
+
+          <div class="col-md-8 col-updates text-center">
+
+            <div id="carouselUpdates" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselUpdates" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselUpdates" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselUpdates" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+
+                {% for post in site.posts limit:3 %}
+                  {% if forloop.first == true %}
+                    <div class="carousel-item active">
+                      <img src="../assets/images/{{ post.bg }}.jpg" class="d-block w-100" alt="...">
+                      <a href="{{ post.url }}">
+                      <div class="carousel-caption d-none d-md-block">
+                        <h5>{{ post.title }}</h5>
+                        <p>{{ post.excerpt }}</p>
+                      </div>
+                      </a>
+                    </div>
+                  {% else %}
+                    <div class="carousel-item">
+                      <img src="../assets/images/{{ post.bg }}.jpg" class="d-block w-100" alt="...">
+                      <a href="{{ post.url }}">
+                      <div class="carousel-caption d-none d-md-block">
+                        <h5>{{ post.title }}</h5>
+                        <p>{{ post.excerpt }}</p>
+                      </div>
+                      </a>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselUpdates" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Predošlé</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselUpdates" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Ďalšie</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>

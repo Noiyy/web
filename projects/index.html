@@ -1,0 +1,53 @@
+---
+title: Noiy - Projects
+---
+
+    <section id="content-bg"></section>
+
+    <section id="content">
+      <div class="container">
+        <div class="row justify-content-center">
+          
+          <div class="col-md-12 text-center">
+            <h1> Projects </h1>
+            <p class="text-center"> Stuff i'm working on. </p>
+            <div class="separator"></div>
+          </div>
+
+          <div class="col-md-10 text-center">
+
+          <ul class="list-inline text-center">
+          {% for project in site.myprojects %}
+          
+          <li class="list-inline-item p-li">
+          <div class="p-content">
+            <a href="">
+              <div class="p-content-overlay {{ project.color }}"></div>
+              <img class="p-content-image" src="../assets/images/{{ project.thumbnail }}.png">
+              <div class="p-content-details fadeIn-bottom">
+                <h3 class="p-content-title">{{ project.title }}</h3>
+                <p class="p-content-text">{{ project.excerpt | markdownify }}</p>
+              </div>
+            </a>
+          </div>
+          </li>
+
+          {% endfor %}
+          </ul>
+
+            <!--<ul class="list-inline">
+            {% for post in site.posts %}
+              
+                <a href="">
+                  <li class="list-inline-item li-projects"><img src="assets/images/1.jpg">
+
+                  </li>
+                </a>
+              
+            {% endfor %}
+            </ul>-->
+          </div>
+
+        </div>
+      </div>
+    </section>

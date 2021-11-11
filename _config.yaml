@@ -1,6 +1,8 @@
 collections:
   myprojects:
     output: true
+  myprojects-sk:
+    output: true
 
 defaults:
   - scope:
@@ -10,10 +12,36 @@ defaults:
       layout: "post"
   - scope:
       path: ""
+      type: "myprojects"
+    values:
+      layout: "project"
+  - scope:
+      path: ""
     values:
       layout: "default"
+
+t:
+  en:
+    footerheader:  "Language"
+    footercopy: "&copy Benjamín Muľár 2021, all rights reserved."
+    people: "Cool people"
+    highlighthome: "Hi! I'm Benjamín, high school student from Slovakia, currently learning web development, programming & pixel art."
+    postback: "Back"
+    blogback: "/blog"
+    learning: "Currently learning."
+    projweb: "My only project is this web for now."
+  sk:
+    footerheader:  "Jazyk"
+    footercopy: "&copy Benjamín Muľár 2021, všetky práva vyhradené."
+    people: "Skvelý ľudia"
+    highlighthome: "Ahoj! Ja som Benjamín, študent strednej školy na Slovensku, momentálne sa učiaci web development, programovanie & pixel art."
+    postback: "Späť"
+    blogback: "/sk/blog"
+    learning: "Momentálne sa učím."
+    projweb: "Môj jediný projekt je tento web zatiaľ."
 
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+

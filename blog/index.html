@@ -1,5 +1,7 @@
 ---
 title: Noiy - Blog
+lang: en
+ref: blog
 ---
 
     <section id="content-bg"></section>
@@ -8,21 +10,22 @@ title: Noiy - Blog
       <div class="container">
         <div class="row justify-content-center">
           
-          <div class="col-md-8 text-center">
+          <div class="col-md-10 text-center">
             <h1> Blog </h1>
             <!--<p class="text-center">  </p>-->
             <div class="separator"></div>
           </div>
 
-          <div class="col-md-8 align-self-center">
+          <div class="col-md-10 align-self-center">
 
             <div class="list-group">
-              {% for post in site.posts %}
+              {% assign posts=site.posts | where:"lang", page.lang %}
+              {% for post in posts %}
               <a href="{{ post.url }}">
                 <div class="card mb-3 w-100 bg-dark">
                   <div class="row g-0">
                     <div class="col-md-4">
-                      <img src="../assets/images/{{ post.bg }}.jpg" alt="...">
+                      <img src="/assets/images/{{ post.bg }}.jpg" alt="...">
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">

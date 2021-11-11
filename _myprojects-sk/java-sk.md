@@ -1,6 +1,6 @@
 ---
 title: Java
-lang: en
+lang: sk
 ref: projectjava
 thumbnail: java
 color: p-overlay-silver

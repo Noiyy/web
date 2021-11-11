@@ -1,6 +1,6 @@
 ---
 title: Pixel Art
-lang: en
+lang: sk
 ref: projectpixelart
 thumbnail: pixelart
 color: p-overlay-yellow

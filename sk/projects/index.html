@@ -1,5 +1,7 @@
 ---
 title: Noiy - Projekty
+lang: sk
+ref: projects
 ---
 
     <section id="content-bg"></section>
@@ -9,7 +11,7 @@ title: Noiy - Projekty
         <div class="row justify-content-center">
           
           <div class="col-md-12 text-center">
-            <h1> Projects </h1>
+            <h1> Projekty </h1>
             <p class="text-center"> Na čom pracujem. </p>
             <div class="separator"></div>
           </div>
@@ -17,13 +19,13 @@ title: Noiy - Projekty
           <div class="col-md-10 text-center">
 
           <ul class="list-inline text-center">
-          {% for project in site.myprojects %}
+          {% for project in site.myprojects-sk %}
           
           <li class="list-inline-item p-li">
           <div class="p-content">
             <a href="">
               <div class="p-content-overlay {{ project.color }}"></div>
-              <img class="p-content-image" src="../assets/images/{{ project.thumbnail }}.png">
+              <img class="p-content-image" src="/assets/images/{{ project.thumbnail }}.png">
               <div class="p-content-details fadeIn-bottom">
                 <h3 class="p-content-title">{{ project.title }}</h3>
                 <p class="p-content-text">{{ project.excerpt | markdownify }}</p>
@@ -34,7 +36,7 @@ title: Noiy - Projekty
 
           {% endfor %}
           </ul>
-
+          
           </div>
 
         </div>

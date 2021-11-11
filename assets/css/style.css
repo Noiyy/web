@@ -1,10 +1,147 @@
 html, body {
-	background: url('../images/bg.jpg') center center repeat-y;
+	background: url('/assets/images/bg.jpg') center center repeat-y;
 	height: 100%;
 	background-size: cover;
+	background-attachment: fixed;
+	background-color: #0f2c3e;
 }
 
-/* HEADER */
+/* SMALL IS JUSTICE */
+@media(max-width: 640px) {
+
+	#header li {
+		font-size: 2.2em !important;
+		margin: 0 8px !important;
+	}
+
+	#header-bg {
+		padding-bottom: 64px !important;
+	}
+
+	#content-bg {
+		padding-top: 64px !important;
+	}
+
+	#highlight img {
+		display: none;
+	}
+
+	#highlight h1 {
+		font-size: 2em !important;
+		margin: 0 16px 0 !important;
+	}
+
+	#highlight p {
+		font-size: 1.2em !important; 
+		
+	}
+
+	#highlight .col-md-5 {
+		margin-left: 0px !important;
+		border-left: none !important;
+	}
+
+	#content .carousel-caption p {
+		display: none !important;
+	}
+
+	#content .p-content-image{
+  		width: 125px !important;
+  		height: 125px !important;
+	}
+
+	#content .p-content-details h3 {
+		font-size: 0.9em;
+  		letter-spacing: 0.125em !important;
+	}
+
+	#content .p-content-details p{
+  		font-size: 0.75em !important;
+	}
+
+	#content .webdevReplace {
+		visibility: hidden;
+
+	}
+
+	#content .webdevReplace:after {
+		visibility: visible;
+		left: 0;
+    	content: "hi Web Dev";
+	}
+
+	#footer .discord {
+		margin-top: 8px !important;
+	}
+
+	#footer {
+		padding: 16px 0 8px !important;
+	}
+
+}
+
+/* MEDIUM IS PREMIUM */
+@media(min-width: 641px) 
+	and (max-width: 1007px) {
+
+	#header-bg {
+		padding-bottom: 72px !important;
+	}
+
+	#content-bg {
+		padding-top: 72px !important;
+	}
+
+	#highlight img {
+		padding-top: 16px !important;
+	
+	}
+
+	#highlight h1 {
+		font-size: 2.5em !important;
+		margin: 24px 16px 0 !important;
+	}
+
+	#highlight p {
+		font-size: 1.2em !important; 
+		margin: 0 16px;
+	}
+
+	#highlight .col-md-5 {
+		margin-left: 0px !important;
+		
+	}
+
+	#content .carousel-caption p {
+		display: none !important;
+	}
+
+	#content .p-content-image{
+  		width: 200px !important;
+  		height: 200px !important;
+	}
+
+	#content .webdevReplace {
+		visibility: hidden;
+
+	}
+
+	#content .webdevReplace:after {
+		visibility: visible;
+		left: 0;
+    	content: "hi Web Dev";
+	}
+
+}
+
+/* LARGE IS TRUTH */
+@media(min-width: 1008px) {
+
+
+
+}
+
+/* HEADER */	
 
 #header {
 	background: #030a12; /* dark blue #030a12 */
@@ -27,7 +164,7 @@ html, body {
 }
 
 #header li {
-	font-size: 40px;
+	font-size: 2.5em;
 	font-weight: bold;
 	margin: 0 16px;
 	font-family: 'Amatic SC', cursive;
@@ -118,7 +255,7 @@ html, body {
 
 #content .separator {
 	margin: 40px 0;
-	background: url('../images/separator.png') center center no-repeat;
+	background: url('/assets/images/separator.png') center center no-repeat;
 	height: 16px;
 	opacity: 0.25;
 }
@@ -164,12 +301,16 @@ html, body {
   bottom:0;
   left:0;
   right:0;
-  background:rgba(0,0,0,0.7);
+  background:rgba(0,0,0,0.55);
   z-index: 1;
 }
 
 #content .carousel-caption {
 	z-index: 2;
+}
+
+#content .carousel-item {
+	transition: transform 2s ease, opacity .5s ease-out
 }
 
 /* CONTENT - PROJECTS */
@@ -308,6 +449,20 @@ html, body {
 	font-weight: bold;
 }
 
+#content a {
+	color: white;
+	transition: all 0.2s ease-in-out;
+}
+
+#content a:hover {
+	color: #BBD0DE;
+}
+
+#content .post-image img {
+	max-width: 100%;
+	height: auto;
+}
+
 /* FOOTER */
 
 #footer {
@@ -373,4 +528,9 @@ html, body {
 #footer .discord:hover {
 	color: #7289d9;
 	bottom: 5px;
+}
+
+/* FOOTER - lang */
+.en:lang(en), .sk:lang(sk){
+    opacity: 0.8 !important;
 }

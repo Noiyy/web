@@ -1,3 +1,4 @@
+// Author: Benjamín Muľár
 
 var quotes = ["You yourself have to change first, or nothing will change for you.",
  "Sometimes, it’s necessary to look back at the past in order to move on to the future.",
@@ -14,7 +15,8 @@ var quotes = ["You yourself have to change first, or nothing will change for you
  "If you keep running away, you’ll keep repeating the same mistakes.",
  "Remember the lesson, not the disappointment.",
  "It's never too late.",
- "Here, have a banana."];
+ "Here, have a banana.",
+ "A journey of thousand miles begins with single step."];
 var quoteText = document.getElementById("quote");
 var last = quotes.length - 1;
 

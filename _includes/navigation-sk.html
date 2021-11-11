@@ -4,7 +4,7 @@
           
       <div class="col-md-12 text-center">
         <ul class="list-inline">
-          {% for item in site.data.navigation %}
+          {% for item in site.data.navigation-sk %}
             <a href="{{ item.link }}">
               <li {% if page.url == item.link %} class="list-inline-item active" {% endif %} {% unless page.url == item.link %} class="list-inline-item" {% endunless %}> {{ item.name }} </li>
             </a>

@@ -2,25 +2,38 @@
   <div class="container">
     <div class="row justify-content-around align-items-center">
           
-      <div class="col-md-auto align-self-center my-auto">
-        <h6> Language </h6>
+      <div class="col-6 align-self-center">
+        <h6> {{ site.t[page.lang].footerheader }} </h6>
         <ul class="list-inline">
-          <a href="" target="_blank"><li class="list-inline-item"><img src="https://www.countryflags.io/gb/flat/32.png""></li></a>
-          <a href="" target="_blank"><li class="list-inline-item"><img src="https://www.countryflags.io/sk/flat/32.png""> </li></a>
+         
+        {% assign posts=site.posts | where:"ref", page.ref | sort: 'lang' %}
+        {% for post in posts %}
+          <li class="list-inline-item">
+            <a href="{{ post.url }}"><img class="{{ post.lang }}" src="/assets/images/{{ post.lang }}.png""></a>
+          </li>
+        {% endfor %}
+
+        {% assign pages=site.pages | where:"ref", page.ref | sort: 'lang' %}
+        {% for page in pages %}
+          <li class="list-inline-item">
+            <a href="{{ page.url }}"><img class="{{ page.lang }}" src="/assets/images/{{ page.lang }}.png""></a>
+          </li>
+        {% endfor %}
+
         </ul>
-        <p> &copy Benjamín Muľár 2021, all rights reserved. </p>
+        <p> {{ site.t[page.lang].footercopy }} </p>
       </div>
 
-      <div class="col-md-auto align-self-center my-auto">
-        <h6 class="d-flex flex-row-reverse"> Cool people </h6>
+      <div class="col-6 align-self-center">
+        <h6 class="d-flex flex-row-reverse"> {{ site.t[page.lang].people }} </h6>
         <ul class="list-inline d-flex flex-row-reverse">
-          <a href="https://www.deepnight.net" target="_blank"><li class="list-inline-item"><img src="../assets/images/deepnight.png"></li></a>
-          <a href="https://cutt.ly/Mbv155F" target="_blank"><li class="list-inline-item"><img src="../assets/images/kpg.png" id="kpg"></li></a>
-          <a href="https://cutt.ly/Bbv0yeW" target="_blank"><li class="list-inline-item"><img src="../assets/images/rkt.png"></li></a>
+          <a href="https://www.deepnight.net" target="_blank"><li class="list-inline-item"><img src="/assets/images/deepnight.png"></li></a>
+          <a href="https://cutt.ly/Mbv155F" target="_blank"><li class="list-inline-item"><img src="/assets/images/kpg.png" id="kpg"></li></a>
+          <a href="https://cutt.ly/Bbv0yeW" target="_blank"><li class="list-inline-item"><img src="/assets/images/rkt.png"></li></a>
         </ul>
 
         <!-- Social -->
-        <ul class="list-inline">
+        <ul class="list-inline text-end">
           <a href="https://www.twitter.com/Noiyy15" target="_blank"><li class="list-inline-item"><i class="fab twitter fa-twitter fa-2x"></i></li></a>
           <a href="https://www.github.com/Noiyy" target="_blank"><li class="list-inline-item"><i class="fab github fa-github fa-2x"></i></li></a>
           <a href="https://www.deviantart.com/Noiyy" target="_blank"><li class="list-inline-item"><i class="fab deviantart fa-deviantart fa-2x"></i></li></a>

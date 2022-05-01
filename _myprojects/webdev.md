@@ -1,8 +1,0 @@
----
-title: Web Development
-lang: en
-ref: projectwebdev
-thumbnail: webdev
-color: p-overlay-orange
----
-{{ site.t[page.lang].projweb }}

@@ -1,8 +1,0 @@
----
-title: Pixel Art
-lang: en
-ref: projectpixelart
-thumbnail: pixelart
-color: p-overlay-yellow
----
-{{ site.t[page.lang].learning }}

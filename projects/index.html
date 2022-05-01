@@ -17,30 +17,61 @@ ref: projects
           </div>
 
           <div class="col-md-10 text-center">
-
-          <ul class="list-inline text-center">
-          {% for project in site.myprojects %}
+            <ul class="list-unstyled text-center">
           
-          <li class="list-inline-item p-li">
-          <div class="p-content">
-            <a href="">
-              <div class="p-content-overlay {{ project.color }}"></div>
-              <img class="p-content-image" src="/assets/images/{{ project.thumbnail }}.png">
-              <div class="p-content-details fadeIn-bottom">
-                {% if project.title == "Web Development" %}
-                <h3 class="p-content-title webdevReplace"> {{ project.title }}</h3>
-                {% else %}
-                <h3 class="p-content-title">{{ project.title }}</h3>
-                {% endif %}
-                {{ project.excerpt | markdownify }}
-              </div>
-            </a>
-          </div>
-          </li>
+              <!-- Digital Art -->
+              <li class="p-li">
+                <div class="p-content blue">
+      
+                  <div class="p-content-details">
+                    <h3 class="p-content-title"> Digital Art </h3>
+                    <p> {{ site.t[page.lang].learning }} </p>
+                  </div>
+  
+                </div>
+              </li>
 
-          {% endfor %}
-          </ul>
-          
+              <!-- Game Dev -->
+              <li class="p-li">
+                <div class="p-content green">
+      
+                  <div class="p-content-details">
+                    <h3 class="p-content-title"> Game Development </h3>
+                    <p> {{ site.t[page.lang].projgamedev }} </p>
+                  </div>
+      
+                  <ul class="list-inline text-center">
+                  {% for game in site.games %}
+
+                  <li class="list-inline-item">
+                    <a href="{{ game.url }}">
+                      <img class="p-content-image" src="/assets/images/digitalart.png">
+                      <div class="p-content-details">
+                          <h3 class="p-content-details"> {{ game.title }} </h3>
+                          <p> {{ game.excerpt | markdownify }} </p>
+                      </div>
+                      </a>
+                  </li>
+      
+                  {% endfor %}
+                  </ul>
+  
+                </div>
+              </li>
+
+              <!-- Web Dev -->
+              <li class="p-li">
+                <div class="p-content orange">
+      
+                  <div class="p-content-details">
+                    <h3 class="p-content-title"> Web Development </h3>
+                    <p> {{ site.t[page.lang].projweb }} </p>
+                  </div>
+  
+                </div>
+              </li>
+
+            </ul>
           </div>
 
         </div>

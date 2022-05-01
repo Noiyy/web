@@ -12,4 +12,5 @@ group :jekyll_plugins do
   gem 'jekyll-sitemap'
   gem 'jekyll-feed'
   gem 'jekyll-seo-tag'
+  gem 'eventmachine', '1.2.7', git: 'https://github.com/eventmachine/eventmachine.git', tag: 'v1.2.7'
 end

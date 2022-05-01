@@ -59,17 +59,6 @@ html, body {
   		font-size: 0.75em !important;
 	}
 
-	#content .webdevReplace {
-		visibility: hidden;
-
-	}
-
-	#content .webdevReplace:after {
-		visibility: visible;
-		left: 0;
-    	content: "hi Web Dev";
-	}
-
 	#footer .discord {
 		margin-top: 8px !important;
 	}
@@ -184,10 +173,6 @@ html, body {
 
 #highlight {
 	margin: 0px 0;
-}
-
-#highlight .col-md-4 {
-
 }
 
 #highlight img {
@@ -318,83 +303,48 @@ html, body {
 #content .p-li {
 	padding: 8px;
 	margin: 4px;
+	margin-bottom: 10%;
 	background: linear-gradient(315deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 15%, rgba(255,255,255,0) 85%, rgba(255,255,255,1) 100%);
 }
 
 #content .p-content {
   position: relative;
   width: 100%;
-  max-width: 300px;
+  height: 5%;
   margin: auto;
   overflow: hidden;
   border: 2px solid white;
-  background: #030a12;
 }
 
-#content .p-content .p-content-overlay {
-  /*background: rgba(0,0,0,0.8);*/
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  opacity: 0;
-  -webkit-transition: all 0.4s ease-in-out 0s;
-  -moz-transition: all 0.4s ease-in-out 0s;
-  transition: all 0.4s ease-in-out 0s;
+#content .blue {
+	background: rgba(53, 111, 165, 0.95);
 }
 
-#content .p-content .p-overlay-yellow {
-	background: rgba(227,221,59,0.95);
+#content .green {
+	background: rgba(44, 121, 67, 0.95);
 }
 
-#content .p-content .p-overlay-silver {
-	background: rgba(149,199,201,0.95);
-}
-
-#content .p-content .p-overlay-orange {
+#content .orange {
 	background: rgba(227,76,38,0.95);
 }
 
-
-#content .p-content:hover .p-content-overlay{
-  opacity: 1;
-}
-
-#content .p-content-image{
-  width: 300px;
-  height: 300px;
+#content .p-content-image {
+	width: 300px;
+	height: 300px;
 }
 
 #content .p-content-details {
-  position: absolute;
-  text-align: center;
-  padding-left: 1em;
-  padding-right: 1em;
-  width: 100%;
-  top: 50%;
-  left: 50%;
-  opacity: 0;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  -webkit-transition: all 0.3s ease-in-out 0s;
-  -moz-transition: all 0.3s ease-in-out 0s;
-  transition: all 0.3s ease-in-out 0s;
-}
-
-#content .p-content:hover .p-content-details{
-  top: 50%;
-  left: 50%;
-  opacity: 1;
-}
+	text-align: center;
+	padding-left: 1em;
+	padding-right: 1em;
+	width: 100%;
+  }
 
 #content .p-content-details h3{
   color: #fff;
   font-weight: 500;
   letter-spacing: 0.15em;
+  margin-top: 0.5em;
   margin-bottom: 0.5em;
   text-transform: uppercase;
 }
@@ -403,10 +353,6 @@ html, body {
   color: #fff;
   text-align: center !important;
   font-size: 1.2em;
-}
-
-.fadeIn-bottom{
-  top: 80%;
 }
 
 /* CONTENT - BLOG */
@@ -511,7 +457,12 @@ html, body {
 }
 
 #footer .github:hover {
-	color: black;
+	color: #222222;
+	bottom: 5px;
+}
+
+#footer .itch-io:hover {
+	color: #fa5c5c;
 	bottom: 5px;
 }
 

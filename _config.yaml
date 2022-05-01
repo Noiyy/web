@@ -1,7 +1,9 @@
 collections:
-  myprojects:
+  projects:
     output: true
   myprojects-sk:
+    output: true
+  games:
     output: true
 
 defaults:
@@ -12,7 +14,12 @@ defaults:
       layout: "post"
   - scope:
       path: ""
-      type: "myprojects"
+      type: "projects"
+    values:
+      layout: "project"
+  - scope:
+      path: ""
+      type: "games"
     values:
       layout: "project"
   - scope:
@@ -23,22 +30,24 @@ defaults:
 t:
   en:
     footerheader:  "Language"
-    footercopy: "&copy Benjamín Muľár 2021, all rights reserved."
+    footercopy: "&copy Benjamín Muľár 2022, all rights reserved."
     people: "Cool people"
-    highlighthome: "Hi! I'm Benjamín, high school student from Slovakia, currently learning web development, programming & pixel art."
+    highlighthome: "Hi! I'm Benjamín, high school student from Slovakia, currently learning web development, game dev & pixel art."
     postback: "Back"
     blogback: "/blog"
     learning: "Currently learning."
     projweb: "My only project is this web for now."
+    projgamedev: "Games that I've made."
   sk:
     footerheader:  "Jazyk"
-    footercopy: "&copy Benjamín Muľár 2021, všetky práva vyhradené."
+    footercopy: "&copy Benjamín Muľár 2022, všetky práva vyhradené."
     people: "Skvelý ľudia"
-    highlighthome: "Ahoj! Ja som Benjamín, študent strednej školy na Slovensku, momentálne sa učiaci web development, programovanie & pixel art."
+    highlighthome: "Ahoj! Ja som Benjamín, študent strednej školy na Slovensku, momentálne sa učiaci web development, herný vývoj & pixel art."
     postback: "Späť"
     blogback: "/sk/blog"
     learning: "Momentálne sa učím."
-    projweb: "Môj jediný projekt je tento web zatiaľ."
+    projweb: "Môj jediný projekt je zatiaľ tento web."
+    projgamedev: "Hry ktoré som vytvoril."
 
 plugins:
   - jekyll-feed

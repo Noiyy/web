@@ -14,14 +14,9 @@ defaults:
       layout: "post"
   - scope:
       path: ""
-      type: "projects"
-    values:
-      layout: "project"
-  - scope:
-      path: ""
       type: "games"
     values:
-      layout: "project"
+      layout: "game"
   - scope:
       path: ""
     values:
@@ -32,8 +27,8 @@ t:
     footerheader:  "Language"
     footercopy: "&copy Benjamín Muľár 2022, all rights reserved."
     people: "Cool people"
-    highlighthome: "Hi! I'm Benjamín, high school student from Slovakia, currently learning web development, game dev & pixel art."
-    postback: "Back"
+    highlighthome: "Hi! I'm Benjamín, high school student from Slovakia, currently learning web development, game dev & digital art."
+    back: "Back"
     blogback: "/blog"
     learning: "Currently learning."
     projweb: "My only project is this web for now."
@@ -42,8 +37,8 @@ t:
     footerheader:  "Jazyk"
     footercopy: "&copy Benjamín Muľár 2022, všetky práva vyhradené."
     people: "Skvelý ľudia"
-    highlighthome: "Ahoj! Ja som Benjamín, študent strednej školy na Slovensku, momentálne sa učiaci web development, herný vývoj & pixel art."
-    postback: "Späť"
+    highlighthome: "Ahoj! Ja som Benjamín, študent strednej školy na Slovensku, momentálne sa učiaci web development, herný vývoj & digital art."
+    back: "Späť"
     blogback: "/sk/blog"
     learning: "Momentálne sa učím."
     projweb: "Môj jediný projekt je zatiaľ tento web."

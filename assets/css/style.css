@@ -46,8 +46,17 @@ html, body {
 	}
 
 	#content .p-content-image{
-  		width: 125px !important;
-  		height: 125px !important;
+  		width: 150px !important;
+  		height: 150px !important;
+	}
+
+	#content .p-content-icons i {
+		font-size: 1.5em !important;
+		padding: 8px !important;
+	}
+
+	#content .p-content-details h4 {
+		font-size: 1em;
 	}
 
 	#content .p-content-details h3 {
@@ -110,15 +119,8 @@ html, body {
   		height: 200px !important;
 	}
 
-	#content .webdevReplace {
-		visibility: hidden;
-
-	}
-
-	#content .webdevReplace:after {
-		visibility: visible;
-		left: 0;
-    	content: "hi Web Dev";
+	#content .p-content-icons i {
+		padding: 8px !important;
 	}
 
 }
@@ -302,9 +304,13 @@ html, body {
 
 #content .p-li {
 	padding: 8px;
-	margin: 4px;
-	margin-bottom: 10%;
+	margin: 5% 4px 2% 4px;
 	background: linear-gradient(315deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 15%, rgba(255,255,255,0) 85%, rgba(255,255,255,1) 100%);
+}
+
+#content .p-content-container {
+	position: relative;
+	border: 1px solid transparent;
 }
 
 #content .p-content {
@@ -316,16 +322,24 @@ html, body {
   border: 2px solid white;
 }
 
+#content .p-content-container:hover {
+	border: 1px solid white;
+}
+
+#content .no-margin {
+	margin: 0;
+}
+
 #content .blue {
-	background: rgba(53, 111, 165, 0.95);
+	background: #4361e2;
 }
 
 #content .green {
-	background: rgba(44, 121, 67, 0.95);
+	background: #437F4B;
 }
 
 #content .orange {
-	background: rgba(227,76,38,0.95);
+	background: #A36700;
 }
 
 #content .p-content-image {
@@ -333,26 +347,71 @@ html, body {
 	height: 300px;
 }
 
-#content .p-content-details {
-	text-align: center;
-	padding-left: 1em;
-	padding-right: 1em;
-	width: 100%;
-  }
+#content .p-content-icons {
+	position: absolute;
+	top: 0;
+	width: auto;
+	background-color: rgba(0,0,0,0.5);
+}
 
-#content .p-content-details h3{
+#content .p-content-icons i {
+	padding: 16px;
+}
+
+#content .trophy {
+	background-color: orangered;
+}
+
+#content .p-content-details {
+	position: absolute;
+  	left: 50%;
+	bottom: 1px;
+ 	transform: translate(-50%);
+	text-align: center;
+	width: 100%;
+	height: 30%;
+	background-color: rgba(0,0,0,0.5);
+	opacity: 0;
+	transition: 0.25s ease-in-out;
+}
+
+#content .p-content-container:hover .p-content-details {
+	opacity: 1;
+}
+
+#content .p-content-title {
   color: #fff;
   font-weight: 500;
   letter-spacing: 0.15em;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
   text-transform: uppercase;
+}
+
+#content .p-content-details h4 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin: 0;
 }
 
 #content .p-content-details p{
   color: #fff;
   text-align: center !important;
   font-size: 1.2em;
+}
+
+#content .p-content .collapseIcon {
+	margin-bottom: 1rem;
+}
+
+#content .p-li:hover .collapseIcon {
+	color: #BBD0DE;
+}
+
+#content .game-controls {
+	background-color: rgba(0,0,0,0.5);
 }
 
 /* CONTENT - BLOG */
@@ -484,4 +543,16 @@ html, body {
 /* FOOTER - lang */
 .en:lang(en), .sk:lang(sk){
     opacity: 0.8 !important;
+}
+
+.font-amatic {
+	font-family: 'Amatic SC', cursive;
+}
+
+.a-nostyle {
+	text-decoration: none !important;
+}
+
+.a-nostyle:hover {
+	color: white !important;
 }

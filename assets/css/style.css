@@ -410,8 +410,24 @@ html, body {
 	color: #BBD0DE;
 }
 
+#content .p-li:hover .green {
+	background: #2c583f !important;
+}
+
 #content .game-controls {
 	background-color: rgba(0,0,0,0.5);
+}
+
+#content .game-controls h1 {
+	margin-top: 8px;
+}
+
+#content .game-buttons {
+	margin: 8px 0;
+}
+
+#content .game-info {
+	margin-left: 8px;
 }
 
 /* CONTENT - BLOG */

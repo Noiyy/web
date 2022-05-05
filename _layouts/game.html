@@ -45,17 +45,18 @@
           </div>
 
           <div class="col-md-10 text-center">
-            <iframe frameborder="0" src="/{{ page.ref }}/" allowfullscreen="" width="1024" height="576" loading="lazy"></iframe>
+            <iframe id="game-iframe" frameborder="0" src="/{{ page.ref }}/" allowfullscreen="" width="1024" height="576" loading="lazy"></iframe>
           </div>
 
-          <div class="col-md-10">
+          <div class="col-md-10 game-buttons">
             <ul class="list-inline">
-              <a class="btn btn-primary" role="button" target="_blank" href=""><li class="list-inline-item"> Download </li></a>
-              <a class="btn btn-primary" role="button" target="_blank" href=""><li class="list-inline-item"> Itch.io </li></a>
+              <a class="btn btn-primary" role="button" target="_blank" href="/download/{{ page.download }}" download><li class="list-inline-item"> Download </li></a>
+              <a class="btn btn-primary" role="button" target="_blank" href="https://noiyy.itch.io/{{ page.itch }}"><li class="list-inline-item"> Itch.io </li></a>
               {% if page.jam == true %}
-              <a class="btn btn-primary" role="button" target="_blank" href=""><li class="list-inline-item"> Ludum Dare </li></a>
-              <a class="btn btn-primary" role="button" target="_blank" href=""><li class="list-inline-item"> Github </li></a>
+              <a class="btn btn-primary" role="button" target="_blank" href="https://ldjam.com/events/ludum-dare/{{ page.ld }}"><li class="list-inline-item"> Ludum Dare </li></a>
+              <!-- <a class="btn btn-primary" role="button" target="_blank" href=""><li class="list-inline-item"> Github </li></a> -->
               {% endif %}
+              <a class="btn btn-secondary float-end" role="button" target="_blank" onclick="openFullscreen();"><li class="list-inline-item"> Fullscreen </li></a>
             </ul>
           </div>
           
@@ -95,7 +96,19 @@
     touchpadSupport   : false, // ignore touchpad by default
     fixedBackground   : true, 
     excluded          : ''    
-    })</script>
+    })
+    
+    var elem = document.getElementById("game-iframe");
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+      }
+    }
+    </script>
 
   </body>
 </html>

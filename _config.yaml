@@ -1,8 +1,6 @@
 collections:
   projects:
-    output: true
-  myprojects-sk:
-    output: true
+    output: false
   games:
     output: true
 
@@ -15,6 +13,11 @@ defaults:
   - scope:
       path: ""
       type: "games"
+    values:
+      layout: "game"
+  - scope:
+      path: "sk/games"
+      type: "pages"
     values:
       layout: "game"
   - scope:
@@ -42,7 +45,7 @@ t:
     blogback: "/sk/blog"
     learning: "Momentálne sa učím."
     projweb: "Môj jediný projekt je zatiaľ tento web."
-    projgamedev: "Hry ktoré som vytvoril."
+    projgamedev: "Hry, ktoré som vytvoril."
 
 plugins:
   - jekyll-feed

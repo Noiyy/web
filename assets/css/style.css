@@ -332,14 +332,17 @@ html, body {
 
 #content .blue {
 	background: #4361e2;
+	transition: 0.3s;
 }
 
 #content .green {
 	background: #437F4B;
+	transition: 0.3s;
 }
 
 #content .orange {
 	background: #A36700;
+	transition: 0.3s;
 }
 
 #content .p-content-image {
@@ -424,6 +427,35 @@ html, body {
 
 #content .game-buttons {
 	margin: 8px 0;
+}
+
+#content .btn-main {
+	color: #030a12;
+	background-color: #BBD0DE;
+	border-color: white;
+}
+
+#content .btn-main .list-inline-item, #content .btn-opt .list-inline-item {
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+#content .btn-main:hover {
+	color: black;
+	background-color: #8ca1af;
+	border-color: white;
+}
+
+#content .btn-opt {
+	color: white;
+	background-color: transparent;
+	border-color: #BBD0DE;
+}
+
+#content .btn-opt:hover {
+	color: #030a12;
+	background-color: #BBD0DE;
+	border-color: #030a12;
 }
 
 #content .game-info {

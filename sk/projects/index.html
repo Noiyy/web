@@ -17,26 +17,74 @@ ref: projects
           </div>
 
           <div class="col-md-10 text-center">
-
-          <ul class="list-inline text-center">
-          {% for project in site.myprojects-sk %}
+            <ul class="list-unstyled text-center">
           
-          <li class="list-inline-item p-li">
-          <div class="p-content">
-            <a href="">
-              <div class="p-content-overlay {{ project.color }}"></div>
-              <img class="p-content-image" src="/assets/images/{{ project.thumbnail }}.png">
-              <div class="p-content-details fadeIn-bottom">
-                <h3 class="p-content-title">{{ project.title }}</h3>
-                <p class="p-content-text">{{ project.excerpt | markdownify }}</p>
-              </div>
-            </a>
-          </div>
-          </li>
+              <!-- Game Dev -->
+              <a class="a-nostyle" data-bs-toggle="collapse" href="#collapseGames" role="button" aria-expanded="false" 
+              aria-controls="collapseGames">
+              <li class="p-li">
+                <div class="p-content green">
+      
+                  <div class="text-center">
+                    <h1 class="p-content-title"> Herný Vývoj </h1>
+                    <p class="text-center"> {{ site.t[page.lang].projgamedev }} </p>
+                    <i class="fas collapseIcon fa-circle-chevron-down fa-2x"> </i>
+                  </div>
+  
+                </div>
+              </li>
+              </a>
 
-          {% endfor %}
-          </ul>
-          
+              <ul class="list-inline text-center collapse" id="collapseGames">
+                {% assign games = site.games | sort: 'published_at'%}
+                {% for game in games %}
+
+                <li class="list-inline-item no-margin">
+                  <a class="a-nostyle" href="{{ game.url }}">
+                  <div class="p-content-container">
+                    <img class="p-content-image" src="/assets/images/{{ game.ref }}.png">
+                    {% if game.jam == true %}
+                      <div class="p-content-icons">
+                        <ul class="list-inline">
+                          <li class="list-inline-item"><i class="fas trophy fa-jar fa-2x"></i></li>
+                        </ul>
+                      </div>
+                    {% endif %}
+                    <div class="p-content-details">
+                        <h4 class="p-content-title"> {{ game.title }} </h4>
+                    </div>
+                  </div>
+                  </a>
+                </li>
+    
+                {% endfor %}
+              </ul>
+
+              <!-- Digital Art -->
+              <li class="p-li">
+                <div class="p-content blue">
+      
+                  <div class="text-center">
+                    <h1 class="p-content-title font-amatic"> Digitálne Kreslenie </h1>
+                    <p class="text-center"> {{ site.t[page.lang].learning }} </p>
+                  </div>
+  
+                </div>
+              </li>
+
+              <!-- Web Dev -->
+              <li class="p-li">
+                <div class="p-content orange">
+      
+                  <div class="text-center">
+                    <h1 class="p-content-title"> Vývoj Webstránok </h1>
+                    <p class="text-center"> {{ site.t[page.lang].projweb }} </p>
+                  </div>
+  
+                </div>
+              </li>
+
+            </ul>
           </div>
 
         </div>

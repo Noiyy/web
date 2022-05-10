@@ -20,6 +20,13 @@
           </li>
         {% endfor %}
 
+        {% assign games=site.games | where:"ref", page.ref | sort: 'lang' %}
+        {% for game in games %}
+          <li class="list-inline-item">
+            <a href="{{ game.url }}"><img class="{{ game.lang }}" src="/assets/images/{{ game.lang }}.png"></a>
+          </li>
+        {% endfor %}
+
         </ul>
         <p> {{ site.t[page.lang].footercopy }} </p>
       </div>

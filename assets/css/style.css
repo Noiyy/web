@@ -490,6 +490,7 @@ html, body {
 
 #content h5 {
 	color: #BBD0DE;
+	text-transform: uppercase;
 }
 
 #content .card p {

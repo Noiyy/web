@@ -36,7 +36,7 @@ ref: projects
               </a>
 
               <ul class="list-inline text-center collapse" id="collapseGames">
-                {% assign games = site.games | sort: 'published_at'%}
+                {% assign games = site.games | where:"lang", page.lang | sort: 'published_at' %}
                 {% for game in games %}
 
                 <li class="list-inline-item no-margin">

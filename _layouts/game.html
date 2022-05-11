@@ -50,13 +50,13 @@
 
           <div class="col-md-10 game-buttons">
             <ul class="list-inline">
-              <a class="btn btn-main" role="button" target="_blank" href="/download/{{ page.download }}" download><li class="list-inline-item"> Download </li></a>
+              <a class="btn btn-main" role="button" target="_blank" href="/download/{{ page.download }}" download><li class="list-inline-item"> {{ site.t[page.lang].gameDownload }} </li></a>
               <a class="btn btn-main" role="button" target="_blank" href="https://noiyy.itch.io/{{ page.itch }}"><li class="list-inline-item"> Itch.io </li></a>
               {% if page.jam == true %}
               <a class="btn btn-main" role="button" target="_blank" href="https://ldjam.com/events/ludum-dare/{{ page.ld }}"><li class="list-inline-item"> Ludum Dare </li></a>
               <!-- <a class="btn btn-main" role="button" target="_blank" href=""><li class="list-inline-item"> Github </li></a> -->
               {% endif %}
-              <a class="btn btn-opt float-end" role="button" target="_blank" onclick="openFullscreen();"><li class="list-inline-item"> Fullscreen </li></a>
+              <a class="btn btn-opt float-end" role="button" target="_blank" onclick="openFullscreen();"><li class="list-inline-item"> {{ site.t[page.lang].gameFullscreen }} </li></a>
             </ul>
           </div>
           

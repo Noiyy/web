@@ -20,7 +20,7 @@ defaults:
     values:
       layout: "game"
       lang: "sk"
-      permalink: "sk/games/:title"
+      permalink: "sk/games/:title.html"
   - scope:
       path: ""
     values:

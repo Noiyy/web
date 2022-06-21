@@ -417,6 +417,10 @@ html, body {
 	background: #2c583f !important;
 }
 
+#content .p-li:hover .orange {
+	background: #704802 !important;
+}
+
 #content .game-controls {
 	background-color: rgba(0,0,0,0.5);
 }

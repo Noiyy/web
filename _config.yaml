@@ -3,6 +3,8 @@ collections:
     output: false
   games:
     output: true
+  websites:
+    output: false
 
 defaults:
   - scope:
@@ -35,7 +37,7 @@ t:
     back: "Back"
     blogback: "/blog"
     learning: "Currently learning."
-    projweb: "My only project is this web for now."
+    projweb: "Websites that I've created."
     projgamedev: "Games that I've made."
     gameDownload: "Download"
     gameFullscreen: "Fullscreen"
@@ -47,7 +49,7 @@ t:
     back: "Späť"
     blogback: "/sk/blog"
     learning: "Momentálne sa učím."
-    projweb: "Môj jediný projekt je zatiaľ tento web."
+    projweb: "Webstránky, ktoré som vytvoril."
     projgamedev: "Hry, ktoré som vytvoril."
     gameDownload: "Stiahnuť"
     gameFullscreen: "Celá Obrazovka"

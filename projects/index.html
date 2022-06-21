@@ -60,6 +60,44 @@ ref: projects
                 {% endfor %}
               </ul>
 
+              <!-- Web Dev -->
+              <a class="a-nostyle" data-bs-toggle="collapse" href="#collapseWebsites" role="button" aria-expanded="false" 
+              aria-controls="collapseWebsites">
+              <li class="p-li" id="wDev">
+                <div class="p-content orange">
+      
+                  <div class="text-center">
+                    <h1 class="p-content-title"> Web Development </h1>
+                    <p class="text-center"> {{ site.t[page.lang].projweb }} </p>
+                    <i class="fas collapseIcon fa-circle-chevron-down fa-2x"> </i>
+                  </div>
+  
+                </div>
+              </li>
+              </a>
+
+              <ul class="list-inline text-center collapse" id="collapseWebsites">
+                {% assign websites = site.websites | sort: 'published_at' %}
+                {% for web in websites %}
+
+                <li class="list-inline-item no-margin">
+                  {% if web.link == "none" %}
+                  <a class="a-nostyle" href="#wDev">
+                  {% else %}
+                  <a class="a-nostyle" href="{{ web.link }}" target="_blank">
+                  {% endif %}
+                  <div class="p-content-container">
+                    <img class="p-content-image" src="/assets/images/{{ web.ref }}.jpg" style="object-fit: cover;">
+                    <div class="p-content-details">
+                        <h4 class="p-content-title"> {{ web.title }} </h4>
+                    </div>
+                  </div>
+                  </a>
+                </li>
+    
+                {% endfor %}
+              </ul>
+
               <!-- Digital Art -->
               <li class="p-li">
                 <div class="p-content blue">
@@ -67,18 +105,6 @@ ref: projects
                   <div class="text-center">
                     <h1 class="p-content-title font-amatic"> Digital Art </h1>
                     <p class="text-center"> {{ site.t[page.lang].learning }} </p>
-                  </div>
-  
-                </div>
-              </li>
-
-              <!-- Web Dev -->
-              <li class="p-li">
-                <div class="p-content orange">
-      
-                  <div class="text-center">
-                    <h1 class="p-content-title"> Web Development </h1>
-                    <p class="text-center"> {{ site.t[page.lang].projweb }} </p>
                   </div>
   
                 </div>

@@ -421,6 +421,11 @@ html, body {
 	background: #704802 !important;
 }
 
+#content .gameNote {
+	font-size: 0.85rem;
+	color: rgb(107, 107, 107);
+}
+
 #content .game-controls {
 	background-color: rgba(0,0,0,0.5);
 }

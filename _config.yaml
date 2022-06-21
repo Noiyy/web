@@ -41,6 +41,7 @@ t:
     projgamedev: "Games that I've made."
     gameDownload: "Download"
     gameFullscreen: "Fullscreen"
+    gameNote: "Note: You may need to refresh the page if the game is stuck/frozen on loading screen for a long time."
   sk:
     footerheader:  "Jazyk"
     footercopy: "&copy Benjamín Muľár 2022, všetky práva vyhradené."
@@ -53,6 +54,7 @@ t:
     projgamedev: "Hry, ktoré som vytvoril."
     gameDownload: "Stiahnuť"
     gameFullscreen: "Celá Obrazovka"
+    gameNote: "Pozn.: Možno budete musieť obnoviť stránku, ak je hra zaseknutá/zamrznutá na obrazovke načítania dlhšie."
 
 
 plugins:

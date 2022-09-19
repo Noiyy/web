@@ -365,6 +365,10 @@ html, body {
 	background-color: orangered;
 }
 
+#content .atlas {
+	background-color: goldenrod;
+}
+
 #content .p-content-details {
 	position: absolute;
   	left: 50%;

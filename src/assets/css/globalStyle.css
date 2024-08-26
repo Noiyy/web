@@ -9,6 +9,9 @@
     --white: #fff;
     --black: #1a1a1a;
 
+    --green: #4AE212;
+    --gold: #DAA520;
+
     --gradient-primary: #4FACFE;
     --gradient-secondary: #00F2FE;
     --gradient-straight: linear-gradient(90deg, var(--gradient-primary) 0%, var(--gradient-secondary) 100%);
@@ -20,7 +23,6 @@ body {
     min-height: 100svh;
     margin: 0;
     padding: 0;
-    padding: 32px;
     display: flex;
     flex-direction: column;
     font-family: 'Inter', sans-serif;
@@ -35,29 +37,55 @@ h1, h2, h3, h4, h5, h6, p, a, ul, li {
 
 h1, h2, h3, h4, h5, h6 { font-family: "Archivo Black", sans-serif; }
 
-/* #hero {
-    padding: 16px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
+a, a:visited {
+    text-decoration: none;
+    color: var(--white);
 }
 
-#hero::before {
+ul {
+    list-style-type: none;
+}
+
+.section-subHeading {
+    font-family: Inter;
+    font-size: 48px;
+    font-style: italic;
+    font-weight: 900;
+    line-height: normal;
+}
+
+.section-heading {
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 6.12px;
+}
+
+.gap-8 { gap: 8px; }
+.gap-16 { gap: 16px; }
+.gap-24 { gap: 24px; }
+.gap-32 { gap: 32px; }
+.gap-48 { gap: 48px; }
+.gap-64 { gap: 64px; }
+.gap-72 { gap: 72px; }
+.gap-96 { gap: 96px; }
+.gap-112 { gap: 112px; }
+
+.flex-1 { flex: 1; }
+
+body::before {
     content: "";
     position: absolute;
-    top: 0; 
-    left: 0;
+    top: 10%;
+    left: -13%;
     width: 100%; 
-    height: 100%;  
+    height: 90%;  
     opacity: .02; 
     z-index: -1;
     background-image: url("../img/logo_big.png");
     background-repeat: no-repeat;
-    background-size: 133vh;
-    background-position: center;
+    background-size: 87svh;
     background-blend-mode: darken;
     
-} */
+}

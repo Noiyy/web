@@ -66,7 +66,6 @@ export default {
 
     document.addEventListener('scroll', () => {
       this.handleScroll();
-      this.handleScrollBtnColorChange();
     });
   },
 
@@ -85,5 +84,34 @@ export default {
 </script>
 
 <style>
+.scroll-to-top {
+    position: fixed;
+    border-radius: 50%;
+    border: 1px solid var(--white);
+    padding: 5px;
+    bottom: 32px;
+    left: 32px;
+    opacity: 0;
+    z-index: 10;
+    display: flex;
+    transition: opacity 0.2s ease-in-out;
+}
+.scroll-to-top.active {
+    opacity: 0.33;
+}
 
+.scroll-to-top:hover {
+    cursor: pointer;
+    opacity: 0.75;
+}
+
+.scroll-btn-img {
+    font-size: 24px;
+}
+
+#app > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 </style>

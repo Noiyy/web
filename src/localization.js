@@ -3,10 +3,16 @@ const i18nOptions = {
     fallbackLocale: "en",
     messages: {
         en: {
-
+            Home: "Home",
+            Projects: "Projects",
+            About: "About",
+            Contact: "Contact",
         },
         sk: {
-            
+            Home: "Domov",
+            Projects: "Projekty",
+            About: "O mne",
+            Contact: "Kontakt",
         }
     }
 };

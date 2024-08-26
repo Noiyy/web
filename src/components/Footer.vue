@@ -1,19 +1,15 @@
 <template>
-    <Header></Header>
-    <div class="d-flex flex-1">
-        aa
-    </div>
-    <Footer></Footer>
+    <footer>
+        b
+    </footer>
 </template>
 
 <script>
-import Header from '../Header.vue';
-import Footer from '../Footer.vue';
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
-    name: 'HomeContent',
- 
+    name: 'Footer',
+
     inject: ['emitter'],
     emits: [],
 
@@ -22,8 +18,7 @@ export default {
     },
 
     components: {
-        Header,
-        Footer
+
     },
 
     data() {

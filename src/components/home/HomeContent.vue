@@ -1,14 +1,17 @@
 <template>
-    <Header></Header>
-    <div class="d-flex flex-1">
-        aa
+    <div class="hero-viewport d-flex flex-column">
+        <Header></Header>
+        <Hero></Hero>
     </div>
+
     <Footer></Footer>
 </template>
 
 <script>
 import Header from '../Header.vue';
 import Footer from '../Footer.vue';
+import Hero from './Hero.vue';
+
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
@@ -23,6 +26,7 @@ export default {
 
     components: {
         Header,
+        Hero,
         Footer
     },
 
@@ -59,5 +63,7 @@ export default {
 </script>
 
 <style scoped>
-
+.hero-viewport {
+    min-height: 100svh;
+}
 </style>

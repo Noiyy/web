@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --white: #fff;
+    --black: #1a1a1a;
+
+    --gradient-primary: #4FACFE;
+    --gradient-secondary: #00F2FE;
+    --gradient-straight: linear-gradient(90deg, var(--gradient-primary) 0%, var(--gradient-secondary) 100%);
+    --gradient-angle: linear-gradient(120deg, var(--gradient-primary) 0%, var(--gradient-secondary) 100%);
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100svh;
+    margin: 0;
+    padding: 0;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--black);
+    color: var(--white);
+}
+
+h1, h2, h3, h4, h5, h6, p, a, ul, li {
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: "Archivo Black", sans-serif; }
+
+/* #hero {
+    padding: 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+#hero::before {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;  
+    opacity: .02; 
+    z-index: -1;
+    background-image: url("../img/logo_big.png");
+    background-repeat: no-repeat;
+    background-size: 133vh;
+    background-position: center;
+    background-blend-mode: darken;
+    
+} */

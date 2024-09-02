@@ -4,12 +4,15 @@
   </router-view>
 
   <div class="scroll-to-top" id="scrollToTopBtn" @click="scrollToHeader()">
-    <IconArrowUp class="scroll-btn-img"></IconArrowUp>
+    <IconArrowUpRight class="scroll-btn-img"></IconArrowUpRight>
   </div>
+
+  <TimeBtn></TimeBtn>
 </template>
 
 <script>
-import { IconArrowUp } from '@iconify-prerendered/vue-mdi';
+import TimeBtn from './components/TimeBtn.vue';
+import { IconArrowUpRight } from '@iconify-prerendered/vue-mdi';
 
 export default {
   name: "MainApp",
@@ -17,7 +20,9 @@ export default {
   inject: ['emitter'],
 
   components: {
-    IconArrowUp
+    TimeBtn,
+
+    IconArrowUpRight
   },
 
   data() {
@@ -52,6 +57,7 @@ export default {
     },
 
     scrollToHeader() {
+      if (!scrollToTopBtn.classList.contains("active")) return;
       document.querySelector('header').scrollIntoView({ 
           behavior: 'smooth' 
       });
@@ -87,22 +93,38 @@ export default {
 .scroll-to-top {
     position: fixed;
     border-radius: 50%;
-    border: 1px solid var(--white);
-    padding: 5px;
-    bottom: 32px;
-    left: 32px;
+    padding: 12px;
+    bottom: -4px;
+    left: -8px;
     opacity: 0;
     z-index: 10;
     display: flex;
-    transition: opacity 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    background: transparent;
+    overflow: hidden;
 }
 .scroll-to-top.active {
     opacity: 0.33;
 }
-
-.scroll-to-top:hover {
+.scroll-to-top.active:hover {
     cursor: pointer;
-    opacity: 0.75;
+    opacity: 1;
+    filter: drop-shadow(4px -4px 10px #000000);
+}
+.scroll-to-top::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  background: var(--gradient-angle);
+  transition: all 0.5s ease-in; 
+  z-index: -1;
+}
+.scroll-to-top:hover::before {
+  width: 200%;
+  height: 200%;
 }
 
 .scroll-btn-img {

@@ -151,6 +151,7 @@ export default {
     height: 80%;
     top: 50%;
     transform: translateY(-50%);
+    z-index: -1;
 }
 
 .sky path {

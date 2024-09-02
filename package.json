@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@iconify-prerendered/vue-cib": "^0.23.1721921004",
+    "@iconify-prerendered/vue-lets-icons": "^0.23.1722794599",
     "@iconify-prerendered/vue-mdi": "^0.23.1718880438",
     "bootstrap": "^5.3.3",
     "core-js": "^3.8.3",

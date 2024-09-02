@@ -104,9 +104,26 @@ body::before {
     border-width: 2px;
     font-weight: 700;
     text-transform: uppercase;
-    transition: all 0.2s ease-in;
+    transition: all 0.1s ease-in;
+    overflow: hidden;
+    position: relative;
 }
 .btn:hover {
     color: var(--black);
+}
+.btn::before {
+    content: "";
+    position: absolute;
+    bottom: -32px;
+    right: -32px;
+    width: 0;
+    height: 0;
     background: var(--gradient-angle);
+    transition: all 0.5s ease-in; 
+    z-index: -1;
+    border-top-left-radius: 50%;
+}
+.btn:hover::before {
+    width: 150%;
+    height: 300%;
 }

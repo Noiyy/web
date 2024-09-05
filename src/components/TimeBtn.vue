@@ -16,19 +16,19 @@
         </div>
 
         <div class="time-input" id="timeInput" @click="openTimePicker()">
-            <input type="number" id="hours" min="0" max="12" class="hours-input" :value="timeHours">
+            <input type="number" id="hours" min="0" max="12" class="hours-input" v-model="timeHours" @input="timeInputHandler()">
             <span class="time-divider"> : </span>
-            <input type="number" id="minutes" min="0" max="59" class="minutes-input" :value="timeMinutes">
+            <input type="number" id="minutes" min="0" max="59" class="minutes-input" v-model="timeMinutes" @input="timeInputHandler()">
 
         </div>
 
         <div id="timeValues" class="pos-relative">
             <div class="values-up d-flex">
                 <ul class="left" @scroll="highlightVisibleTimeValues()">
-                    <li class="time-value" v-for="val in timeValueOptions_upLeft" :key="val"> {{ val }} </li>
+                    <li class="time-value" v-for="val in timeValueOptions_upLeft" :key="val" @click="timeInputHandler(true, val)"> {{ val }} </li>
                 </ul>
                 <ul class="right" @scroll="highlightVisibleTimeValues()">
-                    <li class="time-value" v-for="val in timeValueOptions_upRight" :key="val"> {{ val }} </li>
+                    <li class="time-value" v-for="val in timeValueOptions_upRight" :key="val" @click="timeInputHandler(false, val)"> {{ val }} </li>
                 </ul>
 
                 <div class="arrow-controls d-flex flex-column">
@@ -39,10 +39,10 @@
 
             <div class="values-down d-flex">
                 <ul class="left" @scroll="highlightVisibleTimeValues()">
-                    <li class="time-value" v-for="val in timeValueOptions_downLeft" :key="val"> {{ val }} </li>
+                    <li class="time-value" v-for="val in timeValueOptions_downLeft" :key="val" @click="timeInputHandler(true, val)"> {{ val }} </li>
                 </ul>
                 <ul class="right" @scroll="highlightVisibleTimeValues()">
-                    <li class="time-value" v-for="val in timeValueOptions_downRight" :key="val"> {{ val }} </li>
+                    <li class="time-value" v-for="val in timeValueOptions_downRight" :key="val" @click="timeInputHandler(false, val)"> {{ val }} </li>
                 </ul>
 
                 <div class="arrow-controls d-flex flex-column">
@@ -57,6 +57,8 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import { IconChevronUp, IconChevronDown } from '@iconify-prerendered/vue-mdi';
+
+import TimeBtn from '../assets/js/time';
 
 export default {
     name: 'TimeBtn',
@@ -85,6 +87,8 @@ export default {
             timeValueOptions_upRight: [],
             timeValueOptions_downLeft: [],
             timeValueOptions_downRight: [],
+
+            timeBtnObj: null
         }
     },
 
@@ -94,6 +98,27 @@ export default {
 
             }
         ),
+
+        timeInputHandler(isHours, value) {
+            this.$nextTick(() => {
+                this.addToStartDate = true;
+    
+                let customHours = parseInt(this.timeHours);
+                let customMinutes = parseInt(this.timeMinutes);
+                if (value) {
+                    const val = this.checkTime(value);
+                    if (isHours) customHours = this.timeHours = parseInt(val);
+                    else customMinutes = this.timeMinutes = parseInt(val);
+                }
+                
+                this.startDate.setHours(customHours, customMinutes);
+                this.generateTimeValuesOptions();
+                this.$nextTick(() => this.highlightVisibleTimeValues());
+                
+                this.timeBtnObj.updateTime(customHours, customMinutes);
+                this.timeBtnObj.updateTimeMark();
+            });
+        },
 
         viewTime() { timeInput.classList.toggle("shown"); },
         hideTime(event) {
@@ -118,18 +143,18 @@ export default {
                 const seconds = this.startDate.getSeconds();
 
                 if (seconds == 0) {
-                    customMinutes++;
-                    // timeMarkHandler();
+                    this.timeMinutes++;
+                    this.timeBtnObj.timeMarkHandler();
                 };
-                if (customMinutes == 0) customHours++;
+                if (this.timeMinutes == 0) this.timeHours++;
 
-                this.startDate.setHours(customHours);
-                this.startDate.setMinutes(customMinutes)
+                this.startDate.setHours(this.timeHours);
+                this.startDate.setMinutes(this.timeMinutes);
             } else {
                 this.startDate.setSeconds(this.startDate.getSeconds()+1);
                 const seconds = this.startDate.getSeconds();
 
-                // if (seconds == 0) timeMarkHandler();
+                if (seconds == 0) this.timeBtnObj.timeMarkHandler();
             }
 
             let h = this.startDate.getHours();
@@ -139,12 +164,12 @@ export default {
 
             this.timeHours = h;
             this.timeMinutes = m;
+            if (this.timeBtnObj) this.timeBtnObj.updateTime(h, m);
 
             setTimeout(this.startTime, Math.round(1000/this.multiplier));
         },
 
         speedupTime(x) {
-            console.log("... speeding up! " + x + "x");
             this.multiplier = x;
         },
 
@@ -167,9 +192,6 @@ export default {
             for (let i = 0; i < this.timeMinutes; i++) { this.timeValueOptions_upRight.push(i) }
             for (let i = this.timeHours+1; i <= 23; i++) { this.timeValueOptions_downLeft.push(i) }
             for (let i = this.timeMinutes+1; i <= 59; i++) { this.timeValueOptions_downRight.push(i) }
-
-            console.log(this.timeValueOptions_upLeft);
-            console.log(this.timeValueOptions_upRight);
         },
 
         isElementVisible(element, container) {
@@ -237,6 +259,7 @@ export default {
         this.timeHours = this.checkTime(this.startDate.getHours());
         this.timeMinutes = this.checkTime(this.startDate.getMinutes());
         this.startTime();
+        this.timeBtnObj = new TimeBtn(this.timeHours, this.timeMinutes);
 
         document.addEventListener("click", (event) => this.hideTime(event));
     },

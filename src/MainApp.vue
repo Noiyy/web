@@ -52,11 +52,13 @@ export default {
           document.documentElement.offsetHeight
       );
 
+      if (!scrollToTopBtn) return;
       if (fullPageHeight > 1400 && scrollRatio > 0.55) scrollToTopBtn.classList.add("active");
       else if (scrollToTopBtn.classList.contains("active")) scrollToTopBtn.classList.remove("active");
     },
 
     scrollToHeader() {
+      if (!scrollToTopBtn) return;
       if (!scrollToTopBtn.classList.contains("active")) return;
       document.querySelector('header').scrollIntoView({ 
           behavior: 'smooth' 

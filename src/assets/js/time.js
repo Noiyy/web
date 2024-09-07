@@ -147,6 +147,7 @@ class TimeBtn {
     }
     
     timeMarkHandler() {
+        console.log("tmHandler");
         this.setGradientCSSColor("primary", this.primaryColors[this.currentGradientPos]);
         this.setGradientCSSColor("secondary", this.secondaryColors[this.currentGradientPos]);
     
@@ -165,19 +166,22 @@ class TimeBtn {
 }
 
 class TimeMark {
-    constructor(name, time, primaryColor, secondaryColor) {
+    constructor(name, time, primaryColor, secondaryColor, cloudPrimary = "#fff", cloudSecondary = "#d0d2d3") {
         this.name = name;
         this.time = time;
         this.primaryColor = primaryColor;
         this.secondaryColor = secondaryColor;
+
+        this.cloudPrimary = cloudPrimary;
+        this.cloudSecondary = cloudSecondary;
     }
 }
 
 // Zatiaľ len takto fixne časy, možno spraviť podľa lokácie a dát z nejakej weather API
 const timeMarks = [
     // new TimeMark("MIDNIGHT",    "00:30", "#000000", "#000000"),
-    new TimeMark("A_MIDNIGHT",  "02:00", "#4E4376", "#2B5876"),
-    new TimeMark("BLUE_HOUR",   "04:00", "#005BEA", "#00C6FB"),
+    new TimeMark("A_MIDNIGHT",  "02:00", "#4E4376", "#2B5876"), // rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)
+    new TimeMark("BLUE_HOUR",   "04:00", "#005BEA", "#00C6FB"), 
     new TimeMark("RED_HOUR",    "06:30", "#FF0844", "#FFB199"),
     new TimeMark("SUNRISE",     "07:30", "#FA709A", "#FEE140"),
     new TimeMark("MORNING",     "09:30", "#C2E9FB", "#4589F9"),

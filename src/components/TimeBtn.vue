@@ -49,8 +49,8 @@
                 </ul>
 
                 <div class="arrow-controls d-flex flex-column">
-                    <IconChevronUp class="control-icon up" @click="timeInputHandler(false, timeMinutes-1)" />
-                    <IconChevronDown class="control-icon down" @click="timeInputHandler(false, timeMinutes+1)" />
+                    <IconChevronUp class="control-icon up" @click="timeInputHandler(false, +timeMinutes-1)" />
+                    <IconChevronDown class="control-icon down" @click="timeInputHandler(false, +timeMinutes+1)" />
                 </div>
             </div>
 
@@ -63,8 +63,8 @@
                 </ul>
 
                 <div class="arrow-controls d-flex flex-column">
-                    <IconChevronUp class="control-icon up" @click="timeInputHandler(true, timeHours-1)" />
-                    <IconChevronDown class="control-icon down" @click="timeInputHandler(true, timeHours+1)" />
+                    <IconChevronUp class="control-icon up" @click="timeInputHandler(true, +timeHours-1)" />
+                    <IconChevronDown class="control-icon down" @click="timeInputHandler(true, +timeHours+1)" />
                 </div>
             </div>
         </div>
@@ -106,7 +106,9 @@ export default {
             timeValueOptions_downLeft: [],
             timeValueOptions_downRight: [],
 
-            timeBtnObj: null
+            timeBtnObj: null,
+
+            pageVisible: true,
         }
     },
 
@@ -134,7 +136,6 @@ export default {
                     if (isHours) customHours = this.timeHours = this.checkTime(parseInt(value));
                     else customMinutes = this.timeMinutes = this.checkTime(parseInt(value));
                 }
-                console.log("?", isHours, value, customHours, customMinutes);
                 
                 this.startDate.setHours(customHours, customMinutes);
                 this.generateTimeValuesOptions();
@@ -325,6 +326,13 @@ export default {
             if (multiplierEl) {
                 multiplierEl.classList.add("selected");
             }
+        },
+
+        setupTime() {
+            this.timeHours = this.checkTime(this.startDate.getHours());
+            this.timeMinutes = this.checkTime(this.startDate.getMinutes());
+            this.timeBtnObj = new TimeBtn(this.timeHours, this.timeMinutes);
+            this.startTime();
         }
     },
     
@@ -338,15 +346,22 @@ export default {
 
     created() {
         this.setupMultiplier();
-
-        this.timeHours = this.checkTime(this.startDate.getHours());
-        this.timeMinutes = this.checkTime(this.startDate.getMinutes());
-        this.timeBtnObj = new TimeBtn(this.timeHours, this.timeMinutes);
-        this.startTime();
+        this.setupTime();
 
         document.addEventListener("click", (event) => {
             this.hideTime(event);
             this.hideMultipliers(event);
+        });
+
+        window.addEventListener('focus', () => this.pageVisible = true);
+        window.addEventListener('blur', () => this.pageVisible = false);
+
+        document.addEventListener('visibilitychange', () => {
+            this.pageVisible = !document.hidden;
+            if (this.pageVisible && !this.addToStartDate) {
+                this.startDate = new Date();
+                this.setupTime();
+            }
         });
     },
 

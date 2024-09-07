@@ -120,8 +120,8 @@ class TimeBtn {
         let diffHours = (timeMark2Hours - timeMark1Hours) * 60;
         let diffMinutes = timeMark2Minutes - timeMark1Minutes;
     
-        if (timeMark1Hours == 23 && timeMark2Hours == 0) {
-            diffHours = (24-timeMark1Hours)*60;
+        if (timeMark1Hours == 23 && timeMark2Hours == 2) {
+            diffHours = 2*60;
         }
         return Math.abs(diffHours+diffMinutes);
     }
@@ -175,19 +175,19 @@ class TimeMark {
 
 // Zatiaľ len takto fixne časy, možno spraviť podľa lokácie a dát z nejakej weather API
 const timeMarks = [
-    new TimeMark("MIDNIGHT",    "00:30", "#000000", "#000000"),
-    new TimeMark("A_MIDNIGHT",  "02:30", "#4E4376", "#2B5876"),
+    // new TimeMark("MIDNIGHT",    "00:30", "#000000", "#000000"),
+    new TimeMark("A_MIDNIGHT",  "02:00", "#4E4376", "#2B5876"),
     new TimeMark("BLUE_HOUR",   "04:00", "#005BEA", "#00C6FB"),
     new TimeMark("RED_HOUR",    "06:30", "#FF0844", "#FFB199"),
     new TimeMark("SUNRISE",     "07:30", "#FA709A", "#FEE140"),
     new TimeMark("MORNING",     "09:30", "#C2E9FB", "#4589F9"),
     new TimeMark("DAY",         "12:00", "#4FACFE", "#00F2FE"),
-    new TimeMark("GOLDEN_HOUR", "20:00", "#F9DE89", "#FDA085"),
-    new TimeMark("SUNSET",      "21:00", "#FEE140", "#FA709A"),
+    new TimeMark("GOLDEN_HOUR", "19:00", "#F9DE89", "#FDA085"),
+    new TimeMark("SUNSET",      "20:00", "#FEE140", "#FA709A"),
     new TimeMark("PINK_SUNSET", "21:30", "#F68084", "#A6C0FE"),
     new TimeMark("B_BLUE_HOUR", "22:00", "#A1C4FD", "#C2E9FB"),
-    new TimeMark("BLUE_HOUR_R", "23:00", "#00C6FB", "#005BEA"),
-    new TimeMark("MIDNIGHT_2",  "23:55", "#000000", "#000000"),
+    new TimeMark("BLUE_HOUR_R", "23:30", "#00C6FB", "#005BEA"),
+    // new TimeMark("MIDNIGHT_2",  "23:55", "#000000", "#000000"),
 ];
 
 export default TimeBtn;

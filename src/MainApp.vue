@@ -138,4 +138,16 @@ export default {
   display: flex;
   flex-direction: column;
 }
+
+.sky path {
+    fill: url(#gradient);
+}
+
+.cloud-primary path, .cloud2-primary path {
+    fill: var(--cloud-primary);
+}
+
+.cloud-secondary path, .cloud2-secondary path {
+    fill: var(--cloud-secondary);
+}
 </style>

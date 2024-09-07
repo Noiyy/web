@@ -153,16 +153,4 @@ export default {
     transform: translateY(-50%);
     z-index: -1;
 }
-
-.sky path {
-    fill: url(#gradient);
-}
-
-.cloud-primary path, .cloud2-primary path {
-    fill: #fff;
-}
-
-.cloud-secondary path, .cloud2-secondary path {
-    fill: #d0d2d3;
-}
 </style>

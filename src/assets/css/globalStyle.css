@@ -16,6 +16,9 @@
     --gradient-secondary: #00F2FE;
     --gradient-straight: linear-gradient(90deg, var(--gradient-primary) 0%, var(--gradient-secondary) 100%);
     --gradient-angle: linear-gradient(120deg, var(--gradient-primary) 0%, var(--gradient-secondary) 100%);
+
+    --cloud-primary: #fff;
+    --cloud-secondary: #d0d2d3;
 }
 
 body {

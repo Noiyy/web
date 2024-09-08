@@ -91,13 +91,17 @@ class TimeBtn {
                 [endHours, endMinutes] = timeMarks[0].time.split(':').map(Number);
                 endHours = 24;
             } else [endHours, endMinutes] = timeMarks[i+1].time.split(':').map(Number);
-    
-    
+            
+            
             const startTimeInMinutes = startHours * 60 + startMinutes;
             const endTimeInMinutes = endHours * 60 + endMinutes;
+            console.log(currentTimeInMinutes, 24*60+30);
     
+            if (i == 0 && currentTimeInMinutes < startTimeInMinutes || currentTimeInMinutes > 24*60) {
+                return timeMarks[timeMarks.length-1];
+            }
             if (currentTimeInMinutes >= startTimeInMinutes && currentTimeInMinutes < endTimeInMinutes) {
-            return timeMarks[i];
+                return timeMarks[i];
             }
         }
         return null;
@@ -119,23 +123,32 @@ class TimeBtn {
     
         let diffHours = (timeMark2Hours - timeMark1Hours) * 60;
         let diffMinutes = timeMark2Minutes - timeMark1Minutes;
+        console.log(timeMark1Hours, timeMark2Hours);
+        console.log(diffHours, diffMinutes);
     
-        if (timeMark1Hours == 23 && timeMark2Hours == 2) {
-            diffHours = 2*60;
+        if (diffHours < 0) { // over next day
+            diffHours = ((timeMark1Hours + timeMark2Hours) - timeMark1Hours) * 60;
+            diffMinutes = timeMark1Minutes + timeMark2Minutes;
         }
+
         return Math.abs(diffHours+diffMinutes);
     }
     
     updateTimeMark() {
+        console.log(this.time);
         this.activeTimeMark = this.findTimeMarkByTime(this.time);
+        console.log("?????????", this.activeTimeMark);
         this.nextTimeMark = this.findNextTimeMark(this.activeTimeMark);
+        console.log("huh", this.activeTimeMark, this.nextTimeMark);
     
         this.timeDiff = this.getTimeMarksTimeDiff(this.activeTimeMark, this.nextTimeMark);
+        console.log("tDiff", this.timeDiff);
     
         this.primaryColors = this.getGradient(this.activeTimeMark.primaryColor, this.nextTimeMark.primaryColor, this.timeDiff);
         this.secondaryColors = this.getGradient(this.activeTimeMark.secondaryColor, this.nextTimeMark.secondaryColor, this.timeDiff);
     
         this.currentGradientPos = this.getCurrentGradientPosByTime();
+        console.log("boi", this.currentGradientPos);
         this.setGradientCSSColor("primary", this.primaryColors[this.currentGradientPos]);
         this.setGradientCSSColor("secondary", this.secondaryColors[this.currentGradientPos]);
     }

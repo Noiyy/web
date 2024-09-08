@@ -141,8 +141,8 @@ export default {
                 this.generateTimeValuesOptions();
                 this.$nextTick(() => this.highlightVisibleTimeValues());
 
-                this.timeBtnObj.updateTime(customHours, customMinutes);
-                this.timeBtnObj.updateTimeMark();
+                this.timeBtnObj = new TimeBtn(customHours, customMinutes);
+                this.startTime();
             });
         },
 

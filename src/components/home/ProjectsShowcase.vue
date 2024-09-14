@@ -168,6 +168,7 @@ h1 {
 
 .proj-img-wrapper img {
     height: 100%;
+    width: 100%;
     object-fit: cover;
 }
 

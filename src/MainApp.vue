@@ -106,7 +106,7 @@ export default {
     overflow: hidden;
 }
 .scroll-to-top.active {
-    opacity: 0.33;
+    opacity: 0.15;
 }
 .scroll-to-top.active:hover {
     cursor: pointer;

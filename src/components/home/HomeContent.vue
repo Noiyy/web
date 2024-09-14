@@ -4,6 +4,8 @@
         <Hero></Hero>
     </div>
 
+    <ProjectsShowcase></ProjectsShowcase>
+
     <Footer></Footer>
 </template>
 
@@ -11,6 +13,7 @@
 import Header from '../Header.vue';
 import Footer from '../Footer.vue';
 import Hero from './Hero.vue';
+import ProjectsShowcase from './ProjectsShowcase.vue';
 
 import { mapGetters, mapActions } from 'vuex';
 
@@ -27,7 +30,8 @@ export default {
     components: {
         Header,
         Hero,
-        Footer
+        Footer,
+        ProjectsShowcase
     },
 
     data() {

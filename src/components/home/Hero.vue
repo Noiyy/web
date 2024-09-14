@@ -9,7 +9,7 @@
                     </div>
 
                     <a href="#contact" class="btn">
-                        Contact Me
+                        <span> Contact Me </span>
                     </a>
                 </div>
 

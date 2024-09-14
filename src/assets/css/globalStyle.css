@@ -31,6 +31,7 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: var(--black);
     color: var(--white);
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6, p, a, ul, li {
@@ -63,6 +64,7 @@ ul {
     font-weight: 400;
     line-height: normal;
     letter-spacing: 6.12px;
+    text-transform: uppercase;
 }
 
 .gap-8 { gap: 8px; }
@@ -96,7 +98,7 @@ body::before {
 }
 
 .btn {
-    padding: 8px 24px;
+    padding: 8px 32px;
     color: white;
     border: none;
     border-radius: initial;
@@ -111,6 +113,10 @@ body::before {
     overflow: hidden;
     position: relative;
 }
+.btn span {
+    position: relative;
+    z-index: 2;
+}
 .btn:hover {
     color: var(--black);
 }
@@ -123,10 +129,32 @@ body::before {
     height: 0;
     background: var(--gradient-angle);
     transition: all 0.5s ease-in; 
-    z-index: -1;
+    z-index: 1;
     border-top-left-radius: 50%;
 }
 .btn:hover::before {
     width: 150%;
     height: 300%;
+}
+
+.btn.secondary {
+    border: 1px solid rgba(255, 255, 255, 0.66);
+    font-weight: 100;
+    transition: all 0.25s ease-in;
+}
+.btn.secondary:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.btn.secondary:hover div {
+    transform: scale(1.1);
+}
+.btn.secondary div {
+    transition: transform 0.25s ease-in;
+}
+
+.btn.secondary::before {
+    display: none;
+    background: white;
 }

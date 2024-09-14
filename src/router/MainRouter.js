@@ -15,6 +15,12 @@ export default function (emitter) {
           component: () => import ('../views/home/HomeView.vue'),
           children: []
       },
+      {
+        path:  '/projects',
+        name: 'Projects',
+        component: () => import ('../views/projects/ProjectsView.vue'),
+        children: []
+    },
   ];
 
   const router = createRouter({

@@ -31,7 +31,7 @@
             <div class="container">
                 <div class="showcase-cta-content d-flex justify-content-between align-items-center">
                     <h3> Check out my other projects </h3>
-                    <a class="btn"> All projects </a>
+                    <router-link to="/projects" class="btn"> All projects </router-link>
                 </div>
             </div>
         </div>

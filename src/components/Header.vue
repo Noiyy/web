@@ -14,8 +14,8 @@
                         <div class="navLinks d-flex gap-48">
                             <router-link to="/"> {{ $t('Home') }} </router-link>
                             <router-link to="/projects"> {{ $t('Projects') }} </router-link>
-                            <router-link to="/about"> {{ $t('About') }} </router-link>
-                            <router-link to="/contact"> {{ $t('Contact') }} </router-link>
+                            <a href="/#about" @click.prevent="goToHomeAbout()"> {{ $t('About') }} </a>
+                            <a href="/#contact" @click.prevent="goToHomeContact()"> {{ $t('Contact') }} </a>
                         </div>
 
                         <div class="navLang" @click="showOtherLangs">
@@ -104,6 +104,26 @@ export default {
             const locale = localStorage.getItem("locale");
             return locale
         },
+
+        async goToHomeAbout() {
+            await this.$router.push({ name: 'Home'});
+            setTimeout(() => {
+                const element = document.getElementById("about");
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 250);
+        },
+
+        async goToHomeContact() {
+            await this.$router.push({ name: 'Home'});
+            setTimeout(() => {
+                const element = document.getElementById("contact");
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 250);
+        },
     },
     
     computed: {
@@ -175,6 +195,9 @@ header {
 
 header nav a {
     position: relative;
+}
+header nav a:hover {
+    cursor: pointer;
 }
 
 header nav .router-link-active {

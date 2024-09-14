@@ -9,9 +9,9 @@
                         Have any questions about me or my work? Need a beautiful & professional website?
                         Feel free to contact me! 
                     </p>
-                    <div class="email d-flex align-items-center gap-16">
+                    <a href="mailto:noiyy.bm@gmail.com" class="email d-flex align-items-center gap-16">
                         noiyy.bm@gmail.com <IconEmailOutline class="email-icon" />
-                    </div>
+                    </a>
                 </div>
 
             </div>

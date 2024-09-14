@@ -6,6 +6,7 @@
 
     <ProjectsShowcase></ProjectsShowcase>
     <About></About>
+    <Contact></Contact>
 
     <Footer></Footer>
 </template>
@@ -16,6 +17,7 @@ import Footer from '../Footer.vue';
 import Hero from './Hero.vue';
 import ProjectsShowcase from './ProjectsShowcase.vue';
 import About from './About.vue';
+import Contact from './Contact.vue';
 
 import { mapGetters, mapActions } from 'vuex';
 
@@ -34,7 +36,8 @@ export default {
         Hero,
         Footer,
         ProjectsShowcase,
-        About
+        About,
+        Contact
     },
 
     data() {

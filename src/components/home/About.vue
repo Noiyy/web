@@ -14,7 +14,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="img-col flex-1">
+                    <div class="img-col d-flex justify-content-center flex-1">
                         <img class="img-fluid" :src="require('../../assets/img/me.png')">
                     </div>
                 </div>
@@ -127,6 +127,7 @@ export default {
     bottom: 32px;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 2;
 }
 </style>
 

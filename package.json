@@ -7,9 +7,14 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@iconify-prerendered/vue-bx": "^0.23.1722793014",
     "@iconify-prerendered/vue-cib": "^0.23.1721921004",
     "@iconify-prerendered/vue-lets-icons": "^0.23.1722794599",
+    "@iconify-prerendered/vue-majesticons": "^0.23.1722794692",
+    "@iconify-prerendered/vue-material-symbols": "^0.23.1725600996",
     "@iconify-prerendered/vue-mdi": "^0.23.1718880438",
+    "@iconify-prerendered/vue-oi": "^0.23.1722795342",
+    "@iconify-prerendered/vue-ph": "^0.23.1714973607",
     "bootstrap": "^5.3.3",
     "core-js": "^3.8.3",
     "mitt": "^3.0.1",

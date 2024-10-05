@@ -27,7 +27,8 @@
                     <div class="pills-wrapper d-flex gap-16 flex-wrap">
                         <div class="filter-pill" v-for="(filter, index) in availableFilters" :key="index"
                             :class="filter.active ? 'active' : null"
-                            :style="`border-color: ${filter.color};`">
+                            :style="`border-color: ${filter.color};`"
+                            @click="filterProjects(filter)">
                             <Icon :icon="filter.icon" class="pill-icon" :class="filter.id" />
                             {{ filter.name }} ({{ filter.count }}) 
                         </div>
@@ -35,7 +36,8 @@
                 </div>
 
                 <div class="projects-wrapper">
-                    <ProjectCard v-for="proj in filteredProjects" :key="proj.id"
+                    <ProjectCard v-for="(proj, i) in filteredProjects" :key="proj.id"
+                        :class="((i % 4 === 1) || (i % 4 === 2)) ? '2col' : null"
                         :project-data="proj"
                     ></ProjectCard>
                 </div>
@@ -135,9 +137,10 @@ export default {
                 {
                     name: "RentCarService",
                     id: "rentCarService",
-                    thumbnail: require("../../assets/img/projects/AwesomeNature-main.png"),
-                    tags: [],
+                    thumbnail: require("../../assets/img/projects/RentCarService-main.png"),
+                    tags: ["work"],
                     category: "web",
+                    date: "10. 2024"
                 },
                 {
                     name: "VerbumWell",
@@ -145,6 +148,7 @@ export default {
                     thumbnail: require("../../assets/img/projects/VW-main.png"),
                     tags: [],
                     category: "web",
+                    date: "5. 2024", 
                 },
                 {
                     name: "Tsurugi Respite",
@@ -152,6 +156,7 @@ export default {
                     thumbnail: require("../../assets/img/projects/TR-main.png"),
                     tags: [],
                     category: "web",
+                    date: "12. 2023",
                 },
                 {
                     name: "Calculator",
@@ -159,6 +164,7 @@ export default {
                     thumbnail: require("../../assets/img/projects/Calculator-main.png"),
                     tags: ["study"],
                     category: "web",
+                    date: "9. 2022",
                 },
                 {
                     name: "Rock Paper Scissors",
@@ -166,6 +172,7 @@ export default {
                     thumbnail: require("../../assets/img/projects/RockPaperScissors-main.png"),
                     tags: ["study"],
                     category: "web",
+                    date: "8. 2022",
                 },
                 {
                     name: "Etch a Sketch",
@@ -173,6 +180,7 @@ export default {
                     thumbnail: require("../../assets/img/projects/Etch-a-Sketch-main.png"),
                     tags: ["study"],
                     category: "web",
+                    date: "8. 2022",
                 },
                 {
                     name: "Awesome Nature",
@@ -180,6 +188,7 @@ export default {
                     thumbnail: require("../../assets/img/projects/AwesomeNature-main.png"),
                     tags: ["study"],
                     category: "web",
+                    date: "7. 2022",
                 },
                 {
                     name: "MajoPizza",
@@ -187,6 +196,7 @@ export default {
                     thumbnail: require("../../assets/img/projects/MajoPizza-main.png"),
                     tags: [],
                     category: "web",
+                    date: "6. 2022",
                 },
                 {
                     name: "Égaré",
@@ -194,6 +204,7 @@ export default {
                     thumbnail: require("../../assets/img/projects/Egare-main.png"),
                     tags: [],
                     category: "game",
+                    date: "4. 2022",
                 },
                 {
                     name: "Snowcastle Meltdown",
@@ -201,6 +212,7 @@ export default {
                     thumbnail: require("../../assets/img/projects/SnowcastleMeltdown-main.png"),
                     tags: ["jam"],
                     category: "game",
+                    date: "5. 2022",
                 }
             ],
             filteredProjects: []
@@ -225,12 +237,38 @@ export default {
         setupFiltersAndProjects() {
             this.filteredProjects = this.projects.filter(proj => proj.category == this.activeCategory);
             this.filters.forEach(fltr => {
+                fltr.count = 0;
                 this.filteredProjects.forEach(proj => {
                     if (fltr.id == "all") fltr.count++;
                     else if (proj.tags.includes(fltr.id)) fltr.count++;
                 });
             });
             this.availableFilters = this.filters.filter(fltr => fltr.categories.includes(this.activeCategory));
+        },
+
+        applyAllFilter(allFilter) {
+            allFilter.active = true;
+            this.availableFilters.forEach(fltr => fltr.id != "all" ? fltr.active = false : null);
+            this.setupFiltersAndProjects();
+        },
+
+        filterProjects(filter) {
+            const allFilter = this.availableFilters.find(fltr => fltr.id == "all");
+            if (filter.id == "all") this.applyAllFilter(allFilter)
+            else {
+                filter.active = !filter.active;
+                if (this.availableFilters.find(fltr => fltr.active && fltr.id != "all")) allFilter.active = false;
+                else if (!this.availableFilters.find(fltr => fltr.active)) {
+                    this.applyAllFilter(allFilter);
+                    return;
+                }
+
+                const activeFilters = this.availableFilters.filter(fltr => fltr.id != "all" && fltr.active).map(fltr => fltr.id);
+                this.filteredProjects = this.projects.filter(proj => proj.category == this.activeCategory && 
+                    proj.tags.some(tag => activeFilters.includes(tag))  
+                );
+            }
+
         }
     },
     
@@ -288,6 +326,7 @@ h4 {
     opacity: 0.5;
     text-transform: uppercase;
     transition: background 0.2s ease-in;
+    user-select: none;
 }
 .filter-pill.active {
     opacity: 1;
@@ -349,12 +388,12 @@ h4 {
 }
 
 .projects-wrapper {
+    /* display: flex;
+    flex-direction: column; */
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-gap: 16px;
     margin: 8px 0 8px 0;
     margin-top: 112px;
 }
-
-/* grid-column: span 2 !important; */
 </style>

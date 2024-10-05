@@ -10,7 +10,7 @@
                     <a :href="social.link" target="_blank" v-for="social in socials" :key="social.name">
                         <Icon class="social-icon" 
                             :class="social.name"
-                            :icon="social-icon"
+                            :icon="social.icon"
                         />
                     </a>
                 </div>
@@ -43,7 +43,7 @@ export default {
             socials: [
                 {
                     name: "LinkedIn",
-                    icon: "mdi:linked-in",
+                    icon: "mdi:linkedin",
                     link: "https://www.linkedin.com/in/noiyy/"
                 },
                 {

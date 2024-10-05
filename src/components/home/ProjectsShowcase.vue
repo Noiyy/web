@@ -14,12 +14,24 @@
                         </div>
                         <div class="proj-content d-flex flex-column">
                             <h2 class="section-subheading"> {{ proj.name }} </h2>
+                            <div class="hover-icon-cont">
+                                <svg class="hover-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                    <defs>
+                                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stop-color="var(--gradient-primary)" />
+                                            <stop offset="100%" stop-color="var(--gradient-secondary)"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <path d="M17.4707 41L1.00012 1L41.0001 17.4706L26.2589 23.7882C25.1489 24.2642 24.2643 25.1488 23.7884 26.2588L17.4707 41Z" 
+                                        stroke="url(#gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
 
                             <p class="project-info"> {{ proj.info }} </p>
                             <div class="project-buttons d-flex">
                                 <a class="btn secondary"> <div>Detail</div> </a>
                                 <a class="btn"> <span>View</span> </a>
-                            </div>
+                            </div> 
                         </div>
                     </div>
                 </div>
@@ -181,6 +193,9 @@ h1 {
 .project:hover .project-date {
     -webkit-text-stroke: 1.5px #616161;
 }
+.project:hover .hover-icon-cont {
+    display: none;
+}
 
 .showcase-wrapper > .project:nth-child(2) .proj-img-wrapper {
     right: 0;
@@ -206,6 +221,11 @@ h1 {
 
 .showcase-wrapper > .project:nth-child(2) .project-buttons {
     flex-direction: row-reverse;
+}
+
+.showcase-wrapper > .project:nth-child(2) .hover-icon-cont {
+    right: 0;
+    left: initial;
 }
 
 .proj-content {
@@ -252,11 +272,33 @@ h1 {
     transition: all 0.2s ease-in;
 }
 
+.hover-icon-cont {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    font-size: 40px;
+    bottom: 0;
+    left: 0;
+    padding: 24px;
+
+    border: 2px solid var(--gradient-primary);
+    border-right: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 .project-info {
     opacity: 0;
     max-width: 55%;
     margin-top: 32px;
-    font-size: 18px;
+    font-size: 20px;
     line-height: normal;
     transition: opacity 0.2s ease-in;
 }

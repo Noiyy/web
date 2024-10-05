@@ -12,6 +12,8 @@ import { createI18n } from 'vue-i18n';
 import { i18nOptions } from './localization';
 import globals from './globals';
 
+import { Icon } from '@iconify/vue';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import './assets/css/globalStyle.css';
@@ -39,4 +41,5 @@ app.config.globalProperties.$IS_MOBILE = screen.width <= 760;
 emitter.on("update-isMobile", (flag) => app.config.globalProperties.$IS_MOBILE = flag);
 
 app.provide("emitter", emitter);
+app.component("Icon", Icon);
 app.mount('#app');

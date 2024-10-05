@@ -4,7 +4,6 @@
   </router-view>
 
   <div class="scroll-to-top" id="scrollToTopBtn" @click="scrollToHeader()">
-    <IconArrowUpRight class="scroll-btn-img"></IconArrowUpRight>
     <Icon icon="mdi:arrow-up-right" class="scroll-btn-img"/>
   </div>
 

@@ -105,7 +105,7 @@ export default {
 <style scoped>
 .project-card {
     position: relative;
-    height: 350px;
+    height: 275px;
 }
 .project-card:hover {
     cursor: pointer;
@@ -194,12 +194,12 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    font-size: 32px;
+    font-size: 24px;
 }
 
 .project-tag {
-    width: 64px;
-    height: 64px;
+    width: 48px;
+    height: 48px;
     border-bottom-right-radius: 16px;
     display: flex;
     justify-content: center;

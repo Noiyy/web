@@ -29,8 +29,8 @@
 
                             <p class="project-info"> {{ proj.info }} </p>
                             <div class="project-buttons d-flex">
-                                <a class="btn secondary"> <div>Detail</div> </a>
-                                <a class="btn"> <span>View</span> </a>
+                                <router-link :to="`/projects/${proj.id}`" class="btn secondary"> <div>Detail</div> </router-link>
+                                <a :href="proj.link" target="_blank" class="btn"> <span>View</span> </a>
                             </div> 
                         </div>
                     </div>
@@ -74,25 +74,25 @@ export default {
                     name: "VerbumWell",
                     date: "5. 2024", 
                     info: "Fully responsive web application for posting, made for university semestral work - developed with Express.js",
-                    id: 3,
+                    id: "verbumWell",
                     img: "VW-main",
-                    link: "https://www.google.com/"
+                    link: "https://verbum-well.up.railway.app/"
                 },
                 {
                     name: "Tsurugi Respite",
                     date: "12. 2023",
                     info: "E-shop website selling japanese swords, originally made for university semestral work - developed with Vue.js",
-                    id: 2,
+                    id: "tsurugiRespite",
                     img: "TR-main",
-                    link: "https://www.google.com/"
+                    link: "https://noiyy.github.io/tsurugi-respite/"
                 },
                 {
                     name: "Égaré",
                     date: "4. 2022", 
                     info: "Simple 2D pixel-art story-driven platformer game - made with HaxeFlixel for highschool graduation project.",
-                    id: 1,
+                    id: "egare",
                     img: "Egare-main",
-                    link: "https://www.google.com/"
+                    link: "https://noiyy.itch.io/egare"
                 }
             ]
         }

@@ -7,7 +7,7 @@
                 <li v-for="(ctg, index) in categories" :key="index" :class="ctg.active ? 'active' : null"
                     class="d-flex align-items-center gap-16"
                     @click="changeCategory(ctg, index)">
-                    <component class="ctg-icon" :is="ctg.icon"></component>
+                    <Icon :icon="ctg.icon" class="ctg-icon" />
                     {{ ctg.name }} 
                 </li>
             </ul>
@@ -18,20 +18,26 @@
                 <div class="title d-flex flex-column gap-8">
                     <h1 class="section-heading"> Projects </h1>
                     <router-link to="/archive" class="d-flex gap-8 align-items-center">
-                        <IconArchive class="title-icon"/> <h4> Archive </h4> 
+                        <Icon icon="bx:archive" class="title-icon" /> <h4> Archive </h4> 
                     </router-link>
                 </div>
 
                 <div class="filters d-flex align-items-center gap-8">
-                    <IconFilterOutline class="title-icon"/>
+                    <Icon icon="mdi:filter-outline" class="title-icon" />
                     <div class="pills-wrapper d-flex gap-16 flex-wrap">
                         <div class="filter-pill" v-for="(filter, index) in availableFilters" :key="index"
                             :class="filter.active ? 'active' : null"
                             :style="`border-color: ${filter.color};`">
-                            <component class="pill-icon" :is="filter.icon" :style="`color: ${filter.color};`"></component>
+                            <Icon :icon="filter.icon" class="pill-icon" :class="filter.id" />
                             {{ filter.name }} ({{ filter.count }}) 
                         </div>
                     </div>
+                </div>
+
+                <div class="projects-wrapper">
+                    <ProjectCard v-for="proj in filteredProjects" :key="proj.id"
+                        :project-data="proj"
+                    ></ProjectCard>
                 </div>
             </div>
         </div>
@@ -43,15 +49,10 @@
 <script>
 import Header from '../Header.vue';
 import Footer from '../Footer.vue';
+import ProjectCard from './ProjectCard.vue';
 import { mapGetters, mapActions } from 'vuex';
 
-import { IconArchive } from '@iconify-prerendered/vue-bx';
-import { IconFilterOutline, IconTickAll, IconGlobe, IconTick } from '@iconify-prerendered/vue-mdi';
-import { IconBook } from '@iconify-prerendered/vue-oi';
-import { IconSuitcaseLine } from '@iconify-prerendered/vue-majesticons';
-import { IconStadiaControllerOutline } from '@iconify-prerendered/vue-material-symbols';
-import { IconQuestion } from '@iconify-prerendered/vue-ph';
-import { IconIconjar } from '@iconify-prerendered/vue-cib';
+import { Icon } from '@iconify/vue';
 
 export default {
     name: 'ProjectsContent',
@@ -66,9 +67,8 @@ export default {
     components: {
         Header,
         Footer,
-
-        IconArchive, IconFilterOutline, IconTickAll, IconGlobe, IconBook, IconSuitcaseLine, IconStadiaControllerOutline,
-        IconQuestion, IconIconjar
+        ProjectCard,
+        Icon
     },
 
     data() {
@@ -79,18 +79,18 @@ export default {
                 {
                     name: "Webdev",
                     id: "web",
-                    icon: IconGlobe,
+                    icon: "mdi:globe",
                     active: true,
                 },
                 {
                     name: "Gamedev",
                     id: "game",
-                    icon: IconStadiaControllerOutline,
+                    icon: "material-symbols:stadia-controller-outline",
                 },
                 {
                     name: "Others",
                     id: "other",
-                    icon: IconQuestion,
+                    icon: "ph:question",
                 }
             ],
 
@@ -98,7 +98,7 @@ export default {
                 {
                     name: "All",
                     id: "all",
-                    icon: IconTickAll,
+                    icon: "mdi:tick-all",
                     active: true,
                     color: "var(--gradient-primary)",
                     categories: ["web", "game", "other"],
@@ -107,7 +107,7 @@ export default {
                 {
                     name: "Study",
                     id: "study",
-                    icon: IconBook,
+                    icon: "oi:book",
                     color: "var(--gold)",
                     categories: ["web", "game", "other"],
                     count: 0
@@ -115,7 +115,7 @@ export default {
                 {
                     name: "Work",
                     id: "work",
-                    icon: IconSuitcaseLine,
+                    icon: "majesticons:suitcase-line",
                     color: "var(--green)",
                     categories: ["web", "game", "other"],
                     count: 0
@@ -123,7 +123,7 @@ export default {
                 {
                     name: "Jam",
                     id: "jam",
-                    icon: IconIconjar,
+                    icon: "cib:iconjar",
                     color: "var(--orange)",
                     categories: ["game"],
                     count: 0
@@ -135,70 +135,70 @@ export default {
                 {
                     name: "RentCarService",
                     id: "rentCarService",
-                    thumbnail: "",
+                    thumbnail: require("../../assets/img/projects/AwesomeNature-main.png"),
                     tags: [],
                     category: "web",
                 },
                 {
                     name: "VerbumWell",
                     id: "verbumWell",
-                    thumbnail: "",
+                    thumbnail: require("../../assets/img/projects/VW-main.png"),
                     tags: [],
                     category: "web",
                 },
                 {
                     name: "Tsurugi Respite",
                     id: "tsurugiRespite",
-                    thumbnail: "",
+                    thumbnail: require("../../assets/img/projects/TR-main.png"),
                     tags: [],
                     category: "web",
                 },
                 {
                     name: "Calculator",
                     id: "calculator",
-                    thumbnail: "",
+                    thumbnail: require("../../assets/img/projects/Calculator-main.png"),
                     tags: ["study"],
                     category: "web",
                 },
                 {
                     name: "Rock Paper Scissors",
                     id: "rockPaperScissors",
-                    thumbnail: "",
+                    thumbnail: require("../../assets/img/projects/RockPaperScissors-main.png"),
                     tags: ["study"],
                     category: "web",
                 },
                 {
                     name: "Etch a Sketch",
                     id: "etchASketch",
-                    thumbnail: "",
+                    thumbnail: require("../../assets/img/projects/Etch-a-Sketch-main.png"),
                     tags: ["study"],
                     category: "web",
                 },
                 {
                     name: "Awesome Nature",
                     id: "awesomeNature",
-                    thumbnail: "",
+                    thumbnail: require("../../assets/img/projects/AwesomeNature-main.png"),
                     tags: ["study"],
                     category: "web",
                 },
                 {
                     name: "MajoPizza",
                     id: "majoPizza",
-                    thumbnail: "",
+                    thumbnail: require("../../assets/img/projects/MajoPizza-main.png"),
                     tags: [],
                     category: "web",
                 },
                 {
                     name: "Égaré",
                     id: "egare",
-                    thumbnail: "",
+                    thumbnail: require("../../assets/img/projects/Egare-main.png"),
                     tags: [],
                     category: "game",
                 },
                 {
                     name: "Snowcastle Meltdown",
                     id: "snowcastleMeltdown",
-                    thumbnail: "",
+                    thumbnail: require("../../assets/img/projects/SnowcastleMeltdown-main.png"),
                     tags: ["jam"],
                     category: "game",
                 }
@@ -300,6 +300,11 @@ h4 {
 .pill-icon {
     font-size: 24px;
 }
+.pill-icon.all { color: var(--gradient-primary) }
+.pill-icon.study { color: var(--gold) }
+.pill-icon.work { color: var(--green) }
+.pill-icon.jam { color: var(--orange) }
+
 
 .projects-categories {
     position: absolute;
@@ -342,4 +347,14 @@ h4 {
 .ctg-icon {
     font-size: 32px;
 }
+
+.projects-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-gap: 16px;
+    margin: 8px 0 8px 0;
+    margin-top: 112px;
+}
+
+/* grid-column: span 2 !important; */
 </style>

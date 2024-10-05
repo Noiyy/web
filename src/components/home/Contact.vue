@@ -10,7 +10,7 @@
                         Feel free to contact me! 
                     </p>
                     <a href="mailto:noiyy.bm@gmail.com" class="email d-flex align-items-center gap-16">
-                        noiyy.bm@gmail.com <IconEmailOutline class="email-icon" />
+                        noiyy.bm@gmail.com <Icon icon="mdi:email-outline" class="email-icon" />
                     </a>
                 </div>
 
@@ -66,7 +66,7 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 
-import { IconEmailOutline } from '@iconify-prerendered/vue-mdi';
+import { Icon } from '@iconify/vue';
 
 export default {
     name: 'Contact',
@@ -79,7 +79,7 @@ export default {
     },
 
     components: {
-        IconEmailOutline
+        Icon
     },
 
     data() {

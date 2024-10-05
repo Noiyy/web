@@ -139,7 +139,7 @@ h1 {
 .project .side-rect {
     background: var(--gradient-angle);
     height: 100%;
-    width: 32px;
+    width: 2vw;
     position: absolute;
     z-index: 1;
 }

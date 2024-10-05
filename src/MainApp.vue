@@ -5,6 +5,7 @@
 
   <div class="scroll-to-top" id="scrollToTopBtn" @click="scrollToHeader()">
     <IconArrowUpRight class="scroll-btn-img"></IconArrowUpRight>
+    <Icon icon="mdi:arrow-up-right" class="scroll-btn-img"/>
   </div>
 
   <TimeBtn></TimeBtn>
@@ -12,7 +13,7 @@
 
 <script>
 import TimeBtn from './components/TimeBtn.vue';
-import { IconArrowUpRight } from '@iconify-prerendered/vue-mdi';
+import { Icon } from '@iconify/vue';
 
 export default {
   name: "MainApp",
@@ -21,8 +22,7 @@ export default {
 
   components: {
     TimeBtn,
-
-    IconArrowUpRight
+    Icon
   },
 
   data() {

@@ -49,8 +49,8 @@
                 </ul>
 
                 <div class="arrow-controls d-flex flex-column">
-                    <IconChevronUp class="control-icon up" @click="timeInputHandler(false, +timeMinutes-1)" />
-                    <IconChevronDown class="control-icon down" @click="timeInputHandler(false, +timeMinutes+1)" />
+                    <Icon icon="mdi:chevron-up" class="control-icon up" @click="timeInputHandler(false, +timeMinutes-1)" />
+                    <Icon icon="mdi:chevron-down" class="control-icon down" @click="timeInputHandler(false, +timeMinutes+1)" />
                 </div>
             </div>
 
@@ -63,8 +63,8 @@
                 </ul>
 
                 <div class="arrow-controls d-flex flex-column">
-                    <IconChevronUp class="control-icon up" @click="timeInputHandler(true, +timeHours-1)" />
-                    <IconChevronDown class="control-icon down" @click="timeInputHandler(true, +timeHours+1)" />
+                    <Icon icon="mdi:chevron-up" class="control-icon up" @click="timeInputHandler(true, +timeHours-1)" />
+                    <Icon icon="mdi:chevron-down" class="control-icon down" @click="timeInputHandler(true, +timeHours+1)" />
                 </div>
             </div>
         </div>
@@ -73,7 +73,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import { IconChevronUp, IconChevronDown } from '@iconify-prerendered/vue-mdi';
+import { Icon } from '@iconify/vue';
 
 import TimeBtn from '../assets/js/time';
 
@@ -88,7 +88,7 @@ export default {
     },
 
     components: {
-        IconChevronUp, IconChevronDown
+        Icon
     },
 
     data() {
@@ -375,8 +375,8 @@ export default {
 .time-btn-wrapper {
     position: fixed;
     flex-direction: row-reverse !important;
-    bottom: 32px;
-    right: 32px;
+    bottom: 16px;
+    right: 16px;
     min-width: 48px;
     min-height: 48px;
     opacity: 0.15;
@@ -389,7 +389,7 @@ export default {
 }
 .time-btn-wrapper:has(.time-input.shown) {
     opacity: 1;
-    transform: translate(-40px, -40px);
+    transform: translate(-56px, -56px);
 }
 .time-btn-wrapper:has(.time-input.shown) .time-btn-img path {
     fill: url(#gradient);

@@ -8,10 +8,10 @@
 
                 <div class="right d-flex gap-8 align-items-center">
                     <a :href="social.link" target="_blank" v-for="social in socials" :key="social.name">
-                        <component class="social-icon" 
+                        <Icon class="social-icon" 
                             :class="social.name"
-                            :is="social.component">
-                        </component>
+                            :icon="social-icon"
+                        />
                     </a>
                 </div>
             </div>
@@ -22,8 +22,7 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 
-import { IconLinkedin, IconGithub, IconTwitter } from '@iconify-prerendered/vue-mdi';
-import { IconItchIo, IconDiscord } from '@iconify-prerendered/vue-cib'
+import { Icon } from '@iconify/vue';
 
 export default {
     name: 'Footer',
@@ -36,7 +35,7 @@ export default {
     },
 
     components: {
-        IconLinkedin, IconGithub, IconTwitter, IconItchIo, IconDiscord
+        Icon
     },
 
     data() {
@@ -44,27 +43,27 @@ export default {
             socials: [
                 {
                     name: "LinkedIn",
-                    component: IconLinkedin,
+                    icon: "mdi:linked-in",
                     link: "https://www.linkedin.com/in/noiyy/"
                 },
                 {
                     name: "GitHub",
-                    component: IconGithub,
+                    icon: "mdi:github",
                     link: "https://www.github.com/Noiyy"
                 },
                 {
                     name: "Itch",
-                    component: IconItchIo,
+                    icon: "cib:itch-io",
                     link: "https://noiyy.itch.io/"
                 },
                 {
                     name: "Twitter",
-                    component: IconTwitter,
+                    icon: "mdi:twitter",
                     link: "https://www.twitter.com/Noiyy15"
                 },
                 {
                     name: "Discord",
-                    component: IconDiscord,
+                    icon: "cib:discord",
                     link: null
                 },
             ]

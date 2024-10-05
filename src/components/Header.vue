@@ -21,7 +21,7 @@
                         <div class="navLang" @click="showOtherLangs">
                             <div class="lang-item selected">
                                 {{ activeLangItem.locale.toUpperCase() }}
-                                <IconTick v-if="openedOtherLangs" class="lang-tick"/>
+                                <Icon icon="mdi:tick" v-if="openedOtherLangs" class="lang-tick" />
                             </div>
 
                             <div class="other-langs">
@@ -41,7 +41,7 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 
-import { IconTick } from '@iconify-prerendered/vue-mdi';
+import { Icon } from '@iconify/vue';
 
 export default {
     name: 'Header',
@@ -50,11 +50,11 @@ export default {
     emits: [],
 
     props: {
-
+        
     },
 
     components: {
-        IconTick
+        Icon
     },
 
     data() {
@@ -172,7 +172,8 @@ header {
     left: 50%;
     transform: translateX(-50%);
 }
-.navLang .other-langs .lang-item:hover {
+.navLang .other-langs .lang-item:hover,
+.navLang:has(.other-langs.opened) .lang-item.selected {
     color: rgba(255, 255, 255, 0.75);
 }
 

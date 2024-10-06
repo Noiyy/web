@@ -10,7 +10,7 @@
                             <div class="side-rect"></div>
                             <h1 class="project-date"> {{ proj.date }} </h1>
                             <div class="overlay"></div>
-                            <img :src="require(`../../assets/img/projects/${proj.img}.png`)" :alt="proj.name" class="img-fluid">
+                            <img :src="proj.img" :alt="proj.name" class="img-fluid">
                         </div>
                         <div class="proj-content d-flex flex-column">
                             <h2 class="section-subheading"> {{ proj.name }} </h2>
@@ -27,7 +27,7 @@
                                 </svg>
                             </div>
 
-                            <p class="project-info"> {{ proj.info }} </p>
+                            <p class="project-info"> {{ proj.shortInfo }} </p>
                             <div class="project-buttons d-flex">
                                 <router-link :to="`/projects/${proj.id}`" class="btn secondary"> <div>Detail</div> </router-link>
                                 <a :href="proj.link" target="_blank" class="btn"> <span>View</span> </a>
@@ -69,32 +69,33 @@ export default {
 
     data() {
         return {
-            projects: [
-                {
-                    name: "VerbumWell",
-                    date: "5. 2024", 
-                    info: "Fully responsive web application for posting, made for university semestral work - developed with Express.js",
-                    id: "verbumWell",
-                    img: "VW-main",
-                    link: "https://verbum-well.up.railway.app/"
-                },
-                {
-                    name: "Tsurugi Respite",
-                    date: "12. 2023",
-                    info: "E-shop website selling japanese swords, originally made for university semestral work - developed with Vue.js",
-                    id: "tsurugiRespite",
-                    img: "TR-main",
-                    link: "https://noiyy.github.io/tsurugi-respite/"
-                },
-                {
-                    name: "Égaré",
-                    date: "4. 2022", 
-                    info: "Simple 2D pixel-art story-driven platformer game - made with HaxeFlixel for highschool graduation project.",
-                    id: "egare",
-                    img: "Egare-main",
-                    link: "https://noiyy.itch.io/egare"
-                }
-            ]
+            projects: [],
+            // projects: [
+            //     {
+            //         name: "VerbumWell",
+            //         date: "5. 2024", 
+            //         info: "Fully responsive web application for posting, made for university semestral work - developed with Express.js",
+            //         id: "verbumWell",
+            //         img: "VW-main",
+            //         link: "https://verbum-well.up.railway.app/"
+            //     },
+            //     {
+            //         name: "Tsurugi Respite",
+            //         date: "12. 2023",
+            //         info: "E-shop website selling japanese swords, originally made for university semestral work - developed with Vue.js",
+            //         id: "tsurugiRespite",
+            //         img: "TR-main",
+            //         link: "https://noiyy.github.io/tsurugi-respite/"
+            //     },
+            //     {
+            //         name: "Égaré",
+            //         date: "4. 2022", 
+            //         info: "Simple 2D pixel-art story-driven platformer game - made with HaxeFlixel for highschool graduation project.",
+            //         id: "egare",
+            //         img: "Egare-main",
+            //         link: "https://noiyy.itch.io/egare"
+            //     }
+            // ]
         }
     },
 
@@ -109,13 +110,13 @@ export default {
     computed: {
         ...mapGetters(
             {
-
+                getProjects: "project/getShowcaseProjects"
             }
         ),
     },
 
     created() {
-
+        this.projects = this.getProjects;
     },
 
     mounted() {
@@ -247,6 +248,7 @@ h1 {
     font-style: italic;
     font-size: 48px;
     max-width: 70%;
+    line-height: 100%;
 }
 
 .project-date {

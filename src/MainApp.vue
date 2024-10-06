@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import TimeBtn from './components/TimeBtn.vue';
 import { Icon } from '@iconify/vue';
 
@@ -34,6 +35,12 @@ export default {
   },
 
   methods: {
+    ...mapActions(
+      {
+        setPrevRoute: "misc/setPrevRoute"
+      }
+    ),
+
     showLoader() {
       this.isLoader = true;
     },
@@ -74,6 +81,8 @@ export default {
     document.addEventListener('scroll', () => {
       this.handleScroll();
     });
+
+    this.emitter.on("update-prevRoute", (route) => this.setPrevRoute(route));
   },
 
   async mounted() {

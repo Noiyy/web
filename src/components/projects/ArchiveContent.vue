@@ -7,9 +7,7 @@
 
             <div class="container">
                 <div class="content">
-                    <router-link to="/projects" class="back">
-                        <Icon icon="mdi:chevron-left" class="back-icon" /> back
-                    </router-link>
+                    <BackBtn></BackBtn>
 
                     <div class="web-versions">
 
@@ -99,6 +97,7 @@
 import { mapGetters, mapActions } from 'vuex';
 import Header from '../Header.vue';
 import Footer from '../Footer.vue';
+import BackBtn from '../BackBtn.vue';
 
 import { Icon } from '@iconify/vue';
 
@@ -115,6 +114,7 @@ export default {
     components: {
         Header,
         Footer,
+        BackBtn,
         Icon
     },
 
@@ -153,17 +153,6 @@ export default {
 <style scoped>
 .section-heading {
     margin-top: 128px;
-}
-
-.back {
-    font-weight: 100;
-    font-style: italic;
-    color: rgba(255, 255, 255, 0.66);
-}
-
-.back-icon {
-    font-size: 24px;
-    opacity: 0.66;
 }
 
 .web-versions {

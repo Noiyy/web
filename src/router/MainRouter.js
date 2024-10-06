@@ -47,8 +47,10 @@ export default function (emitter) {
       routes
   });
 
+  let previousRoute = null;
   router.beforeEach((to, from, next) => {
-      console.log('Navigating to:', to.path);
+      previousRoute = from;
+      emitter.emit("update-prevRoute", previousRoute);
       if(to.matched.length === 0) {
           window.location.reload();
       }

@@ -1,9 +1,11 @@
 import { createStore } from 'vuex';
 import miscModule from './modules/miscModule';
+import projectModule from './modules/projectModule';
 
 export default createStore({
   modules: {
-    misc: miscModule
+    misc: miscModule,
+    project: projectModule
   },
 
   state: {},

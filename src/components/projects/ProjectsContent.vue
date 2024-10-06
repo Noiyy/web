@@ -38,10 +38,22 @@
     
                     <template v-if="filteredProjects.length">
                         <div class="projects-wrapper">
-                            <ProjectCard v-for="(proj, i) in filteredProjects" :key="proj.id"
-                                :class="((i % 4 === 1) || (i % 4 === 2)) ? '2col' : null"
-                                :project-data="proj"
-                            ></ProjectCard>
+
+                            <template v-for="(proj, i) in filteredProjects" :key="proj.id">
+                                <router-link v-if="proj.shortInfo" :to="`/projects/${proj.id}`" class="project-card d-flex" 
+                                    :class="((i % 4 === 1) || (i % 4 === 2)) ? '2col' : null">
+                                    <ProjectCard
+                                        :project-data="proj"
+                                    ></ProjectCard>
+                                </router-link>
+                                <a v-else :href="proj.link" target="_blank" class="project-card d-flex" 
+                                    :class="((i % 4 === 1) || (i % 4 === 2)) ? '2col' : null">
+                                    <ProjectCard
+                                        :project-data="proj"
+                                    ></ProjectCard>
+                                </a>
+                            </template>
+
                         </div> 
                         <p class="text-center after-projects"> ... and many more to come! :) </p>
                     </template>
@@ -165,88 +177,7 @@ export default {
             ],
             availableFilters: [],
 
-            projects: [
-                {
-                    name: "Rent Car Service",
-                    id: "rentCarService",
-                    thumbnail: require("../../assets/img/projects/RentCarService-main.png"),
-                    tags: ["work"],
-                    category: "web",
-                    date: "10. 2024"
-                },
-                {
-                    name: "VerbumWell",
-                    id: "verbumWell",
-                    thumbnail: require("../../assets/img/projects/VW-main.png"),
-                    tags: [],
-                    category: "web",
-                    date: "5. 2024", 
-                },
-                {
-                    name: "Tsurugi Respite",
-                    id: "tsurugiRespite",
-                    thumbnail: require("../../assets/img/projects/TR-main.png"),
-                    tags: [],
-                    category: "web",
-                    date: "12. 2023",
-                },
-                {
-                    name: "Calculator",
-                    id: "calculator",
-                    thumbnail: require("../../assets/img/projects/Calculator-main.png"),
-                    tags: ["study"],
-                    category: "web",
-                    date: "9. 2022",
-                },
-                {
-                    name: "Rock Paper Scissors",
-                    id: "rockPaperScissors",
-                    thumbnail: require("../../assets/img/projects/RockPaperScissors-main.png"),
-                    tags: ["study"],
-                    category: "web",
-                    date: "8. 2022",
-                },
-                {
-                    name: "Etch a Sketch",
-                    id: "etchASketch",
-                    thumbnail: require("../../assets/img/projects/Etch-a-Sketch-main.png"),
-                    tags: ["study"],
-                    category: "web",
-                    date: "8. 2022",
-                },
-                {
-                    name: "Awesome Nature",
-                    id: "awesomeNature",
-                    thumbnail: require("../../assets/img/projects/AwesomeNature-main.png"),
-                    tags: ["study"],
-                    category: "web",
-                    date: "7. 2022",
-                },
-                {
-                    name: "MajoPizza",
-                    id: "majoPizza",
-                    thumbnail: require("../../assets/img/projects/MajoPizza-main.png"),
-                    tags: [],
-                    category: "web",
-                    date: "6. 2022",
-                },
-                {
-                    name: "Égaré",
-                    id: "egare",
-                    thumbnail: require("../../assets/img/projects/Egare-main.png"),
-                    tags: [],
-                    category: "game",
-                    date: "4. 2022",
-                },
-                {
-                    name: "Snowcastle Meltdown",
-                    id: "snowcastleMeltdown",
-                    thumbnail: require("../../assets/img/projects/SnowcastleMeltdown-main.png"),
-                    tags: ["jam"],
-                    category: "game",
-                    date: "5. 2022",
-                }
-            ],
+            projects: [],
             filteredProjects: []
         }
     },
@@ -308,12 +239,13 @@ export default {
     computed: {
         ...mapGetters(
             {
-
+                getProjects: "project/getProjects"
             }
         ),
     },
 
     created() {
+        this.projects = this.getProjects;
         this.setupFiltersAndProjects();
     },
 

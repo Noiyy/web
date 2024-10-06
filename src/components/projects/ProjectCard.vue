@@ -1,25 +1,23 @@
 <template>
-    <router-link :to="`/projects/${projectData.id}`" class="project-card d-flex">
-        <div class="project-tags">
-            <div class="project-tag" v-for="(tag, index) in projectData.tags" :key="index"
-                :style="`background-color: ${getTagColor(tag)}`">
-                <Icon :icon="getTagIcon(tag)" class="tag-icon" />
-            </div>
+    <div class="project-tags">
+        <div class="project-tag" v-for="(tag, index) in projectData.tags" :key="index"
+            :style="`background-color: ${getTagColor(tag)}`">
+            <Icon :icon="getTagIcon(tag)" class="tag-icon" />
+        </div>
+    </div>
+
+    <img class="img-fluid" :src="projectData.thumbnail" :alt="`${projectData.name} thumbnail`">
+    <div class="card-overlay">
+        <div class="card-date">
+            <div class="card-month"> {{ getProjectMonthTo() }} </div>
+            <div class="card-year"> {{ getProjectYearTo() }} </div>
         </div>
 
-        <img class="img-fluid" :src="projectData.thumbnail" :alt="`${projectData.name} thumbnail`">
-        <div class="card-overlay">
-            <div class="card-date">
-                <div class="card-month"> {{ getProjectMonth() }} </div>
-                <div class="card-year"> {{ getProjectYear() }} </div>
-            </div>
-
-            <div class="card-overlay-info">
-                <h3> {{ projectData.name }} </h3>
-            </div>
-            <div class="card-overlay-bg"></div>
+        <div class="card-overlay-info">
+            <h3> {{ projectData.name }} </h3>
         </div>
-    </router-link>
+        <div class="card-overlay-bg"></div>
+    </div>
 </template>
 
 <script>
@@ -73,13 +71,13 @@ export default {
             }
         },
 
-        getProjectMonth() {
-            const dateArr = this.projectData.date.split(" ");
+        getProjectMonthTo() {
+            const dateArr = this.projectData.dateTo.split(" ");
             return dateArr[0];
         },
 
-        getProjectYear() {
-            const dateArr = this.projectData.date.split(" ");
+        getProjectYearTo() {
+            const dateArr = this.projectData.dateTo.split(" ");
             return dateArr[1];
         }
     },
@@ -103,21 +101,6 @@ export default {
 </script>
 
 <style scoped>
-.project-card {
-    position: relative;
-    height: 275px;
-    transition: all 0.2s ease-in;
-}
-.project-card:hover {
-    cursor: pointer;
-    -webkit-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
-}
-.project-card:hover .card-overlay {
-    opacity: 1;
-}
-
 .card-overlay {
     position: absolute;
     top: 0;
@@ -180,20 +163,6 @@ export default {
     bottom: -24px;
 }
 
-.project-card img {
-    width: 100%;
-    object-fit: cover;
-}
-
-.project-card:nth-child(4n + 1),
-.project-card:nth-child(4n + 4) {
-    grid-column: span 1;
-}
-.project-card:nth-child(4n + 2),
-.project-card:nth-child(4n + 3) {
-    grid-column: span 2;
-}
-
 .project-tags {
     position: absolute;
     top: 0;
@@ -208,5 +177,36 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+</style>
+
+<style>
+.project-card {
+    position: relative;
+    height: 275px;
+    transition: all 0.2s ease-in;
+}
+.project-card:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
+}
+.project-card:hover .card-overlay {
+    opacity: 1;
+}
+
+.project-card img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.project-card:nth-child(4n + 1),
+.project-card:nth-child(4n + 4) {
+    grid-column: span 1;
+}
+.project-card:nth-child(4n + 2),
+.project-card:nth-child(4n + 3) {
+    grid-column: span 2;
 }
 </style>

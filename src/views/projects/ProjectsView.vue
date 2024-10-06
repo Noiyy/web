@@ -1,5 +1,5 @@
 <template>
-    <div class="projects-view">
+    <div class="projects-view d-flex flex-column flex-1">
         <ProjectsContent></ProjectsContent>
     </div>
 </template>

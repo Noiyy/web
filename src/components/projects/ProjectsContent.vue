@@ -52,7 +52,7 @@
                 </div>
             </div>
 
-            <div id="sky-clouds-vector">
+            <div id="sky-clouds-vector" :class="filteredProjects.length ? null : 'smaller'">
                 <svg width="100%" height="100%" viewBox="0 0 357 722" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="gradient">
@@ -449,6 +449,10 @@ h4 {
     right: 0;
     width: 27.5%;
     z-index: -1;
+}
+#sky-clouds-vector.smaller {
+    width: 20%;
+    bottom: -20vw;
 }
 
 .archive-link {

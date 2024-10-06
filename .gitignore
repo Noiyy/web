@@ -2,6 +2,7 @@
 node_modules
 /dist
 
+web-v1
 
 # local env files
 .env.local

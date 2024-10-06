@@ -106,9 +106,13 @@ export default {
 .project-card {
     position: relative;
     height: 275px;
+    transition: all 0.2s ease-in;
 }
 .project-card:hover {
     cursor: pointer;
+    -webkit-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
 }
 .project-card:hover .card-overlay {
     opacity: 1;

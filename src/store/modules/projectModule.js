@@ -10,7 +10,13 @@ export default {
                     id: "rentCarService",
                     thumbnail: require("../../assets/img/projects/RentCarService-main.png"),
                     images: [
-                        
+                        require("../../assets/img/projects/RentCarService-1.png"),
+                        require("../../assets/img/projects/RentCarService-2.png"),
+                        require("../../assets/img/projects/RentCarService-3.png"),
+                        require("../../assets/img/projects/RentCarService-4.png"),
+                        require("../../assets/img/projects/RentCarService-5.png"),
+                        require("../../assets/img/projects/RentCarService-6.png"),
+                        require("../../assets/img/projects/RentCarService-7.png"),
                     ],
                     tags: ["work"],
                     category: "web",
@@ -20,7 +26,12 @@ export default {
                     dateTo: "10. 2024",
                     link: "https://rentcarservice.eu/",
                     shortInfo: "Simple responsive web application for renting cars, with contact form & admin panel. Made for a client. Made with Express & Vue",
-                    info: "todo",
+                    info: [
+                        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu ipsum vestibulum, finibus nulla sit amet, 
+                        elementum mi. Proin congue molestie nunc eget pretium.`,
+                        `Nullam eu dictum diam, eu tristique leo. Aenean laoreet nisi tortor, nec finibus justo dignissim ut. Proin congue molestie nunc eget pretium.`
+                    ],
+                    techStack: ["MySQL", "Vue.js", "Express.js", "Bootstrap", "Webpack"]
                 },
                 {
                     showcase: true,

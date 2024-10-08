@@ -39,7 +39,16 @@ export default {
                     id: "verbumWell",
                     thumbnail: require("../../assets/img/projects/VW-main.png"),
                     images: [
-
+                        require("../../assets/img/projects/VW-1.png"),
+                        require("../../assets/img/projects/VW-2.png"),
+                        require("../../assets/img/projects/VW-3.png"),
+                        require("../../assets/img/projects/VW-4.png"),
+                        require("../../assets/img/projects/VW-5.png"),
+                        require("../../assets/img/projects/VW-6.png"),
+                        require("../../assets/img/projects/VW-7.png"),
+                        require("../../assets/img/projects/VW-8.png"),
+                        require("../../assets/img/projects/VW-9.png"),
+                        require("../../assets/img/projects/VW-10.png"),
                     ],
                     tags: [],
                     category: "web",
@@ -49,14 +58,26 @@ export default {
                     dateTo: "06. 2024",
                     link: "https://verbum-well.up.railway.app/",
                     shortInfo: "Fully responsive web application for posting, made for university semestral work - developed with Express.js",
-                    info: "todo"
+                    info: [
+                        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu ipsum vestibulum, finibus nulla sit amet, 
+                        elementum mi. Proin congue molestie nunc eget pretium.`,
+                        `Nullam eu dictum diam, eu tristique leo. Aenean laoreet nisi tortor, nec finibus justo dignissim ut. Proin congue molestie nunc eget pretium.`
+                    ],
+                    techStack: ["MySQL", "Express.js", "EJS", "Bootstrap"]
                 },
                 {
                     name: "Tsurugi Respite",
                     id: "tsurugiRespite",
                     thumbnail: require("../../assets/img/projects/TR-main.png"),
                     images: [
-
+                        require("../../assets/img/projects/TR-1.png"),
+                        require("../../assets/img/projects/TR-2.png"),
+                        require("../../assets/img/projects/TR-3.png"),
+                        require("../../assets/img/projects/TR-4.png"),
+                        require("../../assets/img/projects/TR-5.png"),
+                        require("../../assets/img/projects/TR-6.png"),
+                        require("../../assets/img/projects/TR-7.png"),
+                        require("../../assets/img/projects/TR-8.png"),
                     ],
                     tags: [],
                     category: "web",
@@ -66,7 +87,12 @@ export default {
                     dateTo: "12. 2023",
                     link: "https://noiyy.github.io/tsurugi-respite/",
                     shortInfo: "E-shop website selling japanese swords, originally made for university semestral work - developed with Vue.js",
-                    info: "todo"
+                    info: [
+                        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu ipsum vestibulum, finibus nulla sit amet, 
+                        elementum mi. Proin congue molestie nunc eget pretium.`,
+                        `Nullam eu dictum diam, eu tristique leo. Aenean laoreet nisi tortor, nec finibus justo dignissim ut. Proin congue molestie nunc eget pretium.`
+                    ],
+                    techStack: ["Vue.js"]
                 },
                 {
                     name: "Calculator",
@@ -143,7 +169,9 @@ export default {
                     id: "snowcastleMeltdown",
                     thumbnail: require("../../assets/img/projects/SnowcastleMeltdown-main.png"),
                     images: [
-
+                        require("../../assets/img/projects/SnowcastleMeltdown-1.png"),
+                        require("../../assets/img/projects/SnowcastleMeltdown-2.png"),
+                        require("../../assets/img/projects/SnowcastleMeltdown-3.png"),
                     ],
                     tags: ["jam"],
                     category: "game",
@@ -152,8 +180,18 @@ export default {
                     dateToTimestamp: 1648771200,
                     dateTo: "04. 2022",
                     link: "https://noiyy.itch.io/snowcastle-meltdown",
+                    otherLinks: ["https://noiyy.itch.io/snowcastle-meltdown", "https://ldjam.com/events/ludum-dare/50/snowcastle-meltdown"],
+                    downloadName: "SnowcastleMeltdown - Windows",
                     shortInfo: "2D top-down pixel-art game, where you have to stop the meltdown of your snowcastle in a desert.",
-                    info: "todo"
+                    info: [
+                        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu ipsum vestibulum, finibus nulla sit amet, 
+                        elementum mi. Proin congue molestie nunc eget pretium.`,
+                        `Nullam eu dictum diam, eu tristique leo. Aenean laoreet nisi tortor, nec finibus justo dignissim ut. Proin congue molestie nunc eget pretium.`
+                    ],
+                    techStack: ["Ogmo3", "Pixel-art", "HaxeFlixel", "Haxe", "Aseprite"],
+                    devNotes: [
+
+                    ]
                 },
                 {
                     showcase: true,
@@ -161,7 +199,11 @@ export default {
                     id: "egare",
                     thumbnail: require("../../assets/img/projects/Egare-main.png"),
                     images: [
-
+                        require("../../assets/img/projects/Egare-1.png"),
+                        require("../../assets/img/projects/Egare-2.png"),
+                        require("../../assets/img/projects/Egare-3.png"),
+                        require("../../assets/img/projects/Egare-4.png"),
+                        require("../../assets/img/projects/Egare-5.png"),
                     ],
                     tags: [],
                     category: "game",
@@ -170,8 +212,23 @@ export default {
                     dateToTimestamp: 1648771200,
                     dateTo: "04. 2022",
                     link: "https://noiyy.itch.io/egare",
+                    otherLinks: ["https://noiyy.itch.io/egare"],
+                    downloadName: "Egare - Windows.zip",
                     shortInfo: "Simple 2D pixel-art story-driven platformer game - made with HaxeFlixel for highschool graduation project.",
-                    info: "todo"
+                    info: [
+                        `
+                            <h3> In the tales of old... </h3>
+                            <p> ...there exists a mythical place called <span>Nimilinien</span> - an enchanted forest cave, where an unknown being called <span>Elidyr</span> lives. Darkness dwells deep within, one that lead to an unfortunate encounter that cost <span>Elidyr</span> his memories. </p>
+                            <br>
+                            <p class="g-info-bigger"> Follow <span>Elidyr's</span> story, help him regain his memories & find out what happened. </p>
+                            <br>
+                            <p class="g-info-thin"> In case you want to skip the story text, you can do so by pressing ENTER. You can also manually save the game state with pressing, otherwise it automatically saves every 30 seconds. </p>
+                        `,
+                    ],
+                    techStack: ["Ogmo3", "Pixel-art", "HaxeFlixel", "Haxe", "Aseprite"],
+                    devNotes: [
+                        { date: "22/04/2022", text: "This was my first own game and it was made for a high school graduation project. I've been working on it for the past 2 months since the start of february 2022." }
+                    ]
                 },
             ]
         }

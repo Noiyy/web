@@ -81,7 +81,74 @@
 
             <div class="content game" v-else-if="projectType == 'game'">
                 <div class="container">
+                    <div class="project-title pos-relative text-center">
+                        <h1> {{ projectData.name }} </h1>
+                        <BackBtn class="back"></BackBtn>
+                    </div>
 
+                    <div class="game-wrapper text-center">
+                        <div class="iframe-wrapper pos-relative">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"
+                                class="play-icon" @click="isViewGame = true" v-if="!isViewGame">
+                                <defs>
+                                    <linearGradient id="gradient">
+                                        <stop offset="0%" stop-color="var(--gradient-primary)" />
+                                        <stop offset="100%" stop-color="var(--gradient-secondary)"/>
+                                    </linearGradient>
+                                </defs>
+                                <path fill="url(#gradient)" d="M8.5 8.64L13.77 12L8.5 15.36zM6.5 5v14l11-7"/>
+                            </svg>
+                            <iframe v-show="isViewGame" id="game-iframe" frameborder="0" :src="`/${projectData.id}/`" allowfullscreen="" width="100%" height="576" loading="lazy"></iframe>
+                        </div>
+                        <div class="under-game d-flex justify-content-between align-items-center">
+                            <p class="game-note"> Note: You may need to refresh the page if the game is stuck/frozen on loading screen for a long time. </p>
+                            <div class="btns d-flex gap-8">
+                                <a :href="projectData.otherLinks[0]" target="_blank"> <Icon icon="cib:itch-io" class="under-game-icon" /> </a> 
+                                <a :href="`/download/${projectData.downloadName}`"> <Icon icon="material-symbols:download-sharp" class="under-game-icon" /> </a> 
+                                <Icon icon="gridicons:fullscreen" class="under-game-icon" @click="openGameFullscreen()" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-info d-flex gap-32">
+                        <div class="left-col">
+                            <div class="controls-heading d-flex gap-8 align-items-center">
+                                <h4> Controls </h4>
+                                <Icon icon="mdi:chevron-down" class="controls-view-icon" />
+                            </div>
+                            <div class="controls-content">
+                            
+                            </div>
+                        </div>
+                        <div class="right-col d-flex flex-column">
+                            <div class="info-text d-flex gap-16">
+                                <div v-for="(txt, index) in projectData.info" :key="index" v-html="txt"></div>
+                            </div>
+
+                            <div class="dev-notes">
+                                <div class="dev-note d-flex" v-for="(note, index) in projectData.devNotes" :key="index">
+                                    <Icon icon="material-symbols:bookmark-outline" class="dev-note-icon"/>
+                                    <div class="dev-note-content">
+                                        <p class="dev-note-date"> Dev note {{ note.date }} </p>
+                                        <p v-html="note.text"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-misc d-flex justify-content-between">
+                        <div class="project-date">
+                            {{ projectData.dateTo }}
+                        </div>
+
+                        <div class="project-techstack d-flex flex-wrap justify-content-end">
+                            <div class="tech-pill" v-for="tech in projectData.techStack" :key="tech">
+                                {{ tech }}
+                                <div class="bg"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -118,7 +185,9 @@ export default {
     data() {
         return {
             projectData: null,
-            projectType: null
+            projectType: null,
+
+            isViewGame: false
         }
     },
 
@@ -135,6 +204,18 @@ export default {
             this.projectData = projects.find(proj => proj.id == projId);
             this.projectType = this.projectData.category;
         },
+
+        openGameFullscreen() {
+            if (!this.isViewGame) return;
+            const elem = document.getElementById("game-iframe");
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) {
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+                elem.msRequestFullscreen();
+            }
+        }
     },
     
     computed: {
@@ -196,7 +277,7 @@ export default {
     margin-top: 128px;
 }
 
-.project-info .info-text {
+.web .project-info .info-text {
     max-width: 55%;
 }
 
@@ -278,6 +359,10 @@ export default {
     align-content: flex-end;
 }
 
+.game .project-misc .project-techstack {
+    align-content: flex-start;
+}
+
 .project-misc .tech-pill {
     border-radius: 30px;
     /* border-top-right-radius: 16px;
@@ -332,5 +417,110 @@ export default {
     right: 0;
     width: 27.5%;
     z-index: -1;
+}
+
+.game-wrapper {
+    margin-top: 16px;
+}
+
+.game-wrapper .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20em;
+}
+
+.iframe-wrapper {
+    background: rgba(0, 0, 0, 0.65);
+    width: 100%;
+    height: 576px;
+}
+.iframe-wrapper:hover {
+    cursor: pointer;
+}
+
+.game-note {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 100;
+    line-height: 100%;
+    opacity: 0.5;
+}
+
+.under-game {
+    margin-top: 8px;
+}
+
+.under-game-icon {
+    opacity: 0.25;
+    font-size: 32px;
+    transition: all 0.2s ease-in;
+}
+.under-game-icon:hover {
+    opacity: 0.75;
+    cursor: pointer;
+}
+
+.game .project-info {
+    margin-top: 48px;
+}
+
+.game .project-info .left-col {
+    flex: 1;
+}
+
+.game .project-info .right-col {
+    flex: 2;
+}
+
+.controls-heading h4 {
+    text-transform: uppercase;
+    font-size: 24px;
+}
+
+.controls-view-icon {
+    font-size: 32px;
+}
+
+.dev-notes {
+    margin-top: 128px;
+}
+
+.dev-note-icon {
+    font-size: 64px;
+    margin-top: -18px;
+}
+
+.dev-note p {
+    font-weight: 100;
+    font-style: italic;
+    line-height: 110%;
+}
+
+.dev-note-date {
+    font-weight: 400 !important;
+    font-style: normal !important;
+    text-transform: uppercase;
+}
+</style>
+
+<style>
+.game .info-text p {
+    line-height: 125%;
+}
+
+.game .info-text span {
+    font-weight: 100;
+    font-style: italic;
+}
+
+.game .info-text .g-info-thin {
+    font-weight: 100;
+    opacity: 0.5;
+}
+
+.game .info-text .g-info-bigger {
+    font-size: 20px;
 }
 </style>

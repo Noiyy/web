@@ -16,6 +16,11 @@
         <div class="card-overlay-info">
             <h3> {{ projectData.name }} </h3>
         </div>
+
+        <a :href="projectData.link" target="_blank" class="arrow-icon-link" v-if="projectData.shortInfo"
+            @click.stop="null">
+            <Icon icon="ph:arrow-up-right" class="arrow-icon" />
+        </a>
         <div class="card-overlay-bg"></div>
     </div>
 </template>
@@ -131,6 +136,23 @@ export default {
     font-size: 36px;
     text-transform: uppercase;
     text-align: center
+}
+
+.card-overlay .arrow-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 56px;
+    height: 56px;
+    padding: 4px;
+    opacity: 0.66;
+    /* font-size: 32px; */
+    z-index: 2;
+    transition: all 0.15s ease-in;
+}
+.card-overlay .arrow-icon:hover {
+    transform: translate(6px, -6px);
+    opacity: 1;
 }
 
 .card-date {

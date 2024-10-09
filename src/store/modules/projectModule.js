@@ -181,16 +181,26 @@ export default {
                     dateTo: "04. 2022",
                     link: "https://noiyy.itch.io/snowcastle-meltdown",
                     otherLinks: ["https://noiyy.itch.io/snowcastle-meltdown", "https://ldjam.com/events/ludum-dare/50/snowcastle-meltdown"],
-                    downloadName: "SnowcastleMeltdown - Windows",
+                    downloadName: "SnowcastleMeltdown - Windows.zip",
                     shortInfo: "2D top-down pixel-art game, where you have to stop the meltdown of your snowcastle in a desert.",
                     info: [
-                        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu ipsum vestibulum, finibus nulla sit amet, 
-                        elementum mi. Proin congue molestie nunc eget pretium.`,
-                        `Nullam eu dictum diam, eu tristique leo. Aenean laoreet nisi tortor, nec finibus justo dignissim ut. Proin congue molestie nunc eget pretium.`
+                        `
+                            <span> This game was made for Ludum Dare 50 JAM in 72hours </span>
+                            <h3> Topdown 2D pixel-art game about protecting your snowcastle from melting. </h3>
+                            <br>
+                            <p> It was always your dream to have a <span>magnificent snow castle</span> in <span>desert</span> and now that it's done, you have to face the problem of it <span>melting down.</span> Protect it by making <span>snow & ice inside caves</span>, where it's cold and fortify your castle so it may stand another day! </p>
+                            <br>
+                            <p> You start with full water <span>(refill your water from traders)</span>, and water's used for making ice in caves. Specifically, you have to enter a cave, find a pond and pour your water in it! It'll eventually <span>freeze</span> - at that moment, you can collect <span>ice!</span> If you have ice, go quickly to your <span>snowcastle</span> to restore it a little bit! </p>
+                            <p> Watch out! <span>Each day, the sun burns more intensely than before!</span> How long can your snowcastle hold out? </p>
+                        `
                     ],
                     techStack: ["Ogmo3", "Pixel-art", "HaxeFlixel", "Haxe", "Aseprite"],
                     devNotes: [
 
+                    ],
+                    gameControls: [
+                        { info: "movement", keys: ["arrows", "w", "a", "s", "d"], type: "all" },
+                        { info: "interact", keys: ["e"], type: "all" },
                     ]
                 },
                 {
@@ -228,6 +238,12 @@ export default {
                     techStack: ["Ogmo3", "Pixel-art", "HaxeFlixel", "Haxe", "Aseprite"],
                     devNotes: [
                         { date: "22/04/2022", text: "This was my first own game and it was made for a high school graduation project. I've been working on it for the past 2 months since the start of february 2022." }
+                    ],
+                    gameControls: [
+                        { info: "movement", keys: ["arrows", "w", "a", "s", "d"], type: "all" },
+                        { info: "transform", keys: ["x", "e"], type: "or" },
+                        { info: "skip", keys: ["enter"], type: "all" },
+                        { info: "save game", keys: ["u"], type: "all" }
                     ]
                 },
             ]

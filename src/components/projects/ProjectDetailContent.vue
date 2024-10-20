@@ -258,6 +258,7 @@ export default {
     },
 
     created() {
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
         this.getProjectDetail();
     },
 
@@ -562,6 +563,18 @@ export default {
 }
 .itch:hover {
     color: #fa5c5c;
+}
+
+/* XL */
+@media(min-width: 1400px) {
+    #sky-clouds-vector {
+        top: 20%;
+    }
+
+    .game #sky-clouds-vector {
+        top: 35%;
+        width: 27%;
+    }
 }
 </style>
 

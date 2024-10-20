@@ -37,7 +37,8 @@ export default {
   methods: {
     ...mapActions(
       {
-        setPrevRoute: "misc/setPrevRoute"
+        setPrevRoute: "misc/setPrevRoute",
+        setIsMobile: "misc/setIsMobile"
       }
     ),
 
@@ -75,7 +76,7 @@ export default {
   created() {
     window.onresize = (e) => {
       console.log("Resized window!", screen.width);
-      this.emitter.emit("update-isMobile", screen.width <= 760);
+      this.setIsMobile(screen.width <= 760);
     };
 
     document.addEventListener('scroll', () => {

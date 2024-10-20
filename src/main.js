@@ -36,9 +36,6 @@ app.use(routerObj);
 app.use(Toast, toastOptions);
 
 app.config.globalProperties.$toast = useToast();
-app.config.globalProperties.$IS_MOBILE = screen.width <= 760;
-
-emitter.on("update-isMobile", (flag) => app.config.globalProperties.$IS_MOBILE = flag);
 
 app.provide("emitter", emitter);
 app.component("Icon", Icon);

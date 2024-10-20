@@ -32,7 +32,14 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: var(--black);
     color: var(--white);
+}
+
+html, body {
     overflow-x: hidden;
+}
+
+html.openedSidebar {
+    overflow: hidden !important;
 }
 
 h1, h2, h3, h4, h5, h6, p, a, ul, li {
@@ -82,7 +89,7 @@ ul {
 
 .pos-relative { position: relative }
 
-body::before {
+body::before, #sidebar-menu::before {
     content: "";
     position: absolute;
     top: 10%;
@@ -96,6 +103,14 @@ body::before {
     background-size: 87svh;
     background-blend-mode: darken;
     
+}
+
+#sidebar-menu::before {
+    top: 30%;
+    left: -95%; 
+    height: 100%;
+    width: 200%;
+    background-size: 140svh;
 }
 
 .btn {
@@ -159,3 +174,12 @@ body::before {
     display: none;
     background: white;
 }
+
+/* SMALL - Mobile */
+@media(max-width: 640px) {}
+/* MEDIUM - Tablet */
+@media(min-width: 641px) and (max-width: 992px) {}
+/* LARGE - PC */
+@media(min-width: 993px) and (max-width: 1399px) {}
+/* XL */
+@media(min-width: 1400px) {}

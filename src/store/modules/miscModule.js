@@ -3,14 +3,14 @@ export default {
 
     state() {
         return {
-            newItemName: null,
+            isMobile: screen.width <= 760,
             prevRoute: null
         }
     },
 
     getters: {
-        getNewItemName(state) {
-            return state.newItemName;
+        getIsMobile(state) {
+            return state.isMobile;
         },
 
         getPrevRoute(state) {
@@ -19,8 +19,8 @@ export default {
     },
 
     actions: {
-        setNewItemName ({commit}, name) {
-            commit('setNewItemName', name);
+        setIsMobile ({commit}, name) {
+            commit("setIsMobile", name);
         },
 
         setPrevRoute ({commit}, route) {
@@ -33,8 +33,8 @@ export default {
             state.newItemName = data;
         },
 
-        setPrevRoute(state, data) {
-            state.prevRoute = data;
-        }
+        setIsMobile(state, flag) {
+            state.isMobile = flag;
+        },
     }
 }

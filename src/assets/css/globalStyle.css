@@ -176,7 +176,20 @@ body::before, #sidebar-menu::before {
 }
 
 /* SMALL - Mobile */
-@media(max-width: 640px) {}
+@media(max-width: 640px) {
+    body::before {
+        display: none;
+    }
+
+    .section-subHeading {
+        font-size: 40px;
+    }
+    
+    .section-heading {
+        font-size: 24px;
+        letter-spacing: 4.08px;
+    }
+}
 /* MEDIUM - Tablet */
 @media(min-width: 641px) and (max-width: 992px) {}
 /* LARGE - PC */

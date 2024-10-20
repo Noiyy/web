@@ -13,7 +13,7 @@
                             <img :src="proj.img" :alt="proj.name" class="img-fluid">
                         </div>
                         <div class="proj-content d-flex flex-column">
-                            <h2 class="section-subheading"> {{ proj.name }} </h2>
+                            <h2 class="section-subHeading"> {{ proj.name }} </h2>
                             <div class="hover-icon-cont">
                                 <svg class="hover-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
                                     <defs>
@@ -359,5 +359,64 @@ h1 {
 
 .showcase-cta .btn:hover::before, .showcase-cta .btn:hover::after {
     opacity: 1;
+}
+
+/* SMALL - Mobile */
+@media(max-width: 640px) {
+    #projectsShowcase {
+        margin-top: 40svh;
+    }
+
+    .project-date {
+        display: none;
+    }
+
+    .hover-icon-cont {
+        display: none;
+    }
+
+    .project {
+        width: 100%;
+    }
+
+    .proj-img-wrapper {
+        width: 100%;
+    }
+
+    .proj-content {
+        margin: 32px;
+        margin-left: 16px;
+    }
+
+    .proj-content h2 {
+        line-height: 90%;
+        max-width: 100%;
+    }
+    
+    .showcase-wrapper > .project:nth-child(2) .proj-content {
+        margin-left: initial;
+        margin-right: 16px;
+    }
+
+    .showcase-cta-content {
+        justify-content: center !important;
+    }
+
+    .showcase-cta {
+        margin: 64px 0;
+    }
+
+    .showcase-cta h3 {
+        display: none;
+    }
+
+    .project-info {
+        font-size: 16px;
+        max-width: 85%;
+    }
+}
+/* MEDIUM - Tablet */
+@media(min-width: 641px) and (max-width: 992px) {
+
 }
 </style>

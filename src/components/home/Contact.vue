@@ -167,4 +167,45 @@ export default {
     bottom: 24px;
     width: 23%;
 }
+
+/* SMALL - Mobile */
+@media(max-width: 640px) {
+    .section-heading {
+        margin-top: 48px;
+        margin-bottom: 50vw;
+    }
+
+    .text-wrapper p {
+        font-size: 16px;
+        max-width: 80%;
+        opacity: 0.75;
+    }
+
+    .email {
+        font-size: 20px;
+    }
+
+    .email .email-icon {
+        font-size: 24px ;
+    }
+
+    #sky-left-vector {
+        width: 55%;
+        left: -5vw;
+        top: 2vw;
+    }
+
+    #clouds-right-vector {
+        bottom: 2vw;
+        width: 33%;
+    }
+
+    #contact {
+        padding-bottom: 48px;
+    }
+}
+/* MEDIUM - Tablet */
+@media(min-width: 641px) and (max-width: 992px) {
+
+}
 </style>

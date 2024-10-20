@@ -123,4 +123,15 @@ footer .left {
 .social-icon.Itch:hover { color: #fa5c5c }
 .social-icon.Twitter:hover { color: #1DA1F2 }
 .social-icon.Discord:hover { color: #5865F2 }
+
+/* SMALL - Mobile */
+@media(max-width: 640px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 16px;
+    }
+}
+/* MEDIUM - Tablet */
+@media(min-width: 641px) and (max-width: 992px) {}
 </style>

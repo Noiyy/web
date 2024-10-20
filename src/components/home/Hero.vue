@@ -147,10 +147,40 @@ export default {
 #hero-vector {
     position: absolute;
     right: 0;
-    z-index: 0;
-    height: 80%;
-    top: 50%;
+    height: 103%;
+    top: 80%;
     transform: translateY(-50%);
     z-index: -1;
+}
+
+/* SMALL - Mobile */
+@media(max-width: 640px) {
+    #hero {
+        align-items: flex-start !important;
+        margin-top: 48px;
+    }
+
+    .text-wrapper {
+        font-size: 24px;
+        line-height: 100%;
+        margin-bottom: 24px;
+    }
+
+    .text-wrapper span.colorful {
+        font-size: 48px;
+        letter-spacing: -3.84px;
+    }
+
+    .text-col {
+        max-width: 100%;
+    }
+
+    #hero-vector {
+
+    }
+}
+/* MEDIUM - Tablet */
+@media(min-width: 641px) and (max-width: 992px) {
+
 }
 </style>

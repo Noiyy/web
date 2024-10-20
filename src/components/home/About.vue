@@ -5,11 +5,12 @@
         <div class="content">
             <div class="container">
 
-                <div class="content-wrapper d-flex justify-content-center align-items-center">
+                <div class="content-wrapper d-flex justify-content-center align-items-center pos-relative">
                     <div class="text-col d-flex flex-column gap-32 flex-1 pos-relative justify-content-center">
-                        <p v-for="(txt, index) in text[currentTextSlide]" :key="index" v-html="txt"></p>
+                        <div class="invis-wrap" v-if="IS_MOBILE"></div>
+                        <p v-for="(txt, index) in aboutText[currentTextSlide]" :key="index" v-html="txt"></p>
                         <div class="text-slide-counter d-flex gap-16 justify-content-center">
-                            <div class="ball" :class="index == currentTextSlide ? 'active' : null" v-for="(slide, index) in text"
+                            <div class="ball" :class="index == currentTextSlide ? 'active' : null" v-for="(slide, index) in aboutText"
                                 :key="index" @click="currentTextSlide = index">
                             </div>
                         </div>
@@ -70,14 +71,41 @@ export default {
 
             }
         ),
+
+        handleTouchStart(event) {
+            if (!this.IS_MOBILE) return;
+            const firstTouch = event.touches[0];
+            this.touchStartX = firstTouch.clientX;
+        },
+
+        handleTouchEnd(event) {
+            if (!this.IS_MOBILE) return;
+            const firstTouch = event.changedTouches[0];
+            const endX = firstTouch.clientX;
+            const distanceX = endX - this.touchStartX;
+
+            if (distanceX > 50) { // To right
+                this.currentTextSlide++;
+                if (this.currentTextSlide == this.aboutText.length) this.currentTextSlide = 0;
+            } else if (distanceX < -50) { // To left
+                this.currentTextSlide--;
+                if (this.currentTextSlide < 0) this.currentTextSlide = this.aboutText.length-1;
+            }
+        },
     },
     
     computed: {
         ...mapGetters(
             {
-
+                IS_MOBILE: "misc/getIsMobile"
             }
         ),
+
+        aboutText() {
+            if (this.IS_MOBILE) {
+                return this.text.flatMap(subArray => subArray.map(item => [item]));
+            } else return this.text;
+        }
     },
 
     created() {
@@ -85,7 +113,8 @@ export default {
     },
 
     mounted() {
-
+        document.addEventListener('touchstart', this.handleTouchStart, false);
+        document.addEventListener('touchend', this.handleTouchEnd, false);
     }
 }
 </script>
@@ -128,6 +157,57 @@ export default {
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
+}
+
+/* SMALL - Mobile */
+@media(max-width: 640px) {
+    .img-col {
+        position: absolute;
+        z-index: 1;
+        opacity: 0.5;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        right: -33%;
+    }
+
+    .text-col {
+        font-size: 18px;
+        z-index: 2;
+        line-height: 110%;
+        display: initial !important;
+    }
+
+    .text-col p {
+        overflow-wrap: break-word;
+    }
+
+    .content-wrapper {
+        padding: 72px 0;
+        min-height: 50vh;
+    }
+
+    .text-slide-counter {
+        bottom: -40px;
+        gap: 8px !important;
+    }
+
+    .ball {
+        width: 12px;
+        height: 12px;
+    }
+
+    .invis-wrap {
+        display: inline-flex;
+        width: 128px;
+        height: 96px;
+        background-color: transparent;
+        float: right;
+    }
+}
+/* MEDIUM - Tablet */
+@media(min-width: 641px) and (max-width: 992px) {
+
 }
 </style>
 

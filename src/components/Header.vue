@@ -198,7 +198,13 @@ header .left, .menu-btn {
 }
 /* MEDIUM - Tablet */
 @media(min-width: 641px) and (max-width: 992px) {
+    .right {
+        gap: 40px;
+    }
 
+    .navLinks {
+        gap: 24px;
+    }
 }
 
 </style>

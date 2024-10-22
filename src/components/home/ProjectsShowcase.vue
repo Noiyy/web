@@ -404,6 +404,7 @@ h1 {
 
     .showcase-cta {
         margin: 64px 0;
+        padding: 24px 0;
     }
 
     .showcase-cta h3 {
@@ -417,6 +418,33 @@ h1 {
 }
 /* MEDIUM - Tablet */
 @media(min-width: 641px) and (max-width: 992px) {
+    .section-heading {
+        margin-top: 25vw;
+    }
 
+    .project-date {
+        font-size: 64px;
+        right: 40px;
+        bottom: 40px;
+    }
+
+    .showcase-wrapper > .project:nth-child(2) .project-date {
+        left: 40px;
+    }
+
+    .proj-content {
+        margin: 40px;
+        margin-left: 24px;
+    }
+
+    .proj-content h2 {
+        line-height: 100%;
+        max-width: 100%;
+    }
+    
+    .showcase-wrapper > .project:nth-child(2) .proj-content {
+        margin-left: initial;
+        margin-right: 24px;
+    }
 }
 </style>

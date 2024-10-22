@@ -189,10 +189,14 @@ body::before, #sidebar-menu::before {
         font-size: 24px;
         letter-spacing: 4.08px;
     }
+
+    .btn {
+        padding: 4px 24px;
+    }
 }
 /* MEDIUM - Tablet */
 @media(min-width: 641px) and (max-width: 992px) {}
 /* LARGE - PC */
-@media(min-width: 993px) and (max-width: 1399px) {}
+@media(min-width: 993px) {}
 /* XL */
 @media(min-width: 1400px) {}

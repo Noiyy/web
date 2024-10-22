@@ -8,7 +8,7 @@
 
     <img class="img-fluid" :src="projectData.thumbnail" :alt="`${projectData.name} thumbnail`">
     <div class="card-overlay">
-        <div class="card-date">
+        <div class="card-date" v-if="!IS_MOBILE">
             <div class="card-month"> {{ getProjectMonthTo() }} </div>
             <div class="card-year"> {{ getProjectYearTo() }} </div>
         </div>
@@ -90,7 +90,7 @@ export default {
     computed: {
         ...mapGetters(
             {
-
+                IS_MOBILE: "misc/getIsMobile"
             }
         ),
     },
@@ -231,4 +231,58 @@ export default {
 .project-card:nth-child(4n + 3) {
     grid-column: span 2;
 }
+
+/* SMALL - Mobile */
+@media(max-width: 640px) {
+    .project-card:nth-child(4n + 1),
+    .project-card:nth-child(4n + 4) {
+        grid-column: initial;
+    }
+    .project-card:nth-child(4n + 2),
+    .project-card:nth-child(4n + 3) {
+        grid-column: initial;
+    }
+
+    .project-tags {
+        z-index: 3;
+    }
+
+    .project-tag { 
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .card-overlay {
+        opacity: 1 !important;
+        align-items: flex-start !important;
+    }
+
+    .card-overlay h3 {
+        text-shadow: 0px 1px 16px #000000;
+        max-width: 90%;
+        margin: 0 auto;
+        font-size: 24px !important;
+        line-height: 100%;
+    }
+
+    .card-overlay-info {
+        padding: 8px 0;
+    }
+
+    .card-overlay .arrow-icon {
+        top: initial !important;
+        bottom: 8px;
+        opacity: 1 !important;
+        filter: drop-shadow(5px 5px 10px #000000);
+    }
+
+    .card-overlay-bg {
+        opacity: 0.3 !important;
+        background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, var(--gradient-primary) 100%) !important;
+    }
+}
+/* MEDIUM - Tablet */
+@media(min-width: 641px) and (max-width: 992px) {}
+/* LARGE - PC */
+@media(min-width: 993px) {}
 </style>

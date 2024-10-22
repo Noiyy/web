@@ -11,7 +11,7 @@
                     </div>
 
                     <div class="project-thumbnail pos-relative d-flex">
-                        <a class="thumbnail-overlay d-flex flex-column justify-content-center align-items-center"
+                        <a class="thumbnail-overlay d-flex flex-column justify-content-center align-items-center" v-if="!IS_MOBILE"
                             :href="projectData.link" target="_blank">
                             <h1> See the full website </h1>
                             <Icon icon="ph:arrow-up-right" class="thumbnail-icon" />
@@ -20,7 +20,7 @@
                         <div class="left-col d-flex">
                             <img :src="projectData.thumbnail" class="img-fluid" alt="">
                         </div>
-                        <div class="right-col d-flex flex-column justify-content-between">
+                        <div class="right-col d-flex flex-column justify-content-between" v-if="!IS_MOBILE">
                             <img :src="projectData.images[0]" class="img-fluid" alt="">
                             <img :src="projectData.images[1]" class="img-fluid" alt="">
                         </div>
@@ -252,7 +252,8 @@ export default {
     computed: {
         ...mapGetters(
             {
-                getProjects: "project/getProjects"
+                getProjects: "project/getProjects",
+                IS_MOBILE: "misc/getIsMobile"
             }
         ),
     },
@@ -565,6 +566,61 @@ export default {
     color: #fa5c5c;
 }
 
+/* SMALL - Mobile */
+@media(max-width: 640px) {
+    .project-title h1 {
+        font-size: 48px;
+        line-height: 90%;
+        letter-spacing: -3.84px;
+    }
+
+    .project-thumbnail {
+        min-height: 280px;
+        margin-top: 56px;
+    }
+
+    .project-info {
+        margin-top: 40px;
+    }
+
+    #sky-clouds-vector {
+        display: none;
+    }
+
+    .project-info h2 {
+        font-size: 24px;
+        letter-spacing: 4.08px;
+    }
+
+    .web .project-info .info-text {
+        max-width: 100%;
+        font-size: 18px;
+        margin-top: 16px;
+    }
+
+    .project-misc {
+        flex-direction: column-reverse;
+        margin-top: 40px;
+    }
+
+    .project-techstack {
+        gap: 8px !important;
+    }
+
+    .tech-pill {
+        flex: 1;
+        max-width: 50%;
+        text-align: center;
+    }
+
+    .project-misc .project-date {
+        font-size: 48px;
+        max-width: 50%;
+    }
+}
+/* MEDIUM - Tablet */
+@media(min-width: 641px) and (max-width: 992px) {}
+
 /* XL */
 @media(min-width: 1400px) {
     #sky-clouds-vector {
@@ -595,5 +651,12 @@ export default {
 
 .game .info-text .g-info-bigger {
     font-size: 20px;
+}
+
+/* SMALL - Mobile */
+@media(max-width: 640px) {
+    .project .back {
+        bottom: -40px !important;
+    }
 }
 </style>

@@ -12,12 +12,13 @@
         </div>
     </div>
     <div class="under-gallery d-flex flex-column align-items-center gap-48"> 
-        <img :src="require('../../assets/img/scroll.svg')" class="scroll-icon" alt="">
+        <img :src="require('../../assets/img/scroll.svg')" class="scroll-icon" alt="" v-if="!IS_MOBILE">
         <router-link :to="`/projects`" class="btn secondary"> <div>Back to projects</div> </router-link>
     </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
     name: 'Gallery',
 
@@ -113,7 +114,11 @@ export default {
     },
     
     computed: {
-
+        ...mapGetters(
+            {
+                IS_MOBILE: "misc/getIsMobile"
+            }
+        )
     },
 
     created() {
@@ -195,4 +200,30 @@ export default {
     font-weight: 100;
     text-shadow: 0px 0px 1px #000000;
 }
+
+/* SMALL - Mobile */
+@media(max-width: 640px) {
+    .project-gallery {
+        height: 40svh !important;
+    }
+
+    .project-gallery img {
+        height: 100% !important;
+        width: auto;
+    }
+    
+    .under-gallery {
+        margin-top: 48px;
+    }
+
+    .image-counter {
+        top: initial;
+        bottom: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        right: initial;
+    }
+}
+/* MEDIUM - Tablet */
+@media(min-width: 641px) and (max-width: 992px) {}
 </style>

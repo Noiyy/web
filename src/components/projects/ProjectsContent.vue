@@ -9,7 +9,7 @@
                         class="d-flex align-items-center gap-16"
                         @click="changeCategory(ctg, index)">
                         <Icon :icon="ctg.icon" class="ctg-icon" />
-                        {{ ctg.name }} 
+                        <template v-if="!IS_MOBILE"> {{ ctg.name }}  </template>
                     </li>
                 </ul>
             </div>
@@ -31,7 +31,7 @@
                                 :style="`border-color: ${filter.color};`"
                                 @click="filterProjects(filter)">
                                 <Icon :icon="filter.icon" class="pill-icon" :class="filter.id" />
-                                {{ filter.name }} ({{ filter.count }}) 
+                                <template v-if="!IS_MOBILE"> {{ filter.name }} </template> ({{ filter.count }})
                             </div>
                         </div>
                     </div>
@@ -239,7 +239,8 @@ export default {
     computed: {
         ...mapGetters(
             {
-                getProjects: "project/getProjects"
+                getProjects: "project/getProjects",
+                IS_MOBILE: "misc/getIsMobile"
             }
         ),
     },
@@ -395,5 +396,89 @@ h4 {
 }
 .archive-link:hover h4 {
     color: rgba(255, 255, 255, 0.5);
+}
+
+/* SMALL - Mobile */
+@media(max-width: 640px) {
+    #projects {
+        margin-top: 64px;
+    }
+
+    .title {
+        margin-top: 40px;
+    }
+
+    .section-heading {
+        display: none;
+    }
+
+    .filters {
+        margin-top: 24px;
+        max-width: 70%;
+        align-items: flex-start !important;
+    }
+
+    .pills-wrapper {
+        gap: 8px !important;
+    }
+
+    .filter-pill {
+        font-size: 16px;
+        padding: 2px 16px;
+    }
+
+    .projects-categories ul {
+        gap: 2px;
+    }
+
+    .projects-categories li {
+        padding: 8px;
+        width: 60%;
+    }
+
+    .projects-categories li.active {
+        padding-right: 32px;
+    }
+
+    .archive-link h4 {
+        font-size: 20px;
+    }
+
+    .title-icon {
+        font-size: 24px;
+    }
+
+    .filters .title-icon {
+        font-size: 32px;
+    }
+
+    .projects-wrapper {
+        margin-top: 40px;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .after-projects {
+        margin-top: 32px;
+        margin-bottom: 75vw;
+    }
+
+    #sky-clouds-vector {
+        bottom: -35vw;
+        width: 60%;
+    }
+
+    #sky-clouds-vector.smaller {
+        width: 66%;
+        bottom: -40vw;
+    }
+
+    .no-projects {
+        margin-top: 20vw;
+        margin-bottom: 90vw;
+    }
+}
+/* MEDIUM - Tablet */
+@media(min-width: 641px) and (max-width: 992px) {
+
 }
 </style>

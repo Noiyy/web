@@ -206,6 +206,8 @@ export default {
 }
 /* MEDIUM - Tablet */
 @media(min-width: 641px) and (max-width: 992px) {
-
+    .section-heading {
+        margin-top: 56px;
+    }
 }
 </style>

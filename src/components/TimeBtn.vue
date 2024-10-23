@@ -382,6 +382,8 @@ export default {
     opacity: 0.15;
     z-index: 10;
     transition: all 0.2s ease-in-out;
+
+    filter: drop-shadow(2px 2px 1px #000);
 }
 .time-btn-wrapper:hover {
     opacity: 0.66;

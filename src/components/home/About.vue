@@ -15,8 +15,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="img-col d-flex justify-content-center flex-1">
-                        <img class="img-fluid" :src="require('../../assets/img/me.png')">
+                    <div class="img-col d-flex justify-content-center">
+                        <img :src="require('../../assets/img/me.png')">
                     </div>
                 </div>
             </div>
@@ -130,7 +130,7 @@ export default {
 }
 
 .text-col {
-    font-size: 22px;
+    font-size: 20px;
     align-self: stretch;
 }
 
@@ -157,6 +157,11 @@ export default {
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
+}
+
+.img-col {
+    align-self: flex-end;
+    height: 80vh;
 }
 
 /* SMALL - Mobile */
@@ -207,7 +212,22 @@ export default {
 }
 /* MEDIUM - Tablet */
 @media(min-width: 641px) and (max-width: 992px) {
+    .text-col {
+        font-size: 16px;
+    }
 
+    .content-wrapper {
+        min-height: 70vh;
+    }
+
+    .text-slide-counter {
+        gap: 12px;
+    }
+
+    .ball {
+        width: 12px;
+        height: 12px;
+    }
 }
 </style>
 

@@ -506,6 +506,11 @@ export default {
 
 .under-game {
     margin-top: 8px;
+    gap: 48px;
+}
+
+.under-game .game-note {
+    text-align: left
 }
 
 .under-game-icon {

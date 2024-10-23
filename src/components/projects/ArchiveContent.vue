@@ -32,24 +32,25 @@
                                     <a href="https://noiyy.eu/v1" target="_blank" class="btn"> <span> View </span> </a>
                                 </div>
 
-                                <div class="line-tracker right">
-                                    <svg width="452" height="754" viewBox="0 0 452 754" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <defs>
-                                            <linearGradient id="gradient">
-                                                <stop offset="0%" stop-color="var(--gradient-primary)" />
-                                                <stop offset="100%" stop-color="var(--gradient-secondary)"/>
-                                            </linearGradient>
-                                        </defs>
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M448 664L444 654V746H10L0 750L10 753.5L447.995 753.995L448 754L448.005 753.995L452 754V750V746V654L448 664Z" fill="#D9D9D9"/>
-                                        <path d="M444 157L448 167L452 157V586.039L448 596L444 586.039V157Z" fill="white"/>
-                                        <path d="M444 0L448 10L452 0V91L448 100L444 91V0Z" fill="white"/>
-                                    </svg>
-
+                                <div class="line-tracker right d-flex flex-column align-items-end" v-if="!IS_MOBILE">
+                                    <Line class="lt-first"></Line>
+                                    <div class="gap point"></div>
+                                    <Line class="lt-second"></Line>
+                                    <div class="gap" :style="'padding: 20px'"></div>
+                                    <Line class="lt-third" :line-classes="'hide-after'"></Line>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="web d-flex">
+                        <div class="line-tracker mid d-flex justify-content-start align-items-center" v-if="!IS_MOBILE">
+                            <Line class="lt-first" from="right" :line-classes="'hide-before'"></Line>
+                            <div class="gap" :style="'padding: 48px'"></div>
+                            <Line class="lt-second" from="right"></Line>
+                            <div class="gap" :style="'padding: 48px'"></div>
+                            <Line class="lt-third flex-1" from="right" :line-classes="'hide-after'"></Line>
+                        </div>
+
+                        <div class="web right d-flex">
                             <div class="web-img-wrapper">
                                 <img :src="require(`../../assets/img/projects/Noiyy_v2-main.png`)" alt="web version 2 thumbnail" class="img-fluid">
                             </div>
@@ -70,13 +71,12 @@
                                     <button class="btn" disabled> <span> View </span> </button>
                                 </div>
 
-                                <div class="line-tracker left">
-                                    <svg width="548" height="635" viewBox="0 0 548 635" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M0 156L4 166L8 156V625L4 635L0 625V156Z" fill="white"/>
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M260 0H8H0V8V90L4 100L8 90V8H260L250 4L260 0Z" fill="white"/>
-                                        <path class="mid" d="M548 0H382L372 4L382 8H548L538 4L548 0Z" fill="#D9D9D9"/>
-                                    </svg>
+                                <div class="line-tracker left d-flex flex-column" v-if="!IS_MOBILE">
+                                    <Line class="lt-first" :line-classes="'hide-before'"></Line>
+                                    <div class="gap point"></div>
+                                    <Line class="lt-second"></Line>
                                 </div>
+                                
                             </div>
                         </div>
 
@@ -91,6 +91,33 @@
 
         <Footer></Footer>
     </div>
+
+    <svg width="0" height="0">
+        <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="var(--gradient-primary)" />
+                <stop offset="100%" stop-color="var(--gradient-secondary)"/>
+            </linearGradient>
+        </defs>
+
+        <filter id="remove-white" color-interpolation-filters="sRGB">
+            <feColorMatrix
+                type="matrix"
+                values="1 0 0 0 0
+                        0 1 0 0 0
+                        0 0 1 0 0
+                        -255 -255 -255 0 1"
+                result="black-pixels"
+            />
+            <feMorphology
+                in="black-pixels"
+                operator="dilate"
+                radius="0.5"
+                result="smoothed"
+            />
+            <feComposite in="SourceGraphic" in2="smoothed" operator="out" />
+        </filter>
+    </svg>
 </template>
 
 <script>
@@ -98,6 +125,7 @@ import { mapGetters, mapActions } from 'vuex';
 import Header from '../Header.vue';
 import Footer from '../Footer.vue';
 import BackBtn from '../BackBtn.vue';
+import Line from './Line.vue';
 
 import { Icon } from '@iconify/vue';
 
@@ -115,7 +143,8 @@ export default {
         Header,
         Footer,
         BackBtn,
-        Icon
+        Line,
+        Icon,
     },
 
     data() {
@@ -135,7 +164,7 @@ export default {
     computed: {
         ...mapGetters(
             {
-
+                IS_MOBILE: "misc/getIsMobile"
             }
         ),
     },
@@ -155,8 +184,13 @@ export default {
     margin-top: 128px;
 }
 
+.container > .content {
+    overflow: hidden;
+}
+
 .web-versions {
     margin-top: 64px;
+    overflow: visible;
 }
 
 .web {
@@ -167,10 +201,16 @@ export default {
     margin-bottom: 128px;
 }
 .web:nth-child(1) {
-    margin-bottom: 256px;
+    /* margin-bottom: 256px; */
+    /* margin-bottom: 35vh; */
+
+    /* margin-bottom: 0 !important; */
+}
+.web.right {
+    margin-top: 128px;
 }
 
-.web:nth-child(even) {
+.web.right { /* .web:nth-child(even) */
     text-align: left;
     justify-content: flex-start;
 }
@@ -183,7 +223,7 @@ export default {
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.66);
 }
-.web:nth-child(even) .web-img-wrapper {
+.web.right .web-img-wrapper {
     left: initial;
     right: -1px;
 }
@@ -200,7 +240,7 @@ export default {
     padding-right: 48px;
 }
 
-.web:nth-child(even) .web-content {
+.web.right .web-content {
     padding-right: 0;
     padding-left: 48px;
 }
@@ -214,11 +254,15 @@ export default {
     font-size: 56px;
 }
 
+.web-info {
+    gap: 24px;
+}
+
 .web-info .btn {
     align-self: flex-end;
 }
 
-.web:nth-child(even) .web-info .btn {
+.web.right .web-info .btn {
     align-self: flex-start;
 }
 
@@ -234,7 +278,7 @@ export default {
     user-select: none;
 }
 
-.web:nth-child(even) .web-date .circle {
+.web.right .web-date .circle {
     right: initial;
     left: -48px;
 }
@@ -243,26 +287,112 @@ export default {
     position: absolute;
     top: 0;
     user-select: none;
-    z-index: -1;
+    z-index: -2;
+    width: 100%;
+    overflow: hidden;
+    /* filter: invert(1) url(#remove-white) invert(1); */
+    /* filter: url(#replaceWhite); */
+
+    /* background: var(--gradient-angle); */
+
+    /* -webkit-mask-image: linear-gradient(black, transparent); */
+    /* mask-image: linear-gradient(90deg, black 0%, transparent 100%); */
 }
 
 .line-tracker.right {
-    right: 12px;
-    top: -96px;
+    top: -12vh;
+}
+
+.line-tracker.mid {
+    position: relative;
+    flex-direction: row-reverse;
+    padding: 0 10px;
+    height: 12px;
+    z-index: -1;
 }
 
 .line-tracker.left {
-    left: 12px;
-    top: -93px;
+    top: -128px; 
+    left: 0;
+    padding-bottom: 8px;
 }
 
-.line-tracker path {
-    fill: url(#gradient);
+.line-tracker .gap {
+    background: transparent;
+    padding: 8px;
+}
+
+.line-tracker .gap.point {
+    padding: 32px;
+}
+
+.line-tracker.right .lt-first { height: 12vh; }
+.line-tracker.right .lt-second { height: 67vh; }
+.line-tracker.right .lt-third { height: 8.2vh; }
+
+.line-tracker.mid .lt-first, .line-tracker.mid .lt-second, .line-tracker.mid .lt-third { width: 20vw; }
+
+.line-tracker.left .lt-first { height: 128px; }
+.line-tracker.left .lt-second { height: 72vh; }
+
+/* SMALL - Mobile */
+@media(max-width: 640px) {
+    .web {
+        /* flex-direction: column; */
+    }
+}
+/* MEDIUM - Tablet */
+@media(min-width: 641px) and (max-width: 992px) {
+    .web {
+        height: 60svh;
+    }
+
+    .web-img-wrapper {
+        height: 60svh;
+        width:  55%;
+    }
+
+    .web-date h2 {
+        font-size: 44px;
+    }
+
+    .web-text {
+        font-size: 15px;
+    }
+
+    .web-content {
+        gap: 40px;
+        max-width: 35vw;
+    }
+
+    .line-tracker.right {
+        top: -14vh;
+    }
+
+    .line-tracker.left {
+        top: -136px;
+    }
+
+    .line-tracker.right .lt-first { height: 13vh; }
+    .line-tracker.right .lt-second { height: 55vh; }
+    .line-tracker.right .lt-third { height: 11vh; }
+
+    .line-tracker.left .lt-first { height: 128px; }
+    .line-tracker.left .lt-second { height: 65vh; }
+    
 }
 
 @media (max-width: 1200px) {
-    .line-tracker.left .mid {
-        display: none;
-    }
+
+}
+</style>
+
+<style>
+.line-tracker.right .line.from-top {
+    right: 10px;
+}
+
+.line-tracker.left .line.from-top {
+    left: 10px;
 }
 </style>

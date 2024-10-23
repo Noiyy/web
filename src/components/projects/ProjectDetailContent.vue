@@ -16,6 +16,10 @@
                             <h1> See the full website </h1>
                             <Icon icon="ph:arrow-up-right" class="thumbnail-icon" />
                         </a>
+                        <a class="thumbnail-m-link d-flex justify-content-center align-items-center" v-else
+                            :href="projectData.link" target="_blank">
+                            <Icon icon="ph:arrow-up-right" class="thumbnail-icon" />
+                        </a>
 
                         <div class="left-col d-flex">
                             <img :src="projectData.thumbnail" class="img-fluid" alt="">
@@ -83,7 +87,7 @@
                     </div>
 
                     <div class="game-wrapper text-center pos-relative">
-                        <div class="iframe-wrapper pos-relative">
+                        <div class="iframe-wrapper pos-relative" v-if="!IS_MOBILE">
                             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"
                                 class="play-icon" @click="isViewGame = true" v-if="!isViewGame">
                                 <defs>
@@ -96,21 +100,28 @@
                             </svg>
                             <iframe v-show="isViewGame" id="game-iframe" frameborder="0" :src="`/${projectData.id}/`" allowfullscreen="" width="100%" height="576" loading="lazy"></iframe>
                         </div>
+                        <div class="m-game-disclaimer d-flex flex-column justify-content-center align-items-center" v-else>
+                            <Icon icon="mdi:plug" class="plug-icon" />
+                            <span> Sorry, seems like this one isn't supported on mobile! :( </span>
+                        </div>
+
                         <div class="under-game d-flex justify-content-between align-items-center">
-                            <p class="game-note"> Note: You may need to refresh the page if the game is stuck/frozen on loading screen for a long time. </p>
+                            <p class="game-note" v-if="!IS_MOBILE"> Note: You may need to refresh the page if the game is stuck/frozen on loading screen for a long time. </p>
                             <div class="btns d-flex gap-8">
                                 <a v-if="projectData.tags.includes('jam')" :href="projectData.otherLinks[1]" target="_blank"> 
                                     <img :src="require('../../assets/img/ld-logo.svg')" class="ld-logo under-game-icon" alt="LudumDare logo">
                                 </a>
-                                <a :href="projectData.otherLinks[0]" target="_blank"> <Icon icon="cib:itch-io" class="itch under-game-icon" /> </a> 
-                                <a :href="`/download/${projectData.downloadName}`"> <Icon icon="material-symbols:download-sharp" class="under-game-icon" /> </a> 
-                                <Icon icon="gridicons:fullscreen" class="under-game-icon" @click="openGameFullscreen()" />
+                                <a :href="projectData.otherLinks[0]" target="_blank"> <Icon icon="cib:itch-io" class="itch under-game-icon" /> </a>
+                                <template v-if="!IS_MOBILE">
+                                    <a :href="`/download/${projectData.downloadName}`"> <Icon icon="material-symbols:download-sharp" class="under-game-icon" /> </a> 
+                                    <Icon icon="gridicons:fullscreen" class="under-game-icon" @click="openGameFullscreen()" />
+                                </template>
                             </div>
                         </div>
                     </div>
 
                     <div class="project-info d-flex gap-32">
-                        <div class="left-col d-flex flex-column gap-16">
+                        <div class="left-col d-flex flex-column gap-16" v-if="!IS_MOBILE">
                             <div class="controls-heading d-flex gap-8 align-items-center">
                                 <h4> Controls </h4>
                                 <a role="button" data-bs-toggle="collapse" data-bs-target="#gameControls" aria-expanded="false" aria-controls="gameControls"> 
@@ -616,6 +627,79 @@ export default {
     .project-misc .project-date {
         font-size: 48px;
         max-width: 50%;
+        letter-spacing: 8.16px;
+        text-align: left !important;
+    }
+
+    .thumbnail-m-link {
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+        font-size: 40px;
+        filter: drop-shadow(5px 5px 10px #000000);
+    }
+
+    .game .project-info .right-col {
+        gap: 64px;
+    }
+
+    .game-wrapper {
+        min-height: 30vh;
+    }
+
+    .dev-note-icon {
+        margin-top: -22px;
+    }
+    
+    .dev-note-date {
+        opacity: 1 !important;
+    }
+
+    .dev-note p {
+        opacity: 0.5;
+    }
+
+    .game-wrapper {
+        margin-top: 56px;
+    }
+
+    .plug-icon {
+        font-size: 96px;
+        opacity: 0.33;
+    }
+
+    .m-game-disclaimer {
+        gap: 16px;
+        padding: 24px 0;
+    }
+
+    .m-game-disclaimer span {
+        text-align: center;
+        font-size: 24px;
+        font-style: italic;
+        font-weight: 100;
+        line-height: normal;
+        opacity: 0.66;
+    }
+
+    .under-game {
+        justify-content: flex-end !important;
+    }
+
+    .under-game-icon {
+        opacity: 0.75;
+    }
+
+    .under-game .btns {
+        gap: 16px;
+    }
+
+    .ld-logo {
+        filter: none;
+    }
+
+    .itch {
+        color: #fa5c5c;
     }
 }
 /* MEDIUM - Tablet */

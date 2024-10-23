@@ -86,8 +86,8 @@ export default {
             const windowWidth = (window.innerWidth || document.documentElement.clientWidth);
             
             return (
-                rect.left + (rect.width / 1.6) <= windowWidth &&
-                rect.right - (rect.width / 1.6) >= 0
+                rect.left + (rect.width / this.IS_MOBILE ? 1.7 : 1.6) <= windowWidth &&
+                rect.right - (rect.width / this.IS_MOBILE ? 1.7 : 1.6) >= 0
             );
         },
 

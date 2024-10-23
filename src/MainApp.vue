@@ -105,17 +105,18 @@ export default {
     position: fixed;
     border-radius: 50%;
     padding: 12px;
-    bottom: -4px;
-    left: -8px;
+    bottom: -6px;
+    left: -10px;
     opacity: 0;
     z-index: 10;
     display: flex;
     transition: all 0.2s ease-in-out;
     background: transparent;
     overflow: hidden;
+    filter: drop-shadow(2px 2px 2px #000);
 }
 .scroll-to-top.active {
-    opacity: 0.15;
+    opacity: 0.33;
 }
 .scroll-to-top.active:hover {
     cursor: pointer;
@@ -123,6 +124,7 @@ export default {
     filter: drop-shadow(4px -4px 10px #000000);
 }
 .scroll-to-top::before {
+  border-top-right-radius: 50%;
   content: "";
   position: absolute;
   bottom: 0;
@@ -139,7 +141,7 @@ export default {
 }
 
 .scroll-btn-img {
-    font-size: 24px;
+    font-size: 32px;
 }
 
 #app > div {

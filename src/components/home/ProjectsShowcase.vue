@@ -175,7 +175,7 @@ h1 {
     position: absolute;
     left: 0;
     width: 85%;
-    height: 75svh;
+    height: 75vh;
     overflow: hidden;
 }
 
@@ -364,7 +364,7 @@ h1 {
 /* SMALL - Mobile */
 @media(max-width: 640px) {
     #projectsShowcase {
-        margin-top: 40svh;
+        margin-top: 45vw;
     }
 
     .project-date {
@@ -386,6 +386,7 @@ h1 {
     .proj-content {
         margin: 32px;
         margin-left: 16px;
+        row-gap: 24px;
     }
 
     .proj-content h2 {

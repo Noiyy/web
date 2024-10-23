@@ -29,12 +29,12 @@ export default {
     },
 
     mutations: {
-        setNewItemName(state, data) {
-            state.newItemName = data;
-        },
-
         setIsMobile(state, flag) {
             state.isMobile = flag;
         },
+
+        setPrevRoute(state, route) {
+            state.prevRoute = route;
+        }
     }
 }

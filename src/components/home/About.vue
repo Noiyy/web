@@ -85,11 +85,11 @@ export default {
             const distanceX = endX - this.touchStartX;
 
             if (distanceX > 50) { // To right
-                this.currentTextSlide++;
-                if (this.currentTextSlide == this.aboutText.length) this.currentTextSlide = 0;
-            } else if (distanceX < -50) { // To left
                 this.currentTextSlide--;
                 if (this.currentTextSlide < 0) this.currentTextSlide = this.aboutText.length-1;
+            } else if (distanceX < -50) { // To left
+                this.currentTextSlide++;
+                if (this.currentTextSlide == this.aboutText.length) this.currentTextSlide = 0; 
             }
         },
     },

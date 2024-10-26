@@ -448,4 +448,12 @@ h1 {
         margin-right: 24px;
     }
 }
+
+/* XL */
+@media(min-width: 1400px) {
+    .hover-icon-cont svg {
+        width: 64px;
+        height: 64px;
+    }
+}
 </style>

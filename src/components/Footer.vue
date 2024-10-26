@@ -7,7 +7,8 @@
                 </div>
 
                 <div class="right d-flex gap-8 align-items-center">
-                    <a :href="social.link" target="_blank" v-for="social in socials" :key="social.name">
+                    <a :href="social.link" target="_blank" v-for="social in socials" :key="social.name"
+                        :title="social.name == 'Discord' ? 'noiyy_' : null">
                         <Icon class="social-icon" 
                             :class="social.name"
                             :icon="social.icon"

@@ -259,6 +259,7 @@ export default {
 <style scoped>
 #projects {
     margin-top: 96px;
+    overflow: hidden;
 }
 
 .title {
@@ -384,8 +385,8 @@ h4 {
     z-index: -1;
 }
 #sky-clouds-vector.smaller {
-    width: 20%;
-    bottom: -20vw;
+    width: 25%;
+    bottom: -12vw;
 }
 
 .archive-link {
@@ -396,6 +397,10 @@ h4 {
 }
 .archive-link:hover h4 {
     color: rgba(255, 255, 255, 0.5);
+}
+
+.no-projects {
+    margin-bottom: 30vw;
 }
 
 /* SMALL - Mobile */
@@ -468,17 +473,30 @@ h4 {
     }
 
     #sky-clouds-vector.smaller {
-        width: 66%;
-        bottom: -40vw;
+        width: 50%;
+        bottom: -23vw;
     }
 
     .no-projects {
         margin-top: 20vw;
-        margin-bottom: 90vw;
+        margin-bottom: 75vw;
     }
 }
 /* MEDIUM - Tablet */
 @media(min-width: 641px) and (max-width: 992px) {
+    .no-projects {
+        margin-bottom: 40vw;
+    }
 
+    #sky-clouds-vector.smaller {
+        width: 33%;
+        bottom: -15vw;
+    }
 }
+
+/* XL */
+@media(min-width: 1400px) {
+   
+}
+
 </style>

@@ -84,10 +84,14 @@ export default {
         isImgVisible(el) {
             const rect = el.getBoundingClientRect();
             const windowWidth = (window.innerWidth || document.documentElement.clientWidth);
+
+            let partMultiplier = this.IS_MOBILE ? 1.7 :
+                screen.width < 1400 ? 1.6 :
+                1.5;
             
             return (
-                rect.left + (rect.width / this.IS_MOBILE ? 1.7 : 1.6) <= windowWidth &&
-                rect.right - (rect.width / this.IS_MOBILE ? 1.7 : 1.6) >= 0
+                rect.left + (rect.width / partMultiplier) <= windowWidth &&
+                rect.right - (rect.width / partMultiplier) >= 0
             );
         },
 

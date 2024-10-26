@@ -183,4 +183,12 @@ export default {
 @media(min-width: 641px) and (max-width: 992px) {
 
 }
+
+/* XL */
+@media(min-width: 1400px) {
+    #hero-vector {
+        height: 90%;
+        top: 50%;
+    }
+}
 </style>

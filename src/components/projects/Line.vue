@@ -1,6 +1,9 @@
 <template>
     <div class="line" :class="`from-${from} ${lineClasses}`" :style="inlineStyle">
-        <!-- <div class="gradient"></div> -->
+        <div class="line-arrow-head" v-if="!hideHead">
+            <div class="left"></div>
+            <div class="right"></div>
+        </div>
     </div>
 </template>
 
@@ -25,12 +28,7 @@ export default {
             default: null
         },
 
-        hideBefore: {
-            type: Boolean,
-            default: false
-        },
-
-        hideAfter: {
+        hideHead: {
             type: Boolean,
             default: false
         }
@@ -55,11 +53,11 @@ export default {
 <style scoped>
 .line {
     position: relative;
-    background: white;
+    background: var(--gradient-angle);
     --size: 12px;
 }
 
-.line::before, .line::after {
+.line::before {
     top: 0;
     left: 0;
     position: absolute;
@@ -69,14 +67,8 @@ export default {
     --arrow-color: var(--black);
     z-index: 1;
 }
-.line::after {
-    top: initial;
-    bottom: -6px;
-    --arrow-color: white; 
-}
 
-.line.from-top::before, 
-.line.from-top::after  {
+.line.from-top::before {
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
     border-top: 6px solid var(--arrow-color);
@@ -93,8 +85,7 @@ export default {
     width: 32px;
 }
 
-.line.from-right::before, 
-.line.from-right::after {
+.line.from-right::before {
     top: 0;
     left: initial;
     border-top: 6px solid transparent;
@@ -104,23 +95,45 @@ export default {
 .line.from-right::before {
     right: 0;
 }
-.line.from-right::after {
-    left: -5px;
-}
 
 .line.hide-before::before {
     display: none;
 }
-.line.hide-after::after {
-    display: none;
+
+.line-arrow-head {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 12px;
+    height: 6px;
+}
+.line.from-right .line-arrow-head  {
+    width: 6px;
+    height: 12px;
 }
 
-/* .gradient {
+.line-arrow-head .left, .line-arrow-head .right {
     position: absolute;
-    top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-angle);
-} */
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-bottom: 12px solid var(--black);
+    display: inline-block;
+}
+
+.line-arrow-head .right {
+    transform: scaleX(-1);
+}
+
+.line.from-right .line-arrow-head .left {
+    border: 0;
+    border-left: 12px solid var(--black);
+    border-bottom: 12px solid transparent;
+}
+
+.line.from-right .line-arrow-head .right {
+    transform: scaleY(-1), scaleX(-1);
+}
 </style>

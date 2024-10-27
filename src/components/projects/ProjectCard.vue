@@ -6,7 +6,7 @@
         </div>
     </div>
 
-    <img class="img-fluid" :src="projectData.thumbnail" :alt="`${projectData.name} thumbnail`">
+    <img class="img-fluid" :src="projectData.thumbnail" :alt="`${projectData.name} project thumbnail`">
     <div class="card-overlay">
         <div class="card-date" v-if="!IS_MOBILE">
             <div class="card-month"> {{ getProjectMonthTo() }} </div>

@@ -22,11 +22,11 @@
                         </a>
 
                         <div class="left-col d-flex">
-                            <img :src="projectData.thumbnail" class="img-fluid" alt="">
+                            <img :src="projectData.thumbnail" class="img-fluid" :alt="`${projectData.name} project thumbnail`">
                         </div>
                         <div class="right-col d-flex flex-column justify-content-between" v-if="!IS_MOBILE">
-                            <img :src="projectData.images[0]" class="img-fluid" alt="">
-                            <img :src="projectData.images[1]" class="img-fluid" alt="">
+                            <img :src="projectData.images[0]" class="img-fluid" :alt="`Another ${projectData.name} project showcase image`">
+                            <img :src="projectData.images[1]" class="img-fluid" :alt="`Another ${projectData.name} project showcase image`">
                         </div>
                     </div>
 
@@ -109,7 +109,7 @@
                             <p class="game-note" v-if="!IS_MOBILE"> Note: You may need to refresh the page if the game is stuck/frozen on loading screen for a long time. </p>
                             <div class="btns d-flex gap-8">
                                 <a v-if="projectData.tags.includes('jam')" :href="projectData.otherLinks[1]" target="_blank"> 
-                                    <img :src="require('../../assets/img/ld-logo.svg')" class="ld-logo under-game-icon" alt="LudumDare logo">
+                                    <img :src="getAssetUrl('/img/ld-logo.svg')" class="ld-logo under-game-icon" :alt="`LudumDare logo`">
                                 </a>
                                 <a :href="projectData.otherLinks[0]" target="_blank"> <Icon icon="cib:itch-io" class="itch under-game-icon" /> </a>
                                 <template v-if="!IS_MOBILE">

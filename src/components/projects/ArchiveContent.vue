@@ -14,7 +14,7 @@
 
                     <div class="web d-flex">
                         <div class="web-img-wrapper">
-                            <img :src="require(`../../assets/img/projects/Noiyy_v1-main.png`)" alt="web version 1 thumbnail" class="img-fluid">
+                            <img :src="getAssetUrl(`/img/projects/Noiyy_v1-main.webp`)" alt="web version 1 thumbnail" class="img-fluid">
 
                             <div class="line-tracker m-right d-flex flex-column align-items-end" v-if="IS_MOBILE">
                                 <Line class="lt-first flex-1" :hide-head="true"></Line>
@@ -29,7 +29,7 @@
                             <div class="web-content d-flex flex-column pos-relative">
                                 <div class="web-date pos-relative">
                                     <h2> 08.2021 </h2>
-                                    <img class="circle" :src="require(`../../assets/img/archive-circle.svg`)" aria-hidden="true" />
+                                    <img class="circle" :src="getAssetUrl(`img/archive-circle.svg`)" aria-hidden="true" />
                                 </div>
                                 <div class="web-info d-flex flex-column flex-1 justify-content-between">
                                     <div class="web-text d-flex flex-column gap-24">
@@ -71,7 +71,7 @@
 
                     <div class="web right d-flex">
                         <div class="web-img-wrapper">
-                            <img :src="require(`../../assets/img/projects/Noiyy_v2-main.png`)" alt="web version 2 thumbnail" class="img-fluid">
+                            <img :src="getAssetUrl(`/img/projects/Noiyy_v2-main.png`)" alt="web version 2 thumbnail" class="img-fluid">
 
                             <div class="line-tracker m-left2 d-flex flex-column align-items-start" v-if="IS_MOBILE">
                                 <Line class="lt-first flex-1" :hide-head="true"></Line>
@@ -86,7 +86,7 @@
                             <div class="web-content d-flex flex-column pos-relative">
                                 <div class="web-date pos-relative">
                                     <h2> 10.2024 </h2>
-                                    <img class="circle" :src="require(`../../assets/img/archive-circle.svg`)" aria-hidden="true" />
+                                    <img class="circle" :src="getAssetUrl(`/img/archive-circle.svg`)" aria-hidden="true" />
                                 </div>
                                 <div class="web-info d-flex flex-column flex-1 justify-content-between">
                                     <div class="web-text d-flex flex-column gap-24">

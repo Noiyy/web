@@ -11,7 +11,6 @@
             ></LangSelector>
         </nav>
 
-        <!-- <img id="sidebarSkyVector" :src="require('../assets/img/sidebar-sky-clouds.svg')" aria-hidden="true"> -->
         <div id="sidebarSkyVector">
             <svg width="100%" height="100%" viewBox="0 0 390 477" xmlns="http://www.w3.org/2000/svg">
                 <g class="sky">

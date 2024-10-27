@@ -4,7 +4,7 @@
             {{ activeImgIndex+1 }} / {{ images.length }}
         </div>
         <div class="project-gallery">
-            <img v-for="(img, index) in images" :key="index" :src="img" alt=""
+            <img v-for="(img, index) in images" :key="index" :src="img" :alt="'project image'"
                 :data-index="index">
         </div>
         <div class="progress-bar-container">
@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="under-gallery d-flex flex-column align-items-center gap-48"> 
-        <img :src="require('../../assets/img/scroll.svg')" class="scroll-icon" alt="" v-if="!IS_MOBILE">
+        <img :src="getAssetUrl('/img/scroll.svg')" class="scroll-icon" aria-hidden="true" v-if="!IS_MOBILE">
         <router-link :to="`/projects`" class="btn secondary"> <div>Back to projects</div> </router-link>
     </div>
 </template>

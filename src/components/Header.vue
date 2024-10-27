@@ -6,7 +6,7 @@
                 <nav class="d-flex justify-content-between gap-32">
                     <div class="left">
                         <router-link to="/" class="logo-wrapper d-flex gap-16 align-items-center">
-                            <img src="../assets/img/logo.svg" alt="Noiyy logo">
+                            <img :src="getAssetUrl('img/logo.svg')" alt="Noiyy logo">
                             <h4> Noiyy </h4>
                         </router-link>
                     </div>

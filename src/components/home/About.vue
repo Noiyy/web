@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <div class="img-col d-flex justify-content-center">
-                        <img :src="require('../../assets/img/me.png')">
+                        <img :src="getAssetUrl('img/me.png')" alt="photo of me">
                     </div>
                 </div>
             </div>

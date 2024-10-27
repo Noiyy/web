@@ -18,6 +18,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import './assets/css/globalStyle.css';
 
+import { globalMixin } from './mixins/globalMixin'; 
+
 const emitter = mitt();
 const app = createApp(MainApp);
 const routerObj = router(emitter);
@@ -36,6 +38,7 @@ app.use(routerObj);
 app.use(Toast, toastOptions);
 
 app.config.globalProperties.$toast = useToast();
+app.mixin(globalMixin);
 
 app.provide("emitter", emitter);
 app.component("Icon", Icon);

@@ -10,7 +10,7 @@
                             <div class="side-rect"></div>
                             <h1 class="project-date"> {{ proj.date }} </h1>
                             <div class="overlay"></div>
-                            <img :src="proj.img" :alt="proj.name" class="img-fluid">
+                            <img :src="proj.img" :alt="`${proj.name} project thumbnail`" class="img-fluid">
                         </div>
                         <div class="proj-content d-flex flex-column">
                             <h2 class="section-subHeading"> {{ proj.name }} </h2>

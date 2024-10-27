@@ -13,7 +13,7 @@
                     <div class="project-thumbnail pos-relative d-flex">
                         <a class="thumbnail-overlay d-flex flex-column justify-content-center align-items-center" v-if="!IS_MOBILE"
                             :href="projectData.link" target="_blank">
-                            <h1> See the full website </h1>
+                            <h1> {{ $t('SeeFullWeb') }} </h1>
                             <Icon icon="ph:arrow-up-right" class="thumbnail-icon" />
                         </a>
                         <a class="thumbnail-m-link d-flex justify-content-center align-items-center" v-else
@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="project-info">
-                        <h2> Project info </h2>
+                        <h2> {{ $t('ProjectInfo') }} </h2>
                         <div class="info-text d-flex flex-column gap-16">
                             <p v-for="(txt, index) in projectData.info" :key="index" v-html="txt"></p>
                         </div>
@@ -102,11 +102,11 @@
                         </div>
                         <div class="m-game-disclaimer d-flex flex-column justify-content-center align-items-center" v-else>
                             <Icon icon="mdi:plug" class="plug-icon" />
-                            <span> Sorry, seems like this one isn't supported on mobile! :( </span>
+                            <span> {{ $('UnsupportedGameMobile') }} </span>
                         </div>
 
                         <div class="under-game d-flex justify-content-between align-items-center">
-                            <p class="game-note" v-if="!IS_MOBILE"> Note: You may need to refresh the page if the game is stuck/frozen on loading screen for a long time. </p>
+                            <p class="game-note" v-if="!IS_MOBILE"> {{ $t('GameStuckNote') }} </p>
                             <div class="btns d-flex gap-8">
                                 <a v-if="projectData.tags.includes('jam')" :href="projectData.otherLinks[1]" target="_blank"> 
                                     <img :src="getAssetUrl('/img/ld-logo.svg')" class="ld-logo under-game-icon" :alt="`LudumDare logo`">
@@ -123,7 +123,7 @@
                     <div class="project-info d-flex gap-32">
                         <div class="left-col d-flex flex-column gap-16" v-if="!IS_MOBILE">
                             <div class="controls-heading d-flex gap-8 align-items-center">
-                                <h4> Controls </h4>
+                                <h4> {{ $t('Controls') }} </h4>
                                 <a role="button" data-bs-toggle="collapse" data-bs-target="#gameControls" aria-expanded="false" aria-controls="gameControls"> 
                                     <Icon icon="mdi:chevron-down" class="controls-view-icon" @click="toggleControls"/>
                                 </a>
@@ -156,7 +156,7 @@
                                 <div class="dev-note d-flex" v-for="(note, index) in projectData.devNotes" :key="index">
                                     <Icon icon="material-symbols:bookmark-outline" class="dev-note-icon"/>
                                     <div class="dev-note-content">
-                                        <p class="dev-note-date"> Dev note {{ note.date }} </p>
+                                        <p class="dev-note-date"> {{ $t('DevNote') }} {{ note.date }} </p>
                                         <p v-html="note.text"></p>
                                     </div>
                                 </div>
@@ -199,7 +199,16 @@ import { Icon } from '@iconify/vue';
 import GameControls from './GameControls.vue';
 import Gallery from './Gallery.vue';
 
+import { useHead } from '@unhead/vue';
+
 export default {
+    head() {
+        return {
+            title: this.headTitle,
+            meta: this.headMeta
+        }
+    },
+
     name: 'ProjectDetailContent',
 
     inject: ['emitter'],
@@ -223,7 +232,10 @@ export default {
             projectData: null,
             projectType: null,
 
-            isViewGame: false
+            isViewGame: false,
+
+            headTitle: `× Noiyy`,
+            headMeta: []
         }
     },
 
@@ -238,7 +250,10 @@ export default {
             const projId = this.$route.params.projectId;
             const projects = this.getProjects;
             this.projectData = projects.find(proj => proj.id == projId);
+            if (!this.projectData) return;
             this.projectType = this.projectData.category;
+
+            this.updateHeadInfo();
         },
 
         openGameFullscreen() {
@@ -257,6 +272,31 @@ export default {
             const el = event.target;
             if (el.classList.contains("open")) el.classList.remove("open");
             else el.classList.add("open");
+        },
+
+        updateHeadInfo() {
+            this.headTitle = `${this.projectData.name} × Noiyy`;
+            this.headMeta = [
+                { name: "image", content: `${this.projectData.thumbnail}` },
+                { name: "robots", content: `${this.projectData.shortInfo ? "index, follow" : "noindex, nofollow"}` },
+                
+                { property: "og:title", content: `${this.projectData.name} × Noiyy` },
+                { property: "og:type", content: "website" },
+                { property: "og:image", content: `${this.projectData.thumbnail}` },
+                
+                { name: "twitter:title", content: `${this.projectData.name} × Noiyy` },
+                { name: "twitter:card", content: "summary" },
+                { name: "twitter:image", content: `${this.projectData.thumbnail}` }
+            ];
+
+            if (!this.projectData.shortInfo) return;
+            const descriptions = [
+                { name: "description", content: this.projectData.shortInfo },
+                { property: "og:description", content: this.projectData.shortInfo },
+                { name: "twitter:description", content: this.projectData.shortInfo },
+            ];
+
+            this.headMeta = [...this.headMeta, ...descriptions];
         }
     },
     
@@ -272,6 +312,8 @@ export default {
     created() {
         window.scrollTo({ top: 0, left: 0, behavior: "instant" });
         this.getProjectDetail();
+
+        this.emitter.on("update-projects", () => this.getProjectDetail());
     },
 
     mounted() {

@@ -2,13 +2,10 @@
     <section id="contact" class="pos-relative">
         <div class="container">
             <div class="content">
-                <h1 class="section-heading text-center"> Contact me </h1>
+                <h1 class="section-heading text-center"> {{ $t('ContactMe') }} </h1>
 
                 <div class="text-wrapper d-flex flex-column align-items-end gap-32">
-                    <p> 
-                        Have any questions about me or my work? Need a beautiful & professional website?
-                        Feel free to contact me! 
-                    </p>
+                    <p> {{ $t('ContactText') }} </p>
                     <a href="mailto:noiyy.bm@gmail.com" class="email d-flex align-items-center gap-16">
                         noiyy.bm@gmail.com <Icon icon="mdi:email-outline" class="email-icon" />
                     </a>

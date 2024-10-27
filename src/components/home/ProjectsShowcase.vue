@@ -2,7 +2,7 @@
     <section id="projectsShowcase">
         <div class="container">
             <div class="content">
-                <h1 class="section-heading text-center"> Projects Showcase </h1>
+                <h1 class="section-heading text-center"> {{ $t('ProjectsShowcase') }} </h1>
     
                 <div class="showcase-wrapper d-flex flex-column">
                     <div class="project" v-for="proj in projects" :key="proj.name">
@@ -29,8 +29,8 @@
 
                             <p class="project-info"> {{ proj.shortInfo }} </p>
                             <div class="project-buttons d-flex">
-                                <router-link :to="`/projects/${proj.id}`" class="btn secondary"> <div>Detail</div> </router-link>
-                                <a :href="proj.link" target="_blank" class="btn"> <span>View</span> </a>
+                                <router-link :to="`/projects/${proj.id}`" class="btn secondary"> <div>{{ $t('Detail') }}</div> </router-link>
+                                <a :href="proj.link" target="_blank" class="btn"> <span>{{ $t('View') }}</span> </a>
                             </div> 
                         </div>
                     </div>
@@ -42,8 +42,8 @@
         <div class="showcase-cta">
             <div class="container">
                 <div class="showcase-cta-content d-flex justify-content-between align-items-center">
-                    <h3> Check out my other projects </h3>
-                    <router-link to="/projects" class="btn"> All projects </router-link>
+                    <h3> {{ $t('ShowcaseCTAText') }} </h3>
+                    <router-link to="/projects" class="btn">{{ $t('AllProjects') }} </router-link>
                 </div>
             </div>
         </div>
@@ -117,6 +117,8 @@ export default {
 
     created() {
         this.projects = this.getProjects;
+
+        this.emitter.on("update-projects", () => this.projects = this.getProjects);
     },
 
     mounted() {

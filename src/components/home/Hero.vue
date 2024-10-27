@@ -4,12 +4,12 @@
             <div class="content">
                 <div class="text-col d-flex flex-column gap-8 align-items-start">
                     <div class="text-wrapper">
-                        Hi! I'm <span class="colorful"> Benjamín Muľár</span>, frontend web developer
-                        <span> and a hobbyist game creator. </span>
+                        {{ $t('Hero1') }} <span class="colorful"> {{ $t('MyName') }} </span>{{ $t('Hero2') }}
+                        <span> {{ $t('Hero3') }} </span>
                     </div>
 
                     <a href="#contact" class="btn">
-                        <span> Contact Me </span>
+                        <span> {{ $t('ContactMe') }} </span>
                     </a>
                 </div>
 

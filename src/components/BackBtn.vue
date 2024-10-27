@@ -1,6 +1,6 @@
 <template>
     <router-link :to="getPrevRoute ? getPrevRoute : ''" class="back">
-        <Icon icon="mdi:chevron-left" class="back-icon" /> back
+        <Icon icon="mdi:chevron-left" class="back-icon" /> {{ $t('Back') }}
     </router-link>
 </template>
 

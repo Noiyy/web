@@ -54,7 +54,7 @@ export default {
     methods: {
         ...mapActions(
             {
-
+                updateProjects: "project/updateProjects"
             }
         ),
 
@@ -81,6 +81,9 @@ export default {
             this.$i18n.locale = locale;
             document.documentElement.setAttribute("lang", locale);
             this.saveLocaleToStorage(locale);
+            this.updateProjects();
+
+            this.emitter.emit("update-projects");
         },
 
         saveLocaleToStorage(locale) { localStorage.setItem("locale", locale); },

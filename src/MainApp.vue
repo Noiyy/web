@@ -38,7 +38,8 @@ export default {
     ...mapActions(
       {
         setPrevRoute: "misc/setPrevRoute",
-        setIsMobile: "misc/setIsMobile"
+        setIsMobile: "misc/setIsMobile",
+        updateProjects: "project/updateProjects"
       }
     ),
 
@@ -74,6 +75,8 @@ export default {
   },
 
   created() {
+    this.updateProjects();
+
     window.onresize = (e) => {
       console.log("Resized window!", screen.width);
       this.setIsMobile(screen.width <= 760);

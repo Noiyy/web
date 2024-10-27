@@ -8,7 +8,7 @@
 
             <div class="icons d-flex gap-8 align-items-center" v-if="ctrl.type == 'or'">
                 <span v-html="keys.find(k => k.name == ctrl.keys[0]).icon"></span>
-                or
+                {{ $t('Or') }}
                 <span v-html="keys.find(k => k.name == ctrl.keys[1]).icon"></span>
                 - {{ ctrl.info }}
             </div>

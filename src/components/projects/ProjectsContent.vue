@@ -17,9 +17,9 @@
             <div class="container">
                 <div class="content">
                     <div class="title flex-column gap-8">
-                        <h1 class="section-heading"> Projects </h1>
+                        <h1 class="section-heading"> {{ $t('Projects') }} </h1>
                         <router-link to="/projects/archive" class="gap-8 align-items-center archive-link">
-                            <Icon icon="bx:archive" class="title-icon" /> <h4> Archive </h4> 
+                            <Icon icon="bx:archive" class="title-icon" /> <h2> {{ $t('Archive') }} </h2> 
                          </router-link>
                     </div>
     
@@ -55,11 +55,11 @@
                             </template>
 
                         </div> 
-                        <p class="text-center after-projects"> ... and many more to come! :) </p>
+                        <p class="text-center after-projects"> {{ $t('AfterProjectsText') }} </p>
                     </template>
                     <div class="projects-wrapper no-projects d-flex justify-content-center align-items-center" v-else>
                         <Icon icon="ion:sad-outline" class="no-projects-icon" />
-                        Oh no! Looks like there are no projects in this category yet...
+                        {{ $t('NoProjectsText') }}
                     </div>
                 </div>
             </div>
@@ -121,60 +121,6 @@ export default {
         return {
             activeCategory: "web",
 
-            categories: [
-                {
-                    name: "Webdev",
-                    id: "web",
-                    icon: "mdi:globe",
-                    active: true,
-                },
-                {
-                    name: "Gamedev",
-                    id: "game",
-                    icon: "material-symbols:stadia-controller-outline",
-                },
-                {
-                    name: "Others",
-                    id: "other",
-                    icon: "ph:question",
-                }
-            ],
-
-            filters: [
-                {
-                    name: "All",
-                    id: "all",
-                    icon: "mdi:tick-all",
-                    active: true,
-                    color: "var(--gradient-primary)",
-                    categories: ["web", "game", "other"],
-                    count: 0
-                },
-                {
-                    name: "Study",
-                    id: "study",
-                    icon: "oi:book",
-                    color: "var(--gold)",
-                    categories: ["web", "game", "other"],
-                    count: 0
-                },
-                {
-                    name: "Work",
-                    id: "work",
-                    icon: "majesticons:suitcase-line",
-                    color: "var(--green)",
-                    categories: ["web", "game", "other"],
-                    count: 0
-                },
-                {
-                    name: "Jam",
-                    id: "jam",
-                    icon: "cib:iconjar",
-                    color: "var(--orange)",
-                    categories: ["game"],
-                    count: 0
-                },
-            ],
             availableFilters: [],
 
             projects: [],
@@ -243,6 +189,65 @@ export default {
                 IS_MOBILE: "misc/getIsMobile"
             }
         ),
+
+        categories() {
+            return [
+                {
+                    name: this.$t("Webdev"),
+                    id: "web",
+                    icon: "mdi:globe",
+                    active: true,
+                },
+                {
+                    name: this.$t("Gamedev"),
+                    id: "game",
+                    icon: "material-symbols:stadia-controller-outline",
+                },
+                {
+                    name: this.$t("Others"),
+                    id: "other",
+                    icon: "ph:question",
+                }
+            ];
+        },
+
+        filters() {
+            return [
+                {
+                    name: this.$t("All"),
+                    id: "all",
+                    icon: "mdi:tick-all",
+                    active: true,
+                    color: "var(--gradient-primary)",
+                    categories: ["web", "game", "other"],
+                    count: 0
+                },
+                {
+                    name: this.$t("Study"),
+                    id: "study",
+                    icon: "oi:book",
+                    color: "var(--gold)",
+                    categories: ["web", "game", "other"],
+                    count: 0
+                },
+                {
+                    name: this.$t("Work"),
+                    id: "work",
+                    icon: "majesticons:suitcase-line",
+                    color: "var(--green)",
+                    categories: ["web", "game", "other"],
+                    count: 0
+                },
+                {
+                    name: this.$t("Jam"),
+                    id: "jam",
+                    icon: "cib:iconjar",
+                    color: "var(--orange)",
+                    categories: ["game"],
+                    count: 0
+                },
+            ]
+        } 
     },
 
     created() {
@@ -271,7 +276,7 @@ export default {
     font-size: 28px;
 }
 
-h4 {
+h2 {
     font-family: 'Inter', sans-serif;
     font-size: 24px;
     font-style: normal;
@@ -392,10 +397,10 @@ h4 {
 .archive-link {
     display: inline-flex;
 }
-.archive-link h4 {
+.archive-link h2 {
     transition: color 0.2s ease-in;
 }
-.archive-link:hover h4 {
+.archive-link:hover h2 {
     color: rgba(255, 255, 255, 0.5);
 }
 
@@ -445,7 +450,7 @@ h4 {
         padding-right: 32px;
     }
 
-    .archive-link h4 {
+    .archive-link h2 {
         font-size: 20px;
     }
 

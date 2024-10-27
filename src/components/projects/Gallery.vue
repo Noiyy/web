@@ -12,8 +12,8 @@
         </div>
     </div>
     <div class="under-gallery d-flex flex-column align-items-center gap-48"> 
-        <img :src="getAssetUrl('/img/scroll.svg')" class="scroll-icon" aria-hidden="true" v-if="!IS_MOBILE">
-        <router-link :to="`/projects`" class="btn secondary"> <div>Back to projects</div> </router-link>
+        <img :src="getAssetUrl('img/scroll.svg')" class="scroll-icon" aria-hidden="true" v-if="!IS_MOBILE">
+        <router-link :to="`/projects`" class="btn secondary"> <div>{{ $t('BackToProjects') }}</div> </router-link>
     </div>
 </template>
 
@@ -149,6 +149,7 @@ export default {
     display: flex;
     overflow-x: auto;
     white-space: nowrap;
+    background: black;
 }
 
 .project-gallery img {
@@ -198,8 +199,8 @@ export default {
 
 .image-counter {
     position: absolute;
-    top: 24px;
-    right: 32px;
+    top: 16px;
+    right: 24px;
     z-index: 2;
     font-weight: 100;
     text-shadow: 0px 0px 1px #000000;
@@ -229,5 +230,10 @@ export default {
     }
 }
 /* MEDIUM - Tablet */
-@media(min-width: 641px) and (max-width: 992px) {}
+@media(min-width: 641px) and (max-width: 992px) {
+    .project-gallery {
+        height: 70svh;
+        height: 70vh;
+    }
+}
 </style>

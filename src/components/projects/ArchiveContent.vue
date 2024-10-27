@@ -3,7 +3,7 @@
         <Header></Header>
 
         <section id="archive">
-            <h1 class="section-heading text-center"> My web archive </h1>
+            <h1 class="section-heading text-center"> {{ $t('MyWebArchive') }} </h1>
 
             <div class="content">
                 <div class="container">
@@ -14,7 +14,7 @@
 
                     <div class="web d-flex">
                         <div class="web-img-wrapper">
-                            <img :src="getAssetUrl(`/img/projects/Noiyy_v1-main.webp`)" alt="web version 1 thumbnail" class="img-fluid">
+                            <img :src="getAssetUrl(`img/projects/Noiyy_v1-main.webp`)" alt="web version 1 thumbnail" class="img-fluid">
 
                             <div class="line-tracker m-right d-flex flex-column align-items-end" v-if="IS_MOBILE">
                                 <Line class="lt-first flex-1" :hide-head="true"></Line>
@@ -33,14 +33,10 @@
                                 </div>
                                 <div class="web-info d-flex flex-column flex-1 justify-content-between">
                                     <div class="web-text d-flex flex-column gap-24">
-                                        <p>
-                                            This was my first personal web, that wasn't just for learning, but actually to show my skills and work I did so far.
-                                        </p>
-                                        <p>
-                                            It was made with Jekyll (SSG) and was also my first real try at Bootstrap. It also contained a blog.
-                                        </p>
+                                        <p> {{ $t('WebV1Text1') }} </p>
+                                        <p> {{ $t('WebV1Text2') }} </p>
                                     </div>
-                                    <a href="https://noiyy.eu/v1" target="_blank" class="btn"> <span> View </span> </a>
+                                    <a href="https://noiyy.eu/v1" target="_blank" class="btn"> <span> {{ $t('View') }} </span> </a>
                                 </div>
     
                                 <div class="line-tracker right d-flex flex-column align-items-end" v-if="!IS_MOBILE">
@@ -71,7 +67,7 @@
 
                     <div class="web right d-flex">
                         <div class="web-img-wrapper">
-                            <img :src="getAssetUrl(`/img/projects/Noiyy_v2-main.png`)" alt="web version 2 thumbnail" class="img-fluid">
+                            <img :src="getAssetUrl(`img/projects/Noiyy_v2-main.png`)" alt="web version 2 thumbnail" class="img-fluid">
 
                             <div class="line-tracker m-left2 d-flex flex-column align-items-start" v-if="IS_MOBILE">
                                 <Line class="lt-first flex-1" :hide-head="true"></Line>
@@ -86,18 +82,14 @@
                             <div class="web-content d-flex flex-column pos-relative">
                                 <div class="web-date pos-relative">
                                     <h2> 10.2024 </h2>
-                                    <img class="circle" :src="getAssetUrl(`/img/archive-circle.svg`)" aria-hidden="true" />
+                                    <img class="circle" :src="getAssetUrl(`img/archive-circle.svg`)" aria-hidden="true" />
                                 </div>
                                 <div class="web-info d-flex flex-column flex-1 justify-content-between">
                                     <div class="web-text d-flex flex-column gap-24">
-                                        <p>
-                                            Current version of my website. Three years passed & I didn't like the old design anymore haha :P
-                                        </p>
-                                        <p>
-                                            The idea was to make a clean design with focus on colorful gradients that change colors with local time. Developed with Vue, GSAP and Bootstrap.
-                                        </p>
+                                        <p> {{ $t('WebV2Text1') }} </p>
+                                        <p> {{ $t('WebV2Text2') }} </p>
                                     </div>
-                                    <button class="btn" disabled> <span> View </span> </button>
+                                    <button class="btn" disabled> <span> {{ $t('View') }} </span> </button>
                                 </div>
     
                                 <div class="line-tracker left d-flex flex-column" v-if="!IS_MOBILE">
@@ -117,7 +109,7 @@
                 </div>
 
                 <div class="projects-back-btn text-center">
-                    <router-link to="/projects" class="btn secondary"> <div>Back to projects</div> </router-link>
+                    <router-link to="/projects" class="btn secondary"> <div>{{ $t('BackToProjects') }}</div> </router-link>
                 </div>
             </div>
         </section>

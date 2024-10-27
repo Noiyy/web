@@ -1,6 +1,6 @@
 <template>
     <section id="about">
-        <h1 class="section-heading text-center"> About me </h1>
+        <h1 class="section-heading text-center"> {{ $t('AboutMe') }} </h1>
 
         <div class="content">
             <div class="container">
@@ -45,22 +45,8 @@ export default {
         return {
             currentTextSlide: 0,
             text: [
-                [
-                    `I'm a <span>front-end web developer</span> studying <span>multimedia</span> from Slovakia. I also
-                    like creating PC games & <span>websites</span> in my free time, doing <span>calisthenics</span> and
-                    listening to <span>BMTH</span> & <span>LP</span>.`,
-
-                    `I've started my coding journey with <span>websites</span> and  also had experiences with numerous
-                    languages. But other than <span>webdev</span>, <span>Haxe</span> really stood out as I also developed
-                    <span>games</span> with it. `
-                ],
-                [
-                    `I've also taken an interest in <span>design</span> and <span>music - piano</span>. And if you haven't
-                    noticed, I love the <span>sky</span>, <span>clouds</span> and <span>nature</span> overall! :)`,
-
-                    `Currently, I'm an <span>university student</span> also working part-time as a <span>front-end developer</span>
-                    at <span>EMTest</span>, creating transport web systems with <span>Vue.js</span>`
-                ]
+                [ this.$t("About1"), this.$t("About2") ],
+                [ this.$t("About3"), this.$t("About4") ]
             ]
         }
     },

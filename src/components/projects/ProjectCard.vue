@@ -17,7 +17,7 @@
             <h3> {{ projectData.name }} </h3>
         </div>
 
-        <a :href="projectData.link" target="_blank" class="arrow-icon-link" v-if="projectData.shortInfo"
+        <a :href="projectData.link" target="_blank" class="arrow-icon-link" v-if="projectData.shortInfo" aria-label="View implementation"
             @click.stop="null">
             <Icon icon="ph:arrow-up-right" class="arrow-icon" />
         </a>

@@ -7,14 +7,14 @@
                 </div>
 
                 <div class="right d-flex gap-8 align-items-center">
-                    <a :href="social.link" target="_blank" v-for="social in socials" :key="social.name"
-                        :aria-label="`View my ${social.name} profile`"
+                    <component :is="getSocialTagType(social)" :href="social.link" target="_blank" v-for="social in socials" :key="social.name"
+                        :aria-label="social.shortInfo ? `${$t('FooterSocialLabel1')} ${social.name} ${$t('FooterSocialLabel1')}` : null"
                         :title="social.name == 'Discord' ? 'noiyy_' : null">
                         <Icon class="social-icon" 
                             :class="social.name"
                             :icon="social.icon"
                         />
-                    </a>
+                    </component>
                 </div>
             </div>
         </div>
@@ -78,6 +78,10 @@ export default {
 
             }
         ),
+
+        getSocialTagType(social) {
+            return social.link ? "a" : "span";
+        }
     },
     
     computed: {

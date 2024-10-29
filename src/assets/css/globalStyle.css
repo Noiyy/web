@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --white: #fff;
+    --black: #1a1a1a;
+
+    --green: #4AE212;
+    --gold: #DAA520;
+    --orange: orangered;
+
+    --gradient-primary: #4FACFE;
+    --gradient-secondary: #00F2FE;
+    --gradient-straight: linear-gradient(90deg, var(--gradient-primary) 0%, var(--gradient-secondary) 100%);
+    --gradient-angle: linear-gradient(120deg, var(--gradient-primary) 0%, var(--gradient-secondary) 100%);
+
+    --cloud-primary: #fff; /* #fff */
+    --cloud-secondary: #d0d2d3; /* #d0d2d3 */
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100svh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--black);
+    color: var(--white);
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+html.openedSidebar {
+    overflow: hidden !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, ul, li {
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: "Archivo Black", sans-serif; }
+
+a, a:visited {
+    text-decoration: none;
+    color: var(--white);
+}
+
+ul {
+    list-style-type: none;
+}
+
+.section-subHeading {
+    font-family: Inter;
+    font-size: 48px;
+    font-style: italic;
+    font-weight: 900;
+    line-height: normal;
+}
+
+.section-heading {
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 6.12px;
+    text-transform: uppercase;
+}
+
+.gap-8 { gap: 8px; }
+.gap-16 { gap: 16px; }
+.gap-24 { gap: 24px; }
+.gap-32 { gap: 32px; }
+.gap-48 { gap: 48px; }
+.gap-64 { gap: 64px; }
+.gap-72 { gap: 72px; }
+.gap-96 { gap: 96px; }
+.gap-112 { gap: 112px; }
+
+.flex-1 { flex: 1; }
+
+.pos-relative { position: relative }
+
+body::before, #sidebar-menu::before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: -13%;
+    width: 100%; 
+    height: 90%;  
+    opacity: .02; 
+    z-index: -1;
+    background-image: url("../img/logo_big.png");
+    background-repeat: no-repeat;
+    background-size: 87svh;
+    background-blend-mode: darken;
+    
+}
+
+#sidebar-menu::before {
+    top: 30%;
+    left: -95%; 
+    height: 100%;
+    width: 200%;
+    background-size: 140svh;
+}
+
+.btn {
+    padding: 8px 32px;
+    color: white;
+    border: none;
+    border-radius: initial;
+    background: transparent;
+    border: 4px solid;
+    border-image-slice: 1;
+    border-image-source: var(--gradient-angle);
+    border-width: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.1s ease-in;
+    overflow: hidden;
+    position: relative;
+}
+.btn span {
+    position: relative;
+    z-index: 2;
+}
+.btn:hover {
+    color: var(--black);
+}
+.btn::before {
+    content: "";
+    position: absolute;
+    bottom: -32px;
+    right: -32px;
+    width: 0;
+    height: 0;
+    background: var(--gradient-angle);
+    transition: all 0.5s ease-in; 
+    z-index: 1;
+    border-top-left-radius: 50%;
+}
+.btn:hover::before {
+    width: 150%;
+    height: 300%;
+}
+
+.btn.secondary {
+    border: 1px solid rgba(255, 255, 255, 0.66);
+    font-weight: 100;
+    transition: all 0.25s ease-in;
+}
+.btn.secondary:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn.secondary:hover div {
+    transform: scale(1.1);
+}
+.btn.secondary div {
+    transition: transform 0.25s ease-in;
+}
+
+.btn.secondary::before {
+    display: none;
+    background: white;
+}
+
+/* SMALL - Mobile */
+@media(max-width: 640px) {
+    body::before {
+        display: none;
+    }
+
+    .section-subHeading {
+        font-size: 40px;
+    }
+    
+    .section-heading {
+        font-size: 24px;
+        letter-spacing: 4.08px;
+    }
+
+    .btn {
+        padding: 4px 24px;
+    }
+}
+/* MEDIUM - Tablet */
+@media(min-width: 641px) and (max-width: 992px) {}
+/* LARGE - PC */
+@media(min-width: 993px) {}
+/* XL */
+@media(min-width: 1400px) {}

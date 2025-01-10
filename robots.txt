@@ -1,1 +1,4 @@
+User-agent: *
+Allow: /sitemap.xml
+
 Sitemap: https://www.noiyy.eu/sitemap.xml

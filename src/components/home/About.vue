@@ -16,7 +16,8 @@
                         </div>
                     </div>
                     <div class="img-col d-flex justify-content-center">
-                        <img :src="getAssetUrl('img/me.png')" alt="photo of me">
+                        <!-- <img :src="getAssetUrl('img/me.png')" alt="photo of me"> -->
+                        <img :src="getAssetUrl('img/me3.jpg')" alt="photo of me">
                     </div>
                 </div>
             </div>
@@ -147,19 +148,25 @@ export default {
 
 .img-col {
     align-self: flex-end;
-    height: 80vh;
+    height: 70vh;
+    padding: 10vh;
+}
+
+.img-col img {
+    mix-blend-mode: lighten;
 }
 
 /* SMALL - Mobile */
 @media(max-width: 640px) {
     .img-col {
         position: absolute;
-        z-index: 1;
-        opacity: 0.5;
+        /* z-index: 1;
+        opacity: 0.5; */
         top: 0;
         width: 100%;
         height: 100%;
-        right: -33%;
+        right: -25%;
+        padding: 0;
     }
 
     .text-col {
@@ -171,6 +178,7 @@ export default {
 
     .text-col p {
         overflow-wrap: break-word;
+        margin-top: 40px;
     }
 
     .content-wrapper {
@@ -190,20 +198,26 @@ export default {
 
     .invis-wrap {
         display: inline-flex;
-        width: 128px;
-        height: 96px;
+        width: 180px;
+        height: 224px;
         background-color: transparent;
         float: right;
     }
 }
 /* MEDIUM - Tablet */
 @media(min-width: 641px) and (max-width: 992px) {
+    .img-col {
+        max-height: 60vh;
+        padding: 5vh 0 5vh 0;
+    }
+
     .text-col {
         font-size: 16px;
     }
 
     .content-wrapper {
-        min-height: 70vh;
+        /* min-height: 70vh; */
+        padding-top: 0;
     }
 
     .text-slide-counter {

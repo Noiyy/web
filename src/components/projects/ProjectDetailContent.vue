@@ -248,8 +248,14 @@ export default {
 
         getProjectDetail() {
             const projId = this.$route.params.projectId;
-            const projects = this.getProjects;
-            this.projectData = projects.find(proj => proj.id == projId);
+            let i = 0;
+            this.projects = this.getProjects;
+            while (!this.projects || !this.projects.length && i < 50) {
+                i++;
+                this.projects = this.getProjects;
+            }
+
+            this.projectData = this.projects.find(proj => proj.id == projId);
             if (!this.projectData) return;
             this.projectType = this.projectData.category;
 

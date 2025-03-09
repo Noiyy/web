@@ -251,7 +251,12 @@ export default {
     },
 
     created() {
+        let i = 0;
         this.projects = this.getProjects;
+        while (!this.projects || !this.projects.length && i < 50) {
+            i++;
+            this.projects = this.getProjects;
+        }
         this.setupFiltersAndProjects();
     },
 

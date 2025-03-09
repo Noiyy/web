@@ -322,7 +322,7 @@ export default {
 
             localStorage.setItem("timeMultiplier", this.multiplier);
             const multiplierEl = document.querySelector(`[data-multiplier-value='${this.multiplier}']`);
-            console.log("huh", this.multiplier, multiplierEl, document.querySelectorAll(".multiplier"));
+            // console.log("huh", this.multiplier, multiplierEl, document.querySelectorAll(".multiplier"));
             if (multiplierEl) {
                 multiplierEl.classList.add("selected");
             }

@@ -55,12 +55,12 @@ export default {
                 const imgWidth = images[0].offsetWidth + parseInt(getComputedStyle(images[0]).marginRight);
                 const scrollPosition = 2 * imgWidth;
                 gallery.scrollLeft = scrollPosition;
-                console.log("\naaa", imgWidth, gallery.scrollLeft);
+                // console.log("\naaa", imgWidth, gallery.scrollLeft);
 
                 const progressBar = document.querySelector('.progress-bar');
                 const scrollPercentage = this.percentagePerImg * 3;
                 progressBar.style.width = `${scrollPercentage}%`;
-                console.log(progressBar.style.width);
+                // console.log(progressBar.style.width);
             }
         },
 
@@ -131,7 +131,7 @@ export default {
 
     mounted() {
         const gallery = document.querySelector('.project-gallery');
-        console.log(gallery.scrollLeft);
+        // console.log(gallery.scrollLeft);
         this.scrollHandler(gallery);
         setTimeout(() => { 
             if (this.projectType == "web")  this.viewThirdImgOnLoad(gallery);

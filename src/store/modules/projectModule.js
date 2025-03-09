@@ -2,7 +2,7 @@ const getAssetUrl = (path) => new URL(`/src/assets/${path}`, import.meta.url).hr
 import { localization } from "../../localization";
 
 const setupProjects = (state) => {
-    const activeLocale = localStorage.getItem("locale");
+    const activeLocale = localStorage.getItem("locale") ? localStorage.getItem("locale") : "en";
     const $t = localization.global.messages[activeLocale];
 
     state.projects = [
@@ -58,7 +58,7 @@ const setupProjects = (state) => {
             dateFromTimestamp: 1714521600,
             dateToTimestamp: 1717200000,
             dateTo: "06. 2024",
-            link: "https://verbum-well.up.railway.app/",
+            link: "https://verbumwell.noiyy.eu",
             shortInfo: $t.VerbumWellShortInfo,
             info: [
                 `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu ipsum vestibulum, finibus nulla sit amet, 

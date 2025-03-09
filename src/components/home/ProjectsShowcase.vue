@@ -117,6 +117,13 @@ export default {
 
     created() {
         this.projects = this.getProjects;
+        // console.log("projects", this.projects);
+        // let i = 0;
+        // while (!this.projects || !this.projects.length && i < 50) {
+        //     i++;
+        //     this.projects = this.getProjects;
+        //     console.log("projects@", this.projects);
+        // }
 
         this.emitter.on("update-projects", () => this.projects = this.getProjects);
     },

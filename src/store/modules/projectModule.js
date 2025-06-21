@@ -8,6 +8,40 @@ const setupProjects = (state) => {
     state.projects = [
         {
             showcase: true,
+            name: "UNIZA Marketplace",
+            id: "unizaMarketplace",
+            thumbnail: getAssetUrl("img/projects/UNIZAMarketplace-main.webp"),
+            images: [
+                getAssetUrl("img/projects/UNIZAMarketplace-1.webp"),
+                getAssetUrl("img/projects/UNIZAMarketplace-2.webp"),
+                getAssetUrl("img/projects/UNIZAMarketplace-3.webp"),
+                getAssetUrl("img/projects/UNIZAMarketplace-4.webp"),
+                getAssetUrl("img/projects/UNIZAMarketplace-5.webp"),
+                getAssetUrl("img/projects/UNIZAMarketplace-6.webp"),
+                getAssetUrl("img/projects/UNIZAMarketplace-7.webp"),
+                getAssetUrl("img/projects/UNIZAMarketplace-8.webp"),
+                getAssetUrl("img/projects/UNIZAMarketplace-9.webp"),
+                getAssetUrl("img/projects/UNIZAMarketplace-10.webp"),
+                getAssetUrl("img/projects/UNIZAMarketplace-11.webp"),
+                getAssetUrl("img/projects/UNIZAMarketplace-12.webp"),
+            ],
+            tags: ["study"],
+            category: "web",
+            dateFrom: "10. 2024",
+            dateFromTimestamp: 1722470400,
+            dateToTimestamp: 1727740800,
+            dateTo: "05. 2025",
+            link: "https://unizamarketplace.noiyy.eu/",
+            shortInfo: $t.UnizaMarketplaceShortInfo,
+            info: [
+                `Mlem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu ipsum vestibulum, finibus nulla sit amet, 
+                elementum mi. Proin congue molestie nunc eget pretium.`,
+                `Nullam eu dictum diam, eu tristique leo. Aenean laoreet nisi tortor, nec finibus justo dignissim ut. Proin congue molestie nunc eget pretium.`
+            ],
+            techStack: ["MongoDB", "Express.js", "Vue.js", "Node.js", "Bootstrap", "Vite", "Socket.io"]
+        },
+        {
+            showcase: false,
             name: "Rent Car Service",
             id: "rentCarService",
             thumbnail: getAssetUrl("img/projects/RentCarService-main.webp"),

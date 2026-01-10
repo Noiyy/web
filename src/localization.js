@@ -9,7 +9,7 @@ const i18nOptions = {
             Projects: "Projects",
             About: "About",
             Contact: "Contact",
-            FooterCopyText: "© Benjamín Muľár 2025, all rights reserved.",
+            FooterCopyText: "© Benjamín Muľár 2026, all rights reserved.",
             Err404: "404 Not found!",
             Back: "back",
             FooterSocialLabel1: "View my",
@@ -93,6 +93,18 @@ const i18nOptions = {
             WebV1Text2: "It was made with Jekyll (SSG) and was also my first real try at Bootstrap. It also contained a blog.",
             WebV2Text1: "Current version of my website. Three years passed & I didn't like the old design anymore haha :P",
             WebV2Text2: "The idea was to make a clean design with focus on colorful gradients that change colors with local time. Developed with Vue, Vite and Bootstrap, design made in Figma.",
+            TredigShortInfo: "A pixel-art 2D mining split-screen 2 player game made for university semestral work.",
+            TredigInfo: `
+                <h3> I am legend... </h3>
+                <p> ...this is every ambitious dwarf's dream - to leave behind a legend with the most wealth and most LEGENDARY shovel. But there's a catch. Treasures are hidden deep beneath, where not every dwarf has the courage to venture, primarily for the constat fear of drowning in lava! </p>
+                <br>
+                <p class="g-info-bigger"> But fear not! You're not alone - your friendly neighbour is there with you - or is he? Doesn't he want the treasure for himself?! </p>
+                <br>
+                <p> Be the first one to survive, get rich, have a shovel that's the BEST OF BEST and show him who's the LEGEND! </p>
+                <br>
+            `,
+            TredigDevNote1: "As of now, this game is just a demo made in a month and a half for university semestral work. There's a lot of stuff I want to add & improve in the future to make this a full-fledged game. Hopefully I'll be back on track with game development from now on, but hey, I tried a new engine and it's Godot! :) Sorry HaxeFlixel (not a goodbye)",
+            Dig: "dig"
         },
 
         // SLOVAK
@@ -101,7 +113,7 @@ const i18nOptions = {
             Projects: "Projekty",
             About: "O mne",
             Contact: "Kontakt",
-            FooterCopyText: "© Benjamín Muľár 2025, všetky práva vyhradené.",
+            FooterCopyText: "© Benjamín Muľár 2026, všetky práva vyhradené.",
             Err404: "404 Nenašlo sa!",
             Back: "späť",
             FooterSocialLabel1: "Zobraziť môj",
@@ -185,6 +197,19 @@ const i18nOptions = {
             WebV1Text2: "Bol vytvorený pomocou Jekyll (SSG) a bol takisto mojim prvým reálnym pokusom s Bootstrap-om. Obsahoval aj blog.",
             WebV2Text1: "Aktuálna verzia mojej webstránky. Prešli 3 roky a nepáčil sa mi už starý dizajn haha :P",
             WebV2Text2: "Nápad bolo vytvoriť 'čistý' dizajn zameraný na farebné gradienty, ktoré menia farbu s lokálnym časom. Vyvíjaný s Vue, Vite a Developed with Vue, Vite a Bootstrap-om. Dizajn robený vo Figme.",
+            TredigShortInfo: "Pixel-art 2D mining split-screen hra pre 2 hráčov vyrobená ako semestrálna práca na univerzitu.",
+            TredigInfo: `
+                <h3> Ja legenda... </h3>
+                <p> ...to je sen každého ambiciózneho trpaslíka - zanechať za sebou legendu s najväčším bohatstvom a najLEGENDÁRNEJŠou lopatou. Ale je tam háčik. Poklady sú ukryté hlboko dole, kam sa neodváži ísť každý trpaslík, hlavne kvôli neustálemu strachu utopiť sa v láve! </p>
+                <br>
+                <p class="g-info-bigger"> Ale neboj sa! Nie si sám - tvoj priateľský sused je s tebou - alebo nie? Nechce si poklad pre seba?! </p>
+                <br>
+                <p> Buď prvý, kto prežije, zbohatne, bude mať lopatu, ktorá je NAJLEPŠIA Z NAJLEPŠÍCH a ukáž mu, kto je LEGENDA! </p>
+                <br>
+            `,
+            TredigDevNote1: "Momentálne je táto hra len demo vyrobené za mesiac a pol ako semestrálna práca na univerzitu. Je tam veľa vecí, ktoré chcem v budúcnosti pridať a vylepšiť, aby som z toho spravil plnohodnotnú hru. Dúfam, že sa vrátim späť na koľaje s vývojom hier, ale akože, vyskúšal som nový engine a je to Godot! :) Prepáč HaxeFlixel (nie je to zbohom)",
+            Dig: "kopanie"
+
         }
     }
 };

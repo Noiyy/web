@@ -7,6 +7,35 @@ const setupProjects = (state) => {
 
     state.projects = [
         {
+            name: "Tredig demo",
+            id: "tredig",
+            thumbnail:getAssetUrl("img/projects/Tredig-main.png"),
+            images: [
+               getAssetUrl("img/projects/Tredig-1.png"),
+               getAssetUrl("img/projects/Tredig-2.png"),
+               getAssetUrl("img/projects/Tredig-3.png")
+            ],
+            tags: [],
+            category: "game",
+            dateFrom: "12. 2025",
+            dateFromTimestamp: 1764547200,
+            dateToTimestamp: 1767225600,
+            dateTo: "01. 2026",
+            link: "https://noiyy.itch.io/tredig",
+            otherLinks: ["https://noiyy.itch.io/tredig"],
+            downloadName: "Tredig - Windows.zip",
+            shortInfo: $t.TredigShortInfo,
+            info: [ $t.TredigInfo ],
+            techStack: ["Godot4", "Pixel-art", "Bfxr", "Aseprite"],
+            devNotes: [
+                { date: "10/01/2026", text: $t.TredigDevNote1 }
+            ],
+            gameControls: [
+                { info: $t.Movement, keys: ["arrows", "w", "a", "s", "d"], type: "or" },
+                { info: $t.Dig, keys: ["enter", "spacebar"], type: "or" },
+            ]
+        },
+        {
             showcase: true,
             name: "UNIZA Marketplace",
             id: "unizaMarketplace",
